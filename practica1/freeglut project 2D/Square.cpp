@@ -1,11 +1,8 @@
 #include "Square.h"
 
 
-Square::Square(void)
-{
-}
-
 Square::Square(PV2D* v0, PV2D* v1){
+	
 	Turtle *turtle = new Turtle(v0);
 	vertex[0] = turtle->getPosition();
 	PV2D v0_v1 = (*v1 - *v0);
@@ -28,6 +25,7 @@ Square::Square(PV2D* v0, PV2D* v1){
 }
 
 Square::Square(PV2D* center, double side, double rad){
+	
 	Turtle *turtle = new Turtle(center);
 	
 	turtle->turnTo(rad+(5*PI)/4);
@@ -64,7 +62,12 @@ double Square::getSide(){
 }
 
 void Square::render(){
+	glColor3d(color.r,color.g,color.b);
 	glBegin ( GL_QUADS ) ;
 	for (int i=0;i<4;i++) glVertex2d(vertex[i].x,vertex[i].y);
 	glEnd () ;
+}
+
+void Square::setColor(Color color){
+	this->color = color;
 }

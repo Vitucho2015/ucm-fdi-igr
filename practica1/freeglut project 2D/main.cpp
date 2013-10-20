@@ -12,13 +12,17 @@
 
 using namespace std;
 
+
+#define MOVE_FACTOR 0.01
+#define ZOOM_FACTOR 0.05
+
 // Freeglut parameters
 // Flag telling us to keep processing events
 // bool continue_in_main_loop= true; //(**)
 
 // Viewport size
 int WIDTH= 500, HEIGHT= 250;
-
+HWND winHandle;
 // Scene visible area size
 //GLdouble xLeft= 0.0, xRight= 500.0, yBot= 0.0, yTop= 250.0;
 
@@ -51,9 +55,7 @@ void display(void){
 
   glColor3f(139.0/255,69.0/255,19.0/255);
 
-  
-  
-	scene.render();
+  scene.render();
 
   glFlush();
   glutSwapBuffers();
@@ -111,27 +113,27 @@ void key(unsigned char key, int x, int y){
 
 
   case '+':
-	  scene.zoom(1.05);
+	  scene.zoom(1+ZOOM_FACTOR);
 	  break;
 
   case '-':
-	  scene.zoom(0.95);
+	  scene.zoom(1-ZOOM_FACTOR);
 	  break;
 
   case 'a' :
-	  scene.move(0,+0.05);
+	  scene.move(0,+MOVE_FACTOR);
 	  break;
 
   case 'd' :
-	  scene.move(0,-0.05);
+	  scene.move(0,-MOVE_FACTOR);
 	  break;
   
   case 's' :
-	  scene.move(1,+0.05);
+	  scene.move(1,+MOVE_FACTOR);
 	  break;
 
   case 'w' :
-	  scene.move(1,-0.05);
+	  scene.move(1,-MOVE_FACTOR);
 	  break;
 
   case 'n':
@@ -153,7 +155,12 @@ void mouse(int button, int state, int x, int y){
 	switch (button)
 	{
 	case GLUT_LEFT_BUTTON:
-		scene.newLevel();
+		if (state == GLUT_DOWN){
+			//Save (x,y) as v0
+		} else if (state == GLUT_UP){
+			//Save (x,y) as v1 and create the first Square
+		}
+		//::MessageBox(winHandle, "Se va a crear el cuadrado de base v0v1", "caption", MB_OKCANCEL);
 		break;
 	default:
 		break;
@@ -200,7 +207,7 @@ int main(int argc, char *argv[]){
   // Classic glut's main loop can be stopped in freeglut using (*)
   glutMainLoop(); 
   
-
+	winHandle = ::FindWindow(NULL, argv[0]);
    
   return 0;
 }
