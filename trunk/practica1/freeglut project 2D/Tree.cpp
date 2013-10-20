@@ -33,8 +33,11 @@ PV2D Tree::getSupportPoint(Square *square, double alpha){
 void Tree::generateChildsFor(int i){
 	Square sq_base = squares[i];
 	PV2D sup = getSupportPoint(&sq_base, PI/4);
-	squares.push_back(Square(&sq_base.getVertex(3), &sup));
-	squares.push_back(Square(&sup, &sq_base.getVertex(2)));
+	Square sq_1(&sq_base.getVertex(3), &sup);
+	//sq_1.setColor();
+	squares.push_back(sq_1);
+	Square sq_2(&sup, &sq_base.getVertex(2));
+	squares.push_back(sq_2);
 }
 
 void Tree::generateNewLevel(){
@@ -45,7 +48,7 @@ void Tree::generateNewLevel(){
 }
 
 void Tree::deleteLastLevel(){
-
+	if (lastLevel <= 0) return;
 	int first = (int) pow(2,lastLevel-1);
 	int last = (int) pow(2,lastLevel);
 	int n = last - first;
