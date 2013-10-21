@@ -46,6 +46,11 @@ void Scene::newLevel(){
 	tree->generateNewLevel();
 }
 
+PV2D Scene::convertPV2SVA(int pv_x, int pv_y){
+	double sva_x, sva_y;
+	//sva_x = xL + pv_x/pv_width * sva_width;
+}
+
 void Scene::render(){
 	tree->render();
 }

@@ -9,8 +9,10 @@ using namespace std;
 class Tree
 {
 private:
-	vector<Square> squares;
+	vector<Color> colors; // length: levels
+	vector<Square> squares; // length: 2^levels
 	int lastLevel;
+	int numLevelsOfTrunk; //DEFINE?
 
 public:
 	Tree(void);
