@@ -17,7 +17,9 @@ public:
 	void zoom(double factor);
 	void progressiveZoom(double factor, double nIter);
 
+	void tilling(int nCols);
 	void newLevel();
+	void retrieveLevel();
 
 	PV2D convertPV2SVA(int x, int y);
 

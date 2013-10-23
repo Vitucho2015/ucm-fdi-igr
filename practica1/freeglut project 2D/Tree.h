@@ -9,10 +9,9 @@ using namespace std;
 class Tree
 {
 private:
-	vector<Color> colors; // length: levels
+	vector<Color> colors; 
 	vector<Square> squares; // length: 2^levels
 	int lastLevel;
-	int numLevelsOfTrunk; //DEFINE?
 
 public:
 	Tree(void);
@@ -24,5 +23,7 @@ public:
 	void generateNewLevel();
 	void deleteLastLevel();
 	void render();
+
+	void initColors();
 };
 
