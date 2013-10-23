@@ -15,6 +15,7 @@ public:
 
 	void move(int dir, double percent);
 	void zoom(double factor);
+	void progressiveZoom(double factor, double nIter);
 
 	void newLevel();
 
