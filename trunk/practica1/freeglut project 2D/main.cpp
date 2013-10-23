@@ -28,6 +28,9 @@ HWND winHandle;
 
 Scene scene;
 
+bool tillingActive = false;
+int nCols = 4;
+
 void intitGL(){
 
 	glClearColor(1.0,1.0,1.0,1.0);
@@ -50,12 +53,48 @@ void intitGL(){
  }
 
 
+void progressiveZoom(double factor, double nIter){
+	int xCenter = WIDTH/2;
+	int yCenter = HEIGHT/2;
+	GLdouble fIncr = (factor-1)/(GLdouble) nIter;
+	GLdouble width = (scene.xR - scene.xL);
+	GLdouble height = (scene.yT - scene.yB);
+	for (int i=0; i<=nIter;i++){
+		GLdouble fAux = 1 + fIncr*i;
+		GLdouble newWidth = width/fAux;
+		GLdouble newHeight = height/fAux;
+
+		glMatrixMode(GL_PROJECTION);
+		glLoadIdentity();
+		gluOrtho2D(xCenter-newWidth/2.0, xCenter+newWidth/2.0,yCenter-newHeight/2.0, yCenter+newHeight/2.0);
+
+		scene.render();
+		Sleep(50);
+	}
+}
+
+void tilling(int nCols){
+	GLdouble SVAratio = (scene.xR-scene.xL)/(scene.yT-scene.yB);
+	GLdouble w=(GLdouble)WIDTH/(GLdouble)nCols;
+	GLdouble h=w/SVAratio;
+
+	for (GLint c=0; c<nCols; c++){
+		GLdouble currentH = 0;
+		while ((currentH+h)<HEIGHT){
+			glViewport((GLint)(c*w), (GLint)currentH, (GLint)w,(GLint)h);
+			scene.render();
+			currentH += h;
+		}
+	}
+}
+
 void display(void){
   glClear( GL_COLOR_BUFFER_BIT );
 
   glColor3f(139.0/255,69.0/255,19.0/255);
 
-  scene.render();
+  if (tillingActive) tilling(nCols);
+  else scene.render();
 
   glFlush();
   glutSwapBuffers();
@@ -114,6 +153,7 @@ void key(unsigned char key, int x, int y){
 
   case '+':
 	  scene.zoom(1+ZOOM_FACTOR);
+	  //progressiveZoom(1+ZOOM_FACTOR, 10);
 	  break;
 
   case '-':
@@ -138,6 +178,14 @@ void key(unsigned char key, int x, int y){
 
   case 'n':
 	  scene.newLevel();
+	  break;
+
+  case '\r':
+	  scene.newLevel();
+	  break;
+
+  case '\b':
+	  scene.retrieveLevel();
 	  break;
 
   default:

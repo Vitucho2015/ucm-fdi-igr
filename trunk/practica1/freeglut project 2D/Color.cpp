@@ -10,9 +10,9 @@ Color::Color(void)
 
 
 Color::Color(double r, double g, double b){
-	this->r = r;
-	this->g = g;
-	this->b = b;
+	this->r = r/255;
+	this->g = g/255;
+	this->b = b/255;
 }
 
 Color::~Color(void)
