@@ -29,7 +29,7 @@ HWND winHandle;
 Scene scene;
 
 bool tillingActive = false;
-int nCols = 4;
+int nCols = 1;
 
 void intitGL(){
 
@@ -53,24 +53,13 @@ void intitGL(){
  }
 
 
-void progressiveZoom(double factor, double nIter){
-	int xCenter = WIDTH/2;
-	int yCenter = HEIGHT/2;
-	GLdouble fIncr = (factor-1)/(GLdouble) nIter;
-	GLdouble width = (scene.xR - scene.xL);
-	GLdouble height = (scene.yT - scene.yB);
-	for (int i=0; i<=nIter;i++){
-		GLdouble fAux = 1 + fIncr*i;
-		GLdouble newWidth = width/fAux;
-		GLdouble newHeight = height/fAux;
-
-		glMatrixMode(GL_PROJECTION);
-		glLoadIdentity();
-		gluOrtho2D(xCenter-newWidth/2.0, xCenter+newWidth/2.0,yCenter-newHeight/2.0, yCenter+newHeight/2.0);
-
-		scene.render();
-		Sleep(50);
-	}
+PV2D convertPV2SVA(int pv_x, int pv_y){
+	double sva_x, sva_y;
+	double sva_width = (scene.xR - scene.xL);
+	double sva_height = (scene.yT - scene.yB);
+	sva_x = scene.xL + ((double)pv_x)/WIDTH * sva_width;
+	sva_y = scene.yT - ((double)pv_y)/HEIGHT * sva_height;
+	return PV2D(sva_x,sva_y);
 }
 
 void tilling(int nCols){
@@ -139,6 +128,33 @@ void resize(int newWidth, int newHeight){
   gluOrtho2D(scene.xL, scene.xR, scene.yB, scene.yT);
 }
 
+void progressiveZoom(double factor, double nIter){
+
+	GLdouble fIncr = (factor-1)/(GLdouble) nIter;
+	GLdouble width = (scene.xR - scene.xL);
+	GLdouble height = (scene.yT - scene.yB);
+	GLdouble xCenter = scene.xL + width/2;
+	GLdouble yCenter = scene.yB + height/2;
+
+	GLdouble newWidth, newHeight;
+	for (int i=0; i<=nIter;i++){
+		GLdouble fAux = 1 + fIncr*i;
+		newWidth = width/fAux;
+		newHeight = height/fAux;
+
+		glMatrixMode(GL_PROJECTION);
+		glLoadIdentity();
+		gluOrtho2D(xCenter-newWidth/2.0, xCenter+newWidth/2.0,yCenter-newHeight/2.0, yCenter+newHeight/2.0);
+
+		display();
+		Sleep(50);
+	}
+	scene.xL = xCenter-newWidth/2.0;
+	scene.xR = xCenter+newWidth/2.0;
+	scene.yB = yCenter-newHeight/2.0; 
+	scene.yT = yCenter+newHeight/2.0;
+	display();
+}
 
 void key(unsigned char key, int x, int y){
  
@@ -150,43 +166,30 @@ void key(unsigned char key, int x, int y){
 	glutLeaveMainLoop (); //Freeglut's sentence for stopping glut's main loop (*)
     break;
 
+  case 'a' : scene.move(0,+MOVE_FACTOR); break;
+  case 'd' : scene.move(0,-MOVE_FACTOR); break;  
+  case 's' : scene.move(1,+MOVE_FACTOR); break;
+  case 'w' : scene.move(1,-MOVE_FACTOR); break;
 
-  case '+':
-	  scene.zoom(1+ZOOM_FACTOR);
-	  //progressiveZoom(1+ZOOM_FACTOR, 10);
-	  break;
+  case '+': scene.zoom(1+ZOOM_FACTOR); break;
+  case '-': scene.zoom(1-ZOOM_FACTOR); break;
 
-  case '-':
-	  scene.zoom(1-ZOOM_FACTOR);
-	  break;
+  case 'r': progressiveZoom(1+ZOOM_FACTOR,10); break;
+  case 'f': progressiveZoom(1-ZOOM_FACTOR,10); break;
 
-  case 'a' :
-	  scene.move(0,+MOVE_FACTOR);
-	  break;
+  case '\r': scene.newLevel(); break;
+  case '\b': scene.retrieveLevel(); break;
 
-  case 'd' :
-	  scene.move(0,-MOVE_FACTOR);
-	  break;
-  
-  case 's' :
-	  scene.move(1,+MOVE_FACTOR);
-	  break;
-
-  case 'w' :
-	  scene.move(1,-MOVE_FACTOR);
-	  break;
-
-  case 'n':
-	  scene.newLevel();
-	  break;
-
-  case '\r':
-	  scene.newLevel();
-	  break;
-
-  case '\b':
-	  scene.retrieveLevel();
-	  break;
+  case '1': tillingActive = true; nCols = 1; break;
+  case '2': tillingActive = true; nCols = 2; break;
+  case '3': tillingActive = true; nCols = 3; break;
+  case '4': tillingActive = true; nCols = 4; break; 
+  case '5': tillingActive = true; nCols = 5; break;
+  case '6': tillingActive = true; nCols = 6; break;
+  case '7': tillingActive = true; nCols = 7; break;
+  case '8': tillingActive = true; nCols = 8; break; 
+  case '9': tillingActive = true; nCols = 9; break;
+  case '0': tillingActive = false;break;
 
   default:
     need_redisplay = false;
@@ -200,6 +203,7 @@ void key(unsigned char key, int x, int y){
 
 void mouse(int button, int state, int x, int y){
 
+	
 	switch (button)
 	{
 	case GLUT_LEFT_BUTTON:
@@ -209,11 +213,14 @@ void mouse(int button, int state, int x, int y){
 			//Save (x,y) as v1 and create the first Square
 		}
 		//::MessageBox(winHandle, "Se va a crear el cuadrado de base v0v1", "caption", MB_OKCANCEL);
+		scene.initTree(&Square(&convertPV2SVA(x,y),50,0));
 		break;
 	default:
 		break;
 	}
 }
+
+
 
 int main(int argc, char *argv[]){
 	

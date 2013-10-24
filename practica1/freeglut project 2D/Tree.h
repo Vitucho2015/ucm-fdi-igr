@@ -1,8 +1,10 @@
 #pragma once
 
 #include <vector>
+#include <cmath>
 
 #include "Square.h"
+
 
 using namespace std;
 
@@ -15,8 +17,9 @@ private:
 
 public:
 	Tree(void);
-	Tree(Square *square);
 	~Tree(void);
+
+	void initTree(Square *square);
 
 	PV2D getSupportPoint(Square *square, double alpha);
 	void generateChildsFor(int i);

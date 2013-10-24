@@ -64,7 +64,7 @@ double Square::getSide(){
 void Square::render(){
 	glColor3d(color.r,color.g,color.b);
 	glBegin ( GL_QUADS ) ;
-	for (int i=0;i<4;i++) glVertex2d(vertex[i].x,vertex[i].y);
+		for (int i=0;i<4;i++) glVertex2d(vertex[i].x,vertex[i].y);
 	glEnd () ;
 }
 
