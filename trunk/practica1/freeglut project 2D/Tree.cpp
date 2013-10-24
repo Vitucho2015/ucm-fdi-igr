@@ -7,16 +7,15 @@ Tree::Tree(void)
 	lastLevel = 0;
 }
 
-Tree::Tree(Square *square)
+Tree::~Tree(void)
 {
-	initColors();
+}
+
+void Tree::initTree(Square *square){
+	squares.clear();
 	square->setColor(colors[0]);
 	squares.push_back(*square);
 	lastLevel = 1;
-}
-
-Tree::~Tree(void)
-{
 }
 
 PV2D Tree::getSupportPoint(Square *square, double alpha){
@@ -35,7 +34,9 @@ PV2D Tree::getSupportPoint(Square *square, double alpha){
 
 void Tree::generateChildsFor(int i){
 	Square sq_base = squares[i];
-	PV2D sup = getSupportPoint(&sq_base, PI/4+PI/36);
+	//float alpha = PI/4+PI/36;
+	float alpha = (50 + rand()%80)*PI/360;
+	PV2D sup = getSupportPoint(&sq_base, alpha);
 	Square sq_1(&sq_base.getVertex(3), &sup);
 	squares.push_back(sq_1);
 	Square sq_2(&sup, &sq_base.getVertex(2));
@@ -43,6 +44,8 @@ void Tree::generateChildsFor(int i){
 }
 
 void Tree::generateNewLevel(){
+	if (lastLevel <= 0) return;
+	if (lastLevel >= 14) return;
 	int first = (int) pow(2,lastLevel-1);
 	int last = (int) pow(2,lastLevel);
 	for (int i=first;i<last;i++){
@@ -68,46 +71,50 @@ void Tree::deleteLastLevel(){
 
 void Tree::initColors(){
 	if (!colors.empty()) colors.clear();
-	/*
-	Browns
-	82	49	39
-	97	54	34	
-	112	59	29
-	127	64	24
-	139	69	19
-	*/
-	colors.push_back(Color(82,49,39));
-	colors.push_back(Color(97,54,34));
-	colors.push_back(Color(112,59,29));
-	colors.push_back(Color(127,64,24));
-	colors.push_back(Color(139,69,19));
-	/*
-	Greens
-	10	140	6
-	14	147	10
-	18	154	14
-	22	161	18
-	26	168	22
-	30	175	26
-	34	182	30
-	38	189	34
-	42	196	38
-	46	203	42
-	*/
-	colors.push_back(Color(10,140,6));
-	colors.push_back(Color(14,147,10));
-	colors.push_back(Color(18,154,14));
-	colors.push_back(Color(22,161,18));
-	colors.push_back(Color(26,168,22));
-	colors.push_back(Color(30,175,26));
-	colors.push_back(Color(34,182,30));
-	colors.push_back(Color(38,189,34));
-	colors.push_back(Color(42,196,38));
-	colors.push_back(Color(46,203,42));
+	
+	double r,g,b;
+	// Browns	
+	r=82;g=49;b=39;
+	for (int i=0;i<5;i++){
+		colors.push_back(Color(r,g,b));
+		r += 15;
+		g += 5;
+		b += (-5);
+	}
+	// Greens
+	r=19;g=102;b=16;
+	for (int i=0;i<10;i++){
+		colors.push_back(Color(r,g,b));
+		r += 4;
+		g += 9;
+		b += 4;
+	}
 }
 
 void Tree::render(){
+	if (lastLevel <= 0) return;
 	for (unsigned int i=0;i<squares.size();i++){
 		squares[i].render();
+	}
+	PV2D aux;
+	int level = 1;
+	int lastSqInLvl = 0;
+	int n = squares.size()/2;
+	for (unsigned int i=0;i<n;i++){
+		glBegin(GL_TRIANGLES);
+			
+			glColor3d(colors[level-1].r,colors[level-1].g,colors[level-1].b);
+
+			aux = squares[i*2+1].getVertex(1);
+			glVertex2d(aux.x, aux.y);
+			aux = squares[i*2+1].getVertex(0);
+			glVertex2d(aux.x, aux.y);
+			aux = squares[i*2+2].getVertex(1);
+			glVertex2d(aux.x, aux.y);
+		glEnd();
+		if (i == lastSqInLvl && level < colors.size()){
+			level++;
+			lastSqInLvl = lastSqInLvl*2 +2;
+		}
 	}
 }
