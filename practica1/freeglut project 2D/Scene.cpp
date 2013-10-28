@@ -45,6 +45,10 @@ void Scene::initTree(Square *square){
 	tree->initTree(square);
 }
 
+void Scene::glow(PV2D *p){
+	tree->glow(p);
+}
+
 void Scene::newLevel(){
 	tree->generateNewLevel();
 }
@@ -53,7 +57,9 @@ void Scene::retrieveLevel(){
 	tree->deleteLastLevel();
 }
 
-
+bool Scene::isEmpty(){
+	return tree->isEmpty();
+}
 
 void Scene::render(){
 	tree->render();

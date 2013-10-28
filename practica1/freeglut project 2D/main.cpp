@@ -34,6 +34,8 @@ int nCols = 1;
 void intitGL(){
 
 	glClearColor(1.0,1.0,1.0,1.0);
+	glClearColor(90.0/255,204.0/255,198.0/255, 1);
+	glClearColor(10.0/255,127.0/255,173.0/255, 1);
 	glColor3f(1.0,0.0,0.0); 
 
 	glPointSize(4.0);
@@ -81,7 +83,7 @@ void display(void){
   glClear( GL_COLOR_BUFFER_BIT );
 
   glColor3f(139.0/255,69.0/255,19.0/255);
-
+  
   if (tillingActive) tilling(nCols);
   else scene.render();
 
@@ -153,7 +155,7 @@ void progressiveZoom(double factor, double nIter){
 	scene.xR = xCenter+newWidth/2.0;
 	scene.yB = yCenter-newHeight/2.0; 
 	scene.yT = yCenter+newHeight/2.0;
-	display();
+	//display();
 }
 
 void key(unsigned char key, int x, int y){
@@ -204,17 +206,24 @@ void key(unsigned char key, int x, int y){
 void mouse(int button, int state, int x, int y){
 
 	
-	switch (button)
-	{
+	switch (button) {
+	
 	case GLUT_LEFT_BUTTON:
 		if (state == GLUT_DOWN){
+			if (scene.isEmpty()){
+				scene.initTree(&Square(&convertPV2SVA(x,y),50,0));
+			} else {
+				scene.glow(&convertPV2SVA(x,y));
+			}
 			//Save (x,y) as v0
-		} else if (state == GLUT_UP){
-			//Save (x,y) as v1 and create the first Square
 		}
 		//::MessageBox(winHandle, "Se va a crear el cuadrado de base v0v1", "caption", MB_OKCANCEL);
-		scene.initTree(&Square(&convertPV2SVA(x,y),50,0));
+		
 		break;
+	case GLUT_RIGHT_BUTTON:
+		if (state == GLUT_DOWN){
+			scene.initTree(&Square(&convertPV2SVA(x,y),50,0));
+		}
 	default:
 		break;
 	}

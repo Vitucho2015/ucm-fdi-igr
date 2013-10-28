@@ -19,10 +19,13 @@ public:
 
 	//void tilling(int nCols);
 	void initTree(Square *square);
+	void glow(PV2D *p);
 	void newLevel();
 	void retrieveLevel();
 
 	//PV2D convertPV2SVA(int x, int y);
+
+	bool isEmpty();
 
 	void render();
 };

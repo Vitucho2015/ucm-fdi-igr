@@ -68,6 +68,27 @@ void Square::render(){
 	glEnd () ;
 }
 
+bool Square::isInside(double pX, double pY){
+	bool ret = false;
+	double xL_max, xR_max,yB_max, yT_max;
+	xL_max = xR_max = vertex[0].x;
+	yB_max = yT_max = vertex[0].y;
+	PV2D aux;
+	for (int i=1;i<=3;i++){
+		aux = vertex[i];
+		if (aux.x > xR_max) xR_max = aux.x;
+		if (aux.x < xL_max) xL_max = aux.x;
+		if (aux.y > yT_max) yT_max = aux.y;
+		if (aux.y < yB_max) yB_max = aux.y;
+	}
+	if (xL_max < pX && pX < xR_max && yB_max < pY && pY < yT_max) ret = true;
+	return ret;
+}
+
+Color Square::getColor(){
+	return color;
+}
+
 void Square::setColor(Color color){
 	this->color = color;
 }

@@ -25,8 +25,9 @@ public:
 	PV2D getVertex(int i);
 	double getSide();
 
+	Color getColor();
 	void setColor(Color color);
-
+	bool isInside(double pX, double pY);
 	void render();
 };
 

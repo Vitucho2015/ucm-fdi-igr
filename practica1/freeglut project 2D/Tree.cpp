@@ -5,6 +5,7 @@ Tree::Tree(void)
 {
 	initColors();
 	lastLevel = 0;
+	squareGlowing = -1;
 }
 
 Tree::~Tree(void)
@@ -16,6 +17,10 @@ void Tree::initTree(Square *square){
 	square->setColor(colors[0]);
 	squares.push_back(*square);
 	lastLevel = 1;
+}
+
+bool Tree::isEmpty(){
+	if (lastLevel == 0) return true; else return false;
 }
 
 PV2D Tree::getSupportPoint(Square *square, double alpha){
@@ -88,6 +93,19 @@ void Tree::initColors(){
 		r += 4;
 		g += 9;
 		b += 4;
+	}
+}
+
+void Tree::glow(PV2D *p){
+	for (int i=0;i<squares.size();i++){
+		if (squares[i].isInside(p->x, p->y)){
+			if (squareGlowing != -1){
+				squares[squareGlowing].setColor(oldColor);
+			}
+			oldColor = squares[i].getColor();
+			squareGlowing = i;
+			squares[i].setColor(Color(243,255,13));			
+		}
 	}
 }
 
