@@ -198,8 +198,7 @@ void key(unsigned char key, int x, int y){
     break;
   }//switch
 
-  if (need_redisplay)
-    glutPostRedisplay();
+  if (need_redisplay) glutPostRedisplay();
 }
 
 
