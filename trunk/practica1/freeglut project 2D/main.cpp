@@ -210,7 +210,9 @@ void mouse(int button, int state, int x, int y){
 	case GLUT_LEFT_BUTTON:
 		if (state == GLUT_DOWN){
 			if (scene.isEmpty()){
-				scene.initTree(&Square(&convertPV2SVA(x,y),50,0));
+				int side = 50;
+				//cin >> side;
+				scene.initTree(&Square(&convertPV2SVA(x,y),side,0));
 			} else {
 				scene.glow(&convertPV2SVA(x,y));
 			}
