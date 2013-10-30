@@ -70,6 +70,8 @@ void Square::render(){
 
 bool Square::isInside(double pX, double pY){
 	bool ret = false;
+
+	/*
 	double xL_max, xR_max,yB_max, yT_max;
 	xL_max = xR_max = vertex[0].x;
 	yB_max = yT_max = vertex[0].y;
@@ -82,6 +84,18 @@ bool Square::isInside(double pX, double pY){
 		if (aux.y < yB_max) yB_max = aux.y;
 	}
 	if (xL_max < pX && pX < xR_max && yB_max < pY && pY < yT_max) ret = true;
+	*/
+
+	PV2D p_mouse(pX,pY);
+	PV2D p_center = vertex[2] - vertex[0];
+	//p_center *= 0.5;
+	p_center.x *= 0.5;
+	p_center.y *= 0.5;
+	double radio = p_center.mod();
+	p_center = vertex[0] + p_center;
+	p_mouse = p_mouse - p_center;
+	if ( p_mouse.mod() < radio ) ret = true;
+
 	return ret;
 }
 
