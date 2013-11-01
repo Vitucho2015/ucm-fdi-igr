@@ -91,9 +91,10 @@ void display(void){
   glutSwapBuffers();
 
   // Scene Visible Area
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-    gluOrtho2D(scene.xL, scene.xR, scene.yB, scene.yT); 
+
+  glMatrixMode(GL_PROJECTION);
+  glLoadIdentity();
+  gluOrtho2D(scene.xL, scene.xR, scene.yB, scene.yT); 
 }
 
 
@@ -159,46 +160,44 @@ void progressiveZoom(double factor, double nIter){
 }
 
 void key(unsigned char key, int x, int y){
- 
-  bool need_redisplay = true;
+	
+	bool need_redisplay = true;
+	
+	switch (key) {
+		case 27:  /* Escape key */
+		//continue_in_main_loop = false; // (**)
+		glutLeaveMainLoop (); //Freeglut's sentence for stopping glut's main loop (*)
+		break;
 
-  switch (key) {
-  case 27:  /* Escape key */
-    //continue_in_main_loop = false; // (**)
-	glutLeaveMainLoop (); //Freeglut's sentence for stopping glut's main loop (*)
-    break;
+		case 'a' : scene.move(0,+MOVE_FACTOR); break;
+		case 'd' : scene.move(0,-MOVE_FACTOR); break;  
+		case 's' : scene.move(1,+MOVE_FACTOR); break;
+		case 'w' : scene.move(1,-MOVE_FACTOR); break;
 
-  case 'a' : scene.move(0,+MOVE_FACTOR); break;
-  case 'd' : scene.move(0,-MOVE_FACTOR); break;  
-  case 's' : scene.move(1,+MOVE_FACTOR); break;
-  case 'w' : scene.move(1,-MOVE_FACTOR); break;
+		case '+': scene.zoom(1+ZOOM_FACTOR); break;
+		case '-': scene.zoom(1-ZOOM_FACTOR); break;
 
-  case '+': scene.zoom(1+ZOOM_FACTOR); break;
-  case '-': scene.zoom(1-ZOOM_FACTOR); break;
+		case 'r': progressiveZoom(1+ZOOM_FACTOR,10); break;
+		case 'f': progressiveZoom(1-ZOOM_FACTOR,10); break;
 
-  case 'r': progressiveZoom(1+ZOOM_FACTOR,10); break;
-  case 'f': progressiveZoom(1-ZOOM_FACTOR,10); break;
+		case '\r': scene.newLevel(); break;
+		case '\b': scene.retrieveLevel(); break;
 
-  case '\r': scene.newLevel(); break;
-  case '\b': scene.retrieveLevel(); break;
+		case '1': tillingActive = true; nCols = 1; break;
+		case '2': tillingActive = true; nCols = 2; break;
+		case '3': tillingActive = true; nCols = 3; break;
+		case '4': tillingActive = true; nCols = 4; break; 
+		case '5': tillingActive = true; nCols = 5; break;
+		case '6': tillingActive = true; nCols = 6; break;
+		case '7': tillingActive = true; nCols = 7; break;
+		case '8': tillingActive = true; nCols = 8; break; 
+		case '9': tillingActive = true; nCols = 9; break;
+		case '0': tillingActive = false; break;
 
-  case '1': tillingActive = true; nCols = 1; break;
-  case '2': tillingActive = true; nCols = 2; break;
-  case '3': tillingActive = true; nCols = 3; break;
-  case '4': tillingActive = true; nCols = 4; break; 
-  case '5': tillingActive = true; nCols = 5; break;
-  case '6': tillingActive = true; nCols = 6; break;
-  case '7': tillingActive = true; nCols = 7; break;
-  case '8': tillingActive = true; nCols = 8; break; 
-  case '9': tillingActive = true; nCols = 9; break;
-  case '0': tillingActive = false;break;
+		default : need_redisplay = false; break;
+	}//switch
 
-  default:
-    need_redisplay = false;
-    break;
-  }//switch
-
-  if (need_redisplay) glutPostRedisplay();
+	if (need_redisplay) glutPostRedisplay();
 }
 
 
