@@ -1,3 +1,12 @@
+/**
+	Fichero: Tree.h
+	Autor: Xavier Gallofré Nieva
+
+	Clase que define el árbol. Se trata de una representación de árbol binario en un vector,
+	que permite recorrer todos los cuadrados linealmente y acceder a los distintos niveles
+	del árbol accediendo a las posiciones potencias de dos.
+*/
+
 #pragma once
 
 #include <vector>

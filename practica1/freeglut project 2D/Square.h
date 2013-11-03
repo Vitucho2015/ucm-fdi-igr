@@ -1,3 +1,10 @@
+/**
+	Fichero: Square.h
+	Autor: Xavier Gallofré Nieva
+
+	Clase que define el cuadrado con sus 4 vertices y un color.
+*/
+
 #pragma once
 
 #include <Windows.h>

@@ -1,3 +1,10 @@
+/**
+	Fichero: PV2D.h
+	Autor: Xavier Gallofré Nieva
+
+	Clase para representar y operar con puntos y vectores en 2D
+*/
+
 #pragma once
 #include <Windows.h>
 #include <gl/GL.h>

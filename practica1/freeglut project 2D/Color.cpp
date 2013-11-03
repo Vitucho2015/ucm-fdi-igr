@@ -1,3 +1,9 @@
+/**
+	Fichero: Color.cpp
+	Autor: Xavier Gallofré Nieva
+*/
+
+
 #include "Color.h"
 
 

@@ -1,3 +1,10 @@
+/**
+	Fichero: Turtle.h
+	Autor: Xavier Gallofré Nieva
+
+	Clase que define el lapiz.
+*/
+
 #pragma once
 
 #include "PV2D.h"
