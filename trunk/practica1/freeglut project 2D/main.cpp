@@ -1,3 +1,11 @@
+/**
+	Fichero: main.cpp
+	Autor: Xavier Gallofré Nieva
+
+	Clase principal.
+*/
+
+
 #include <Windows.h>
 #include <gl/GL.h>
 #include <gl/GLU.h>

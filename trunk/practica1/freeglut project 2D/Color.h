@@ -1,3 +1,8 @@
+/**
+	Fichero: Color.h
+	Autor: Xavier Gallofré Nieva
+*/
+
 #pragma once
 struct Color
 {

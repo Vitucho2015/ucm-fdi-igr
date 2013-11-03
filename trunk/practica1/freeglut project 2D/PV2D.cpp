@@ -1,3 +1,10 @@
+/**
+	Fichero: PV2D.cpp
+	Autor: Xavier Gallofré Nieva
+
+	Clase para representar y operar con puntos y vectores en 2D
+*/
+
 #include "PV2D.h"
 
 

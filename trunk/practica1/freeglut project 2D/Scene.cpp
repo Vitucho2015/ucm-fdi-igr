@@ -1,3 +1,11 @@
+/**
+	Fichero: Scene.cpp
+	Autor: Xavier Gallofré Nieva
+
+	Clase que contiene los datos del Area Visible de la Escena, los datos del árbol que vamos a representar
+	y los métodos necesarios para explorar la escena.
+*/
+
 #include "Scene.h"
 
 
