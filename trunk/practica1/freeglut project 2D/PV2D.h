@@ -19,6 +19,10 @@ struct PV2D
 	
 	GLdouble mod();
 	GLdouble angle();
+	void scale(GLdouble k);
+	void nor();
+	PV2D normal();
+	GLdouble dot(const PV2D &o);
 
 	PV2D operator+(const PV2D &o);
 	PV2D operator-(const PV2D &o);
