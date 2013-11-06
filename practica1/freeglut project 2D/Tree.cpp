@@ -48,8 +48,7 @@ PV2D Tree::getSupportPoint(Square *square, double alpha){
 
 void Tree::generateChildsFor(int i){
 	Square sq_base = squares[i];
-	//float alpha = PI/4+PI/36;
-	float alpha = (50 + rand()%80)*PI/360;
+	float alpha = (50 + rand()%80)*PI/360; // 50/360 <= alpha < 130/360 ----
 	PV2D sup = getSupportPoint(&sq_base, alpha);
 	Square sq_1(&sq_base.getVertex(3), &sup);
 	squares.push_back(sq_1);

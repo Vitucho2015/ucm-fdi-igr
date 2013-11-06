@@ -79,7 +79,7 @@ void tilling(int nCols){
 
 	for (GLint c=0; c<nCols; c++){
 		GLdouble currentH = 0;
-		while ((currentH+h)<=HEIGHT){
+		while ((currentH+h)<=HEIGHT+0.1){
 			glViewport((GLint)(c*w), (GLint)currentH, (GLint)w,(GLint)h);
 			scene.render();
 			currentH += h;
@@ -171,11 +171,16 @@ void key(unsigned char key, int x, int y){
 		//continue_in_main_loop = false; // (**)
 		glutLeaveMainLoop (); //Freeglut's sentence for stopping glut's main loop (*)
 		break;
-
+		/*
 		case 'a' : scene.move(0,+MOVE_FACTOR); break;
 		case 'd' : scene.move(0,-MOVE_FACTOR); break;  
 		case 's' : scene.move(1,+MOVE_FACTOR); break;
 		case 'w' : scene.move(1,-MOVE_FACTOR); break;
+		*/
+		case 'a' : scene.move(0,-MOVE_FACTOR); break;
+		case 'd' : scene.move(0,+MOVE_FACTOR); break;  
+		case 's' : scene.move(1,-MOVE_FACTOR); break;
+		case 'w' : scene.move(1,+MOVE_FACTOR); break;
 
 		case '+': scene.zoom(1+ZOOM_FACTOR); break;
 		case '-': scene.zoom(1-ZOOM_FACTOR); break;
@@ -222,7 +227,10 @@ void mouse(int button, int state, int x, int y){
 		if (state == GLUT_DOWN){
 			if (scene.isEmpty()){
 				int side = 50;
-				//cin >> side;
+				/*
+				cout<< "Introduce el valor del lado del cuadrado";
+				cin >> side;
+				*/
 				scene.initTree(&Square(&convertPV2SVA(x,y),side,0));
 			} else {
 				scene.glow(&convertPV2SVA(x,y));
