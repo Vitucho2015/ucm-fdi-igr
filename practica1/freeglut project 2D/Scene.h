@@ -23,15 +23,11 @@ public:
 
 	void move(int dir, double percent);
 	void zoom(double factor);
-	//void progressiveZoom(double factor, double nIter);
-
-	//void tilling(int nCols);
+	
 	void initTree(Square *square);
 	void glow(PV2D *p);
 	void newLevel();
 	void retrieveLevel();
-
-	//PV2D convertPV2SVA(int x, int y);
 
 	bool isEmpty();
 

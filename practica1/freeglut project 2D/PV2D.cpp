@@ -29,6 +29,25 @@ GLdouble PV2D::angle() {
 	return atan2(y,x);
 }
 
+void PV2D::scale(GLdouble k){
+	this->x *= k;
+	this->y *= k;
+}
+
+void PV2D::nor() {
+	scale(1.0/mod());
+}
+
+PV2D PV2D::normal(){
+	PV2D ret(-this->y, this->x);
+	ret.nor();
+	return ret;
+}
+
+GLdouble PV2D::dot(const PV2D &o){
+	return this->x * o.x + this->y * o.y;
+}
+
 PV2D PV2D::operator+(const PV2D &o) {
 	PV2D result = *this;
 	result.x += o.x;

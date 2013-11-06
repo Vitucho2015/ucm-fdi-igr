@@ -30,7 +30,9 @@ using namespace std;
 
 // Viewport size
 int WIDTH= 500, HEIGHT= 250;
-HWND winHandle;
+
+//HWND winHandle;
+
 // Scene visible area size
 //GLdouble xLeft= 0.0, xRight= 500.0, yBot= 0.0, yTop= 250.0;
 
@@ -41,8 +43,6 @@ int nCols = 1;
 
 void intitGL(){
 
-	glClearColor(1.0,1.0,1.0,1.0);
-	glClearColor(90.0/255,204.0/255,198.0/255, 1);
 	glClearColor(10.0/255,127.0/255,173.0/255, 1);
 	glColor3f(1.0,0.0,0.0); 
 
@@ -79,7 +79,7 @@ void tilling(int nCols){
 
 	for (GLint c=0; c<nCols; c++){
 		GLdouble currentH = 0;
-		while ((currentH+h)<HEIGHT){
+		while ((currentH+h)<=HEIGHT){
 			glViewport((GLint)(c*w), (GLint)currentH, (GLint)w,(GLint)h);
 			scene.render();
 			currentH += h;
@@ -89,20 +89,16 @@ void tilling(int nCols){
 
 void display(void){
   glClear( GL_COLOR_BUFFER_BIT );
-
   glColor3f(139.0/255,69.0/255,19.0/255);
   
+
+
   if (tillingActive) tilling(nCols);
   else scene.render();
 
   glFlush();
-  glutSwapBuffers();
-
-  // Scene Visible Area
-
-  glMatrixMode(GL_PROJECTION);
-  glLoadIdentity();
-  gluOrtho2D(scene.xL, scene.xR, scene.yB, scene.yT); 
+  glutSwapBuffers();   
+  
 }
 
 
@@ -151,20 +147,19 @@ void progressiveZoom(double factor, double nIter){
 	for (int i=0; i<=nIter;i++){
 		GLdouble fAux = 1 + fIncr*i;
 		newWidth = width/fAux;
-		newHeight = height/fAux;
-
+		newHeight = height/fAux;	
+		
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
 		gluOrtho2D(xCenter-newWidth/2.0, xCenter+newWidth/2.0,yCenter-newHeight/2.0, yCenter+newHeight/2.0);
 
-		display();
+		display();		
 		Sleep(50);
 	}
 	scene.xL = xCenter-newWidth/2.0;
 	scene.xR = xCenter+newWidth/2.0;
 	scene.yB = yCenter-newHeight/2.0; 
 	scene.yT = yCenter+newHeight/2.0;
-	//display();
 }
 
 void key(unsigned char key, int x, int y){
@@ -185,11 +180,11 @@ void key(unsigned char key, int x, int y){
 		case '+': scene.zoom(1+ZOOM_FACTOR); break;
 		case '-': scene.zoom(1-ZOOM_FACTOR); break;
 
-		case 'r': progressiveZoom(1+ZOOM_FACTOR,10); break;
-		case 'f': progressiveZoom(1-ZOOM_FACTOR,10); break;
-
 		case '\r': scene.newLevel(); break;
 		case '\b': scene.retrieveLevel(); break;
+
+		case 'r': progressiveZoom(1+ZOOM_FACTOR,10); break;
+		case 'f': progressiveZoom(1-ZOOM_FACTOR,10); break;
 
 		case '1': tillingActive = true; nCols = 1; break;
 		case '2': tillingActive = true; nCols = 2; break;
@@ -200,12 +195,21 @@ void key(unsigned char key, int x, int y){
 		case '7': tillingActive = true; nCols = 7; break;
 		case '8': tillingActive = true; nCols = 8; break; 
 		case '9': tillingActive = true; nCols = 9; break;
-		case '0': tillingActive = false; break;
+		case '0': 
+			tillingActive = false; 
+			glViewport(0, 0, WIDTH, HEIGHT); //Restore viewPort
+			break;
 
 		default : need_redisplay = false; break;
 	}//switch
 
-	if (need_redisplay) glutPostRedisplay();
+	if (need_redisplay){
+		// Scene Visible Area
+		glMatrixMode(GL_PROJECTION);
+		glLoadIdentity();
+		gluOrtho2D(scene.xL, scene.xR, scene.yB, scene.yT);
+		glutPostRedisplay();
+	}
 }
 
 
@@ -245,8 +249,19 @@ int main(int argc, char *argv[]){
 	scene.xR= 500.0;
 	scene.yB= 0.0;
 	scene.yT= 250.0;
-  cout<< "Starting console..." << endl;
-
+  cout<< "Starting console...\n---------------\n" << endl;
+  cout<< "Instrucciones de uso:\n\n";
+  cout<< " #Teclado#\n";
+  cout<< "  Explorar:\t   w,a,s,d\n";
+  cout<< "  Zoom:\t\t   +/-\n";
+  cout<< "  Zoom progresivo: r/f\n";
+  cout<< "  Crear nivel:\t   Enter\n";
+  cout<< "  Borrar nivel:\t   Backspace\n";
+  cout<< "  Embaldosado:\t   1-9 numero de columnas; 0 desactivar\n\n";
+  cout<< " #Raton#\n";
+  cout<< "  Click izquierdo: \n\tSi no hay arbol -> crea un cuadrado; \n\tSi hay arbol -> selecciona un cuadrado\n";
+  cout<< "  Click derecho:   \n\tBorra el arbol anterior y crea un cuadrado nuevo\n\n";
+  system("Pause");
   int my_window; //my window's identifier
 
   //Initialization
@@ -279,7 +294,7 @@ int main(int argc, char *argv[]){
   // Classic glut's main loop can be stopped in freeglut using (*)
   glutMainLoop(); 
   
-	winHandle = ::FindWindow(NULL, argv[0]);
+	//winHandle = ::FindWindow(NULL, argv[0]);
    
   return 0;
 }

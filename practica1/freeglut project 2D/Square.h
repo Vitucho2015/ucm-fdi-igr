@@ -23,6 +23,7 @@ class Square
 private:
 	Color color;
 	PV2D vertex[4];
+	PV2D normal[4];
 
 public:
 	Square(PV2D* v0, PV2D* v1);

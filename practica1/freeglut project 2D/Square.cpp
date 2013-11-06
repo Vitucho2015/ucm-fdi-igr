@@ -28,6 +28,8 @@ Square::Square(PV2D* v0, PV2D* v1){
 	turtle->forward(side);
 	vertex[3] = turtle->getPosition();
 
+	for (int i=0;i<4;i++) normal[i] = (vertex[i]-vertex[(i+1)%4]).normal();
+
 	delete turtle;
 }
 
@@ -50,6 +52,8 @@ Square::Square(PV2D* center, double side, double rad){
 	turtle->turnTo(PI/2);
 	turtle->forward(side);
 	vertex[3] = turtle->getPosition();
+
+	for (int i=0;i<4;i++) normal[i] = (vertex[i]-vertex[(i+1)%4]).normal();
 
 	delete turtle;
 }
@@ -76,8 +80,8 @@ void Square::render(){
 }
 
 bool Square::isInside(double pX, double pY){
-	bool ret = false;
-
+	
+	// Option 1
 	/*
 	double xL_max, xR_max,yB_max, yT_max;
 	xL_max = xR_max = vertex[0].x;
@@ -93,6 +97,8 @@ bool Square::isInside(double pX, double pY){
 	if (xL_max < pX && pX < xR_max && yB_max < pY && pY < yT_max) ret = true;
 	*/
 
+	// Option 2
+	/*
 	PV2D p_mouse(pX,pY);
 	PV2D p_center = vertex[2] - vertex[0];
 	//p_center *= 0.5;
@@ -102,8 +108,21 @@ bool Square::isInside(double pX, double pY){
 	p_center = vertex[0] + p_center;
 	p_mouse = p_mouse - p_center;
 	if ( p_mouse.mod() < radio ) ret = true;
+	*/
 
-	return ret;
+	// Option 3
+
+	int i=0;
+	bool isInside = true;
+	PV2D aux;
+	PV2D p_mouse(pX,pY);
+	while(i<4 && isInside){
+		aux = p_mouse - vertex[i];
+		if ( aux.dot(normal[i]) > 0) isInside = false;
+		i++;
+	}
+
+	return isInside;
 }
 
 Color Square::getColor(){
