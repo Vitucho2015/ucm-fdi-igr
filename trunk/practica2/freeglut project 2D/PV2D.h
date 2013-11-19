@@ -22,7 +22,9 @@ struct PV2D
 	void scale(GLdouble k);
 	void nor();
 	PV2D normal();
-	GLdouble dot(const PV2D &o);
+	GLdouble dot(PV2D* o);
+
+	void split(PV2D* n, PV2D*& an, PV2D*& bn);
 
 	PV2D operator+(const PV2D &o);
 	PV2D operator-(const PV2D &o);

@@ -38,9 +38,6 @@ int WIDTH= 500, HEIGHT= 250;
 
 Scene scene;
 
-#include "RegPol.h"
-RegPol* rp;
-
 bool tillingActive = false;
 int nCols = 1;
 
@@ -96,8 +93,6 @@ void display(void){
 
   if (tillingActive) tilling(nCols);
   else scene.render();
-
-  //rp->render();
 
   glFlush();
   glutSwapBuffers();   
@@ -258,8 +253,6 @@ void mouse(int button, int state, int x, int y){
 
 int main(int argc, char *argv[]){
 	
-	rp = new RegPol(&PV2D(100,50),20,30);
-
   cout<< "Starting console...\n---------------\n" << endl;
   cout<< "Instrucciones de uso:\n\n";
   cout<< " #Teclado#\n";
@@ -307,6 +300,5 @@ int main(int argc, char *argv[]){
   
 	//winHandle = ::FindWindow(NULL, argv[0]);
    
-  delete rp;
   return 0;
 }

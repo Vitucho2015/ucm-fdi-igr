@@ -44,8 +44,19 @@ PV2D PV2D::normal(){
 	return ret;
 }
 
-GLdouble PV2D::dot(const PV2D &o){
-	return this->x * o.x + this->y * o.y;
+GLdouble PV2D::dot(PV2D* o){
+	return this->x * o->x + this->y * o->y;
+}
+
+void PV2D::split(PV2D* n, PV2D*& an, PV2D*& bn){
+	PV2D n_izq = n->normal();
+	double a,b;
+	a = this->dot(n)/n->dot(n);
+	b = this->dot(&n_izq)/n_izq.dot(&n_izq);
+	an = &PV2D(*n);
+	an->scale(a);
+	bn = &PV2D(n_izq);
+	bn->scale(b);
 }
 
 PV2D PV2D::operator+(const PV2D &o) {

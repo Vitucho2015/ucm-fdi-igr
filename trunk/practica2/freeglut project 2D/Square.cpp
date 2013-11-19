@@ -118,7 +118,7 @@ bool Square::isInside(double pX, double pY){
 	PV2D p_mouse(pX,pY);
 	while(i<4 && isInside){
 		aux = p_mouse - vertex[i];
-		if ( aux.dot(normal[i]) > 0) isInside = false;
+		if ( aux.dot(&normal[i]) > 0) isInside = false;
 		i++;
 	}
 

@@ -21,8 +21,8 @@ Scene::Scene(void)
 	margin[2] = new Triangle(&PV2D(xR+offset,yT),&PV2D(xR,yT),&PV2D(xR,yB-offset));
 	margin[3] = new Triangle(&PV2D(xL,yT+offset),&PV2D(xL,yT),&PV2D(xR+offset,yT));
 
-	ball = new Ball(&PV2D(20,30),5);
-	ball->setVel(&PV2D(10,2));
+	ball = new Ball(&PV2D(40,30),20);
+	ball->setVel(&PV2D(5,1));
 	tree = new Tree();
 }
 
@@ -84,6 +84,24 @@ bool Scene::isEmpty(){
 }
 
 void Scene::step(){
+	//Check Collissions
+	double tIn;
+	PV2D* normal, tmp;
+	for (int i=0;i<4;i++){
+		tmp = *ball->getVel();
+		tmp.nor();
+		if (margin[i]->intersectionLine2Triangle(ball->getCenter(),&tmp,tIn, normal) && tIn > 0 && tIn - ball->getRadius() <= 1){
+			//Waste movement (step(tIn))
+			ball->step(tIn - ball->getRadius());
+			//Change vel (reflection)
+			tmp = *ball->getVel();
+			PV2D *an, *bn;
+			tmp.split(normal, an, bn);
+			an->scale(2);
+			ball->setVel(&(*ball->getVel() - *an));
+			return;
+		}
+	}
 	ball->step();
 }
 
