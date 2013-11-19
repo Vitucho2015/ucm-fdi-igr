@@ -1,6 +1,9 @@
 #pragma once
 #include "Obstacle.h"
 #include "Color.h"
+
+#define EPSILON 0.000001
+
 class Triangle : public Obstacle
 {
 private:

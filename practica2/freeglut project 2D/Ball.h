@@ -15,8 +15,12 @@ public:
 	~Ball(void);
 
 	void step();
+	void step(double t);
 	void render();
 
-	void setVel(PV2D* vel);
+	void setVel(PV2D* vel){this->vel = *vel;};
+	PV2D* getVel(){return &vel;};
+	PV2D* getCenter(){return &center;};
+	double getRadius(){return radius;};
 };
 

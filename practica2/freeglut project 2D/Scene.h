@@ -16,6 +16,8 @@ class Scene
 {
 private:
 	
+	//static System::Windows::Forms::Timer^ myTimer = gcnew System::Windows::Forms::Timer;
+
 	Triangle* margin[4];
 	Ball* ball;
 
