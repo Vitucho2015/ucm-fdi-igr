@@ -1,7 +1,8 @@
 #pragma once
 
-#include "PV2D.h"
-#include "Circle.h"
+#include "geometry\PV2D.h"
+#include "geometry\RegPol.h"
+#include <queue>
 
 class Ball
 {
@@ -11,6 +12,7 @@ private:
 	PV2D vel;
 	PV2D v1; //normalize
 	RegPol* circle;
+	queue<PV2D*> tail;
 
 public:
 	Ball(PV2D* center, double radius);
@@ -24,6 +26,6 @@ public:
 	PV2D* getV1(){return &v1;};
 	PV2D* getCenter(){return &center;};
 	double getRadius(){return radius;};
-	void setColor(RGBColor color){this->circle->setColor(color);};
+	void setColor(RGBColor* color){this->circle->setColor(color);};
 };
 

@@ -112,11 +112,12 @@ public ref class NWOpenGL: public System::Windows::Forms::NativeWindow
     GLvoid ResizeGL(GLsizei iWidth, GLsizei iHeight)  
     {
       //cambiar tamaño de la ventana nativa 
-      SetWindowPos((HWND)this->Handle.ToPointer(), HWND_BOTTOM, 0, 0,iWidth,iHeight,SWP_NOMOVE); 
+      SetWindowPos((HWND)this->Handle.ToPointer(), HWND_BOTTOM, 0, 24,iWidth,iHeight,0); 
     }
     /*
     GLvoid ViewportGL(GLint ix, GLint iy, GLsizei iWidth, GLsizei iHeight)  // Añadir parámetros
     {
       //glViewport(ix, HEIGHT-iHeight+iy,iWidth,iHeight); // nuevo ajuste ¿+iy???
     }*/
+
 };

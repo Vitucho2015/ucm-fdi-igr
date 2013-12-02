@@ -2,16 +2,12 @@
 
 Triangle::Triangle(PV2D* p1,PV2D* p2,PV2D* p3)
 {
-	vertex[0] = *p1;
-	vertex[1] = *p2;
-	vertex[2] = *p3;
-	for (int i=0;i<3;i++) normal[i] = (vertex[i]-vertex[(i+1)%3]).normal();
+	addVertex(p1);
+	addVertex(p2);
+	addVertex(p3);
+	closePolygon();
 }
 
-
-Triangle::~Triangle(void)
-{
-}
 
 
 bool Triangle::collisionDetection(PV2D* p, PV2D* v, double& tIn, PV2D*& normalIn){
@@ -20,8 +16,8 @@ bool Triangle::collisionDetection(PV2D* p, PV2D* v, double& tIn, PV2D*& normalIn
 	double proj[3];
 	double dist[3];
 	for (int i=0; i<3; i++){
-		dist[i] = (vertex[i] - *p).dot(&v->normal());
-		proj[i] = (vertex[i] - *p).dot(v);
+		dist[i] = (*vertex[i] - *p).dot(&v->normal());
+		proj[i] = (*vertex[i] - *p).dot(v);
 		if (dist[i] < -EPSILON) sign[i] = -1;
 		else if (dist[i] > EPSILON) sign[i] = 1;
 		else sign[i] = 0;
@@ -39,10 +35,10 @@ bool Triangle::collisionDetection(PV2D* p, PV2D* v, double& tIn, PV2D*& normalIn
 			//Compute denominator
 			//double denominator = dist[j]-dist[i];
 
-			double numerator = (vertex[i] - *p).dot(&normal[i]);
-			double denominator = v->dot(&normal[i]);
+			double numerator = (*vertex[i] - *p).dot(normal[i]);
+			double denominator = v->dot(normal[i]);
 			hit[nHits] = numerator/denominator;
-			n[nHits] = &normal[i];
+			n[nHits] = normal[i];
 			nHits++;
 		}
 	}
@@ -52,7 +48,7 @@ bool Triangle::collisionDetection(PV2D* p, PV2D* v, double& tIn, PV2D*& normalIn
 			if (sign[i] == 0){
 				hit[nHits] = proj[i];
 				//n[nHits] = vector from triangle's center to Pi
-				n[nHits] = &normal[i];
+				n[nHits] = normal[i];
 				nHits++;
 			}
 		}
@@ -63,23 +59,4 @@ bool Triangle::collisionDetection(PV2D* p, PV2D* v, double& tIn, PV2D*& normalIn
 	tIn = hit[m];
 	normalIn = n[m];
 	return true;
-}
-
-void Triangle::render(bool debug){
-	glColor3d(color.r,color.g,color.b);
-	glBegin ( GL_TRIANGLES ) ;
-		for (int i=0;i<3;i++) glVertex2d(vertex[i].x,vertex[i].y);
-	glEnd () ;
-
-	if (debug){
-		int scaleNormal = 10;
-		glColor3d(1,0,0);
-		glBegin (GL_LINES ) ;
-			for (int i=0;i<3;i++){
-				int j = (i+1)%3;
-				glVertex2d((vertex[i].x+vertex[j].x)/2,(vertex[i].y+vertex[j].y)/2);
-				glVertex2d((vertex[i].x+vertex[j].x)/2+scaleNormal*normal[i].x,(vertex[i].y+vertex[j].y)/2+scaleNormal*normal[i].y);
-			}
-		glEnd();
-	}
 }

@@ -9,7 +9,8 @@
 #pragma once
 
 #include <vector>
-#include "Triangle.h"
+#include "geometry\Triangle.h"
+#include "geometry\Circle.h"
 #include "Ball.h"
 #include <time.h>
 
@@ -22,6 +23,7 @@ private:
 	//static System::Windows::Forms::Timer^ myTimer = gcnew System::Windows::Forms::Timer;
 
 	vector<Obstacle*> obstacles;
+	vector<Obstacle*> b_obstacles;
 	Ball* ball;
 
 public:

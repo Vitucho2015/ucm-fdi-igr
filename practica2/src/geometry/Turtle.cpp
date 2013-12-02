@@ -23,6 +23,7 @@ Turtle::~Turtle(void)
 	pos->x = 0;
 	pos->y = 0;
 	delete pos;
+	pos = nullptr;
 }
 
 PV2D Turtle::getPosition(){
