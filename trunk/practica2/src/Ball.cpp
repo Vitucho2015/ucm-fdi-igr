@@ -19,9 +19,11 @@ Ball::~Ball(void)
 
 
 void Ball::step(double t){
+	tail.push(new PV2D(center));
 	center.x = center.x + t*vel.x;
 	center.y = center.y + t*vel.y;
 	circle->move(t*vel.x,t*vel.y);
+	if (tail.size() > 50) tail.pop();
 }
 
 void Ball::bounce(PV2D* normal){
@@ -34,12 +36,21 @@ void Ball::bounce(PV2D* normal){
 }
 
 void Ball::render(bool debug){
-	circle->render();
+	circle->render(false);
 	if (debug){
 		glColor3f(1,0,0);
 		glBegin(GL_LINES);
 			glVertex2d(center.x,center.y);
 			glVertex2d(center.x+vel.x,center.y+vel.y);
+		glEnd();
+		queue<PV2D*> tmp = tail;
+		PV2D* p;
+		glBegin( GL_POINTS );
+			while (!tmp.empty()){
+				p = tmp.front();
+				tmp.pop();
+				glVertex2d(p->x, p->y);
+			}
 		glEnd();
 	}
 }

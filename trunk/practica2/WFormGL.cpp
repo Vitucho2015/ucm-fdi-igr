@@ -6,6 +6,7 @@ using namespace WinCliOpenGL;
 GLvoid WFormGL::InitGL(){
   glShadeModel(GL_SMOOTH);							// Enable smooth shading
 	glClearColor(10.0/255, 127.0/255, 173.0/255, 1.0f);	// Black background
+	glPointSize(4.0);
 	//glClearDepth(1.0f);									  // Depth buffer setup
 	//glEnable(GL_DEPTH_TEST);							// Enables depth testing
 	//glDepthFunc(GL_LEQUAL);								// The type of depth testing to do
@@ -53,21 +54,20 @@ GLvoid WFormGL::ReSizeGL(GLsizei width, GLsizei height){
 	// NUEVO AJUSTE
 	//glViewport(0, (COpenGL::wnHeight)-ClientSize.Height, ClientSize.Width, ClientSize.Height); 
 	nwOpenGL->ResizeGL(width,height);
-	glViewport(0,0,width,height);  
-
+	glViewport(-width,-height,width*2,height*2);  
 	// se actualiza el volumen de vista
 	// para que su radio coincida con ratioViewPort
 	GLfloat RatioVolVista=scene->xR/scene->yT;
 
 	if (RatioVolVista>=RatioViewPort){
-	//Aumentamos yTop-yBot
-	scene->yT= scene->xR/RatioViewPort;
-	scene->yB=-scene->yT;
+		//Aumentamos yTop-yBot
+		scene->yT= scene->xR/RatioViewPort;
+		scene->yB=-scene->yT;
 	}
 	else{
-	//Aumentamos xRight-xLeft
-	scene->xR=RatioViewPort*scene->yT;
-	scene->xL=-scene->xR;
+		//Aumentamos xRight-xLeft
+		scene->xR=RatioViewPort*scene->yT;
+		scene->xL=-scene->xR;
 	}
 
 

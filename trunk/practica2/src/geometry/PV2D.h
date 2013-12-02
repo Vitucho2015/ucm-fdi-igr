@@ -10,6 +10,7 @@
 #include <gl/GL.h>
 #include <math.h>
 
+#define PI 3.14159265
 #define EPSILON 0.000000001
 
 struct PV2D

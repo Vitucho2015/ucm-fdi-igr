@@ -190,6 +190,7 @@ namespace WinCliOpenGL {
 			this->MaximizeBox = false;
 			this->Name = L"WFormGL";
 			this->Text = L"IGr - Practica 2";
+			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &WFormGL::WFormGL_FormClosing);
 			this->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &WFormGL::WFormGL_Paint);
 			this->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &WFormGL::WFormGL_KeyPress);
 			this->Resize += gcnew System::EventHandler(this, &WFormGL::WFormGL_Resize);
@@ -262,6 +263,14 @@ private: System::Void moverUnPasoEnterToolStripMenuItem_Click(System::Object^  s
 		 }
 private: System::Void escena2ToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) { scene->initScene(2); GLScene();}
 private: System::Void depuraciónF1ToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) { debugActive = !debugActive; GLScene();
+		 }
+private: System::Void WFormGL_FormClosing(System::Object^  sender, System::Windows::Forms::FormClosingEventArgs^  e) {
+			 if (MessageBox::Show("¿Quieres cerrar el programa?", "IGr",
+								  MessageBoxButtons::YesNo, MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes){
+				Application::Exit();
+			 } else {
+				 e->Cancel = true;
+			 }
 		 }
 };
 }

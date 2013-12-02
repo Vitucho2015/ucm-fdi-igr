@@ -75,15 +75,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Ball.cpp" />
-    <ClCompile Include="src\Circle.cpp" />
-    <ClCompile Include="src\RGBColor.cpp" />
-    <ClCompile Include="src\ConvexPolygon.cpp" />
-    <ClCompile Include="src\PV2D.cpp" />
-    <ClCompile Include="src\RegPol.cpp" />
+    <ClCompile Include="src\geometry\Circle.cpp" />
+    <ClCompile Include="src\geometry\ConvexPolygon.cpp" />
+    <ClCompile Include="src\geometry\PV2D.cpp" />
+    <ClCompile Include="src\geometry\RegPol.cpp" />
+    <ClCompile Include="src\geometry\RGBColor.cpp" />
+    <ClCompile Include="src\geometry\Triangle.cpp" />
+    <ClCompile Include="src\geometry\Turtle.cpp" />
     <ClCompile Include="src\Scene.cpp" />
-    <ClCompile Include="src\Square.cpp" />
-    <ClCompile Include="src\Triangle.cpp" />
-    <ClCompile Include="src\Turtle.cpp" />
     <ClCompile Include="WFormGL.cpp" />
     <ClCompile Include="WinCliOpenGL.cpp" />
   </ItemGroup>
@@ -96,17 +95,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Ball.h" />
-    <ClInclude Include="src\Circle.h" />
-    <ClInclude Include="src\RGBColor.h" />
-    <ClInclude Include="src\ConvexPolygon.h" />
-    <ClInclude Include="src\Obstacle.h" />
+    <ClInclude Include="src\geometry\Circle.h" />
+    <ClInclude Include="src\geometry\ConvexPolygon.h" />
+    <ClInclude Include="src\geometry\Obstacle.h" />
+    <ClInclude Include="src\geometry\PV2D.h" />
+    <ClInclude Include="src\geometry\RegPol.h" />
+    <ClInclude Include="src\geometry\RGBColor.h" />
+    <ClInclude Include="src\geometry\Triangle.h" />
+    <ClInclude Include="src\geometry\Turtle.h" />
     <ClInclude Include="src\OpenGL.h" />
-    <ClInclude Include="src\PV2D.h" />
-    <ClInclude Include="src\RegPol.h" />
     <ClInclude Include="src\Scene.h" />
-    <ClInclude Include="src\Square.h" />
-    <ClInclude Include="src\Triangle.h" />
-    <ClInclude Include="src\Turtle.h" />
     <ClInclude Include="WFormGL.h">
       <FileType>CppForm</FileType>
     </ClInclude>
