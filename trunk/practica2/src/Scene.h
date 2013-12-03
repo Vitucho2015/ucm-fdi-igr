@@ -25,6 +25,7 @@ private:
 	vector<Obstacle*> obstacles;
 	vector<Obstacle*> b_obstacles;
 	Ball* ball;
+	bool bb_active;
 
 public:
 	Scene(void);
@@ -38,9 +39,11 @@ public:
 	bool isEmpty();
 
 	void step();
-	void render(bool debug);
+	void render(bool debug, bool debug_ball);
 
 	void initBall();
 	void initScene(int i);
+
+	void activeBB(bool bb){bb_active = bb;};
 };
 

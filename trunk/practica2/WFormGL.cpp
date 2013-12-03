@@ -6,6 +6,7 @@ using namespace WinCliOpenGL;
 GLvoid WFormGL::InitGL(){
   glShadeModel(GL_SMOOTH);							// Enable smooth shading
 	glClearColor(10.0/255, 127.0/255, 173.0/255, 1.0f);	// Black background
+	//glClearColor(0.0/255, 172.0/255, 107.0/255, 1.0f);	// Black background
 	glPointSize(4.0);
 	//glClearDepth(1.0f);									  // Depth buffer setup
 	//glEnable(GL_DEPTH_TEST);							// Enables depth testing
@@ -17,7 +18,7 @@ GLvoid WFormGL::GLScene(){
   glClear(GL_COLOR_BUFFER_BIT/* | GL_DEPTH_BUFFER_BIT*/);	// Clear screen and depth buffer
 
   // comandos para dibujar la escena
-  scene-> render(debugActive);
+  scene-> render(this->contornosToolStripMenuItem->Checked, this->colaToolStripMenuItem->Checked);
 
   glFlush();
   nwOpenGL->SwapBuffersGL() ;

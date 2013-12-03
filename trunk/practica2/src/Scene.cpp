@@ -15,6 +15,7 @@ Scene::Scene(void)
 	srand(time(NULL));
 	initScene(1);
 	initBall();
+	bb_active = false;
 }
 
 
@@ -64,7 +65,9 @@ void Scene::step(){
 	double tIn, tHitG = 2;
 	PV2D *normal, *normalG;
 	bool succL, succG = false;
-	for (Obstacle* o: b_obstacles){
+	vector<Obstacle*> tmp;
+	if (!bb_active) tmp = obstacles; else tmp = b_obstacles;
+	for (Obstacle* o: tmp){
 		succL = o->collisionDetection(ball->getCenter(), ball->getVel(), tIn, normal);
 		if (succL && tIn > 0 && tIn <= 1){ //TODO: Check range
 			if (tIn < tHitG ){
@@ -83,10 +86,16 @@ void Scene::step(){
 	}
 }
 
-void Scene::render(bool debug){
-	ball->render(debug);
-	for (Obstacle* o: obstacles) o->render(false);	
-	if (debug) for (Obstacle* o: b_obstacles) o->render(debug);
+void Scene::render(bool debug, bool debug_ball){
+	ball->render(debug_ball);
+	for (Obstacle* o: obstacles) o->render(false);
+	if (!bb_active){
+		if (debug) for (Obstacle* o: obstacles) o->render(debug);
+	} else {
+		if (debug) for (Obstacle* o: b_obstacles) o->render(debug);
+	}
+		
+	
 }
 
 void Scene::initBall(){
@@ -96,7 +105,9 @@ void Scene::initBall(){
 		ball = nullptr;
 	}
 	ball = new Ball(&PV2D(300,200),20);
-	
+	//RGBColor c_ball(72,35,145);
+	RGBColor c_ball(72,0,145);
+	ball->setColor(new RGBColor(c_ball));
 	
 	int degrees = (rand() % 360);
 	float alpha = ((float) degrees)/360 * 2 * PI;
@@ -115,6 +126,7 @@ void Scene::initScene(int i){
 	//Room
 	Triangle* nextTri;
 	Circle* nextCirc;
+	RegPol* nextNGon;
 	nextTri = new Triangle(new PV2D(xL-offset,yB),new PV2D(xL,yB),new PV2D(xL,yT+offset));
 	obstacles.push_back(nextTri);
 	nextTri = new Triangle(new PV2D(xR,yB-offset),new PV2D(xR,yB),new PV2D(xL-offset,yB));
@@ -124,60 +136,97 @@ void Scene::initScene(int i){
 	nextTri = new Triangle(new PV2D(xL,yT+offset),new PV2D(xL,yT),new PV2D(xR+offset,yT));
 	obstacles.push_back(nextTri);
 
+	RGBColor c_tri(17,15,115);
+	RGBColor c_circ(0,77,0);
+	//nextCirc->setColor(new RGBColor(66,14,156));
+	//nextTri->setColor(new RGBColor(125,50,0));
+
 	switch (i){
 		case 1:		
-
 			nextTri = new Triangle(new PV2D(100,0),new PV2D(200,0),new PV2D(200,50));
-			nextTri->setColor(new RGBColor(125,50,0));
+			nextTri->setColor(new RGBColor(c_tri));
 			obstacles.push_back(nextTri);
 			
 			nextTri = new Triangle(new PV2D(400,50),new PV2D(400,150),new PV2D(300,150));
-			nextTri->setColor(new RGBColor(125,50,0));
+			nextTri->setColor(new RGBColor(c_tri));
 			obstacles.push_back(nextTri);
 			
 			nextTri = new Triangle(new PV2D(75,150),new PV2D(100,225),new PV2D(50,200));
-			nextTri->setColor(new RGBColor(125,50,0));
+			nextTri->setColor(new RGBColor(c_tri));
 			obstacles.push_back(nextTri);
 	
-			nextCirc = new Circle(new PV2D(300,100), 25);
-			nextCirc->setColor(new RGBColor(66,14,156));
+			nextCirc = new Circle(new PV2D(300,100), 25);			
+			nextCirc->setColor(new RGBColor(c_circ));
 			obstacles.push_back(nextCirc);
 			
 			nextCirc = new Circle(new PV2D(150,150), 40);
-			nextCirc->setColor(new RGBColor(66,14,156));
+			nextCirc->setColor(new RGBColor(c_circ));
 			obstacles.push_back(nextCirc);
 			
 			nextCirc = new Circle(new PV2D(450,200), 10);
-			nextCirc->setColor(new RGBColor(66,14,156));
+			nextCirc->setColor(new RGBColor(c_circ));
 			obstacles.push_back(nextCirc);
 
 			break;
 
 		case 2:
 
-			nextTri = new Triangle(new PV2D(0,0),new PV2D(200,0),new PV2D(0,100));
-			nextTri->setColor(new RGBColor(125,50,0));
+			nextTri = new Triangle(new PV2D(0,0),new PV2D(200,0),new PV2D(0,100));			
+			nextTri->setColor(new RGBColor(c_tri));
 			obstacles.push_back(nextTri);
 			
 			nextTri = new Triangle(new PV2D(300,0),new PV2D(500,0),new PV2D(400,150));
-			nextTri->setColor(new RGBColor(125,50,0));
+			nextTri->setColor(new RGBColor(c_tri));
 			obstacles.push_back(nextTri);
 			
 			nextTri = new Triangle(new PV2D(0,150),new PV2D(100,250),new PV2D(0,250));
-			nextTri->setColor(new RGBColor(125,50,0));
+			nextTri->setColor(new RGBColor(c_tri));
 			obstacles.push_back(nextTri);
 	
 			nextCirc = new Circle(new PV2D(300,50), 50);
-			nextCirc->setColor(new RGBColor(66,14,156));
+			nextCirc->setColor(new RGBColor(c_circ));
 			obstacles.push_back(nextCirc);
 			
 			nextCirc = new Circle(new PV2D(200,175), 25);
-			nextCirc->setColor(new RGBColor(66,14,156));
+			nextCirc->setColor(new RGBColor(c_circ));
 			obstacles.push_back(nextCirc);
 			
 			nextCirc = new Circle(new PV2D(500,250), 60);
-			nextCirc->setColor(new RGBColor(66,14,156));
+			nextCirc->setColor(new RGBColor(c_circ));
 			obstacles.push_back(nextCirc);
+
+			break;
+
+		case 3:
+
+			
+			nextNGon= new RegPol(new PV2D(100,(yT-yB)*0.75), 7, 20);
+			nextNGon->setColor(new RGBColor(20,30,40));
+			obstacles.push_back(nextNGon);
+
+			nextNGon= new RegPol(new PV2D(xR-xL-100,(yT-yB)*0.75), 7, 20);
+			nextNGon->setColor(new RGBColor(20,30,40));
+			obstacles.push_back(nextNGon);
+
+			nextNGon= new RegPol(new PV2D((xR-xL)/2,(yT-yB)/2), 6, 50);
+			nextNGon->setColor(new RGBColor(20,30,40));
+			obstacles.push_back(nextNGon);
+
+			nextTri = new Triangle(new PV2D((xR-xL)*0.25, 0), new PV2D((xR-xL)*0.37, 0), new PV2D((xR-xL)*0.25, (yT-yB)*0.3));
+			nextTri->setColor(new RGBColor(20,30,40));
+			obstacles.push_back(nextTri);
+
+			nextTri = new Triangle(new PV2D((xR-xL)*0.63, 0), new PV2D((xR-xL)*0.75, 0), new PV2D((xR-xL)*0.75, (yT-yB)*0.3));
+			nextTri->setColor(new RGBColor(20,30,40));
+			obstacles.push_back(nextTri);
+
+			nextTri = new Triangle(new PV2D(100,(yT-yB)*0.75+5), new PV2D(95,(yT-yB)*0.75-5), new PV2D(105,(yT-yB)*0.75-5));
+			nextTri->setColor(new RGBColor(200,200,200));
+			obstacles.push_back(nextTri);
+
+			nextTri = new Triangle(new PV2D(xR-xL-100,(yT-yB)*0.75+5), new PV2D(xR-xL-95,(yT-yB)*0.75-5), new PV2D(xR-xL-105,(yT-yB)*0.75-5));
+			nextTri->setColor(new RGBColor(200,200,200));
+			obstacles.push_back(nextTri);
 
 			break;
 	}
