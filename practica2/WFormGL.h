@@ -30,7 +30,6 @@ namespace WinCliOpenGL {
 			//
 			//TODO: Add the constructor code here
 			//
-			debugActive = false;
 
 			// Viewport
 			nwOpenGL->ResizeGL(this->ClientSize.Width,this->ClientSize.Height);
@@ -74,7 +73,6 @@ namespace WinCliOpenGL {
     NWOpenGL ^ nwOpenGL;
     Scene * scene;
 	GLfloat RatioViewPort;
-	bool debugActive;
 
   private: System::Windows::Forms::MenuStrip^  menuStrip1;
 
@@ -87,6 +85,13 @@ namespace WinCliOpenGL {
 	private: System::Windows::Forms::ToolStripMenuItem^  moverUnPasoEnterToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^  escena2ToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^  depuraciónF1ToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^  escena3ToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^  colaToolStripMenuItem;
+
+
+	private: System::Windows::Forms::ToolStripMenuItem^  contornosToolStripMenuItem;
+
+	private: System::Windows::Forms::ToolStripMenuItem^  activarBoundingBoxToolStripMenuItem;
 
 	private: System::ComponentModel::IContainer^  components;
 
@@ -102,10 +107,14 @@ namespace WinCliOpenGL {
 			this->accionesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->activarTimerToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->moverUnPasoEnterToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->activarBoundingBoxToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->escenasToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->escena1ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->escena2ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->escena3ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->depuraciónF1ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->colaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->contornosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
@@ -123,8 +132,8 @@ namespace WinCliOpenGL {
 			// 
 			// accionesToolStripMenuItem
 			// 
-			this->accionesToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {this->activarTimerToolStripMenuItem, 
-				this->moverUnPasoEnterToolStripMenuItem});
+			this->accionesToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {this->activarTimerToolStripMenuItem, 
+				this->moverUnPasoEnterToolStripMenuItem, this->activarBoundingBoxToolStripMenuItem});
 			this->accionesToolStripMenuItem->Name = L"accionesToolStripMenuItem";
 			this->accionesToolStripMenuItem->Size = System::Drawing::Size(67, 22);
 			this->accionesToolStripMenuItem->Text = L"Acciones";
@@ -144,10 +153,18 @@ namespace WinCliOpenGL {
 			this->moverUnPasoEnterToolStripMenuItem->Text = L"Mover un paso (Enter)";
 			this->moverUnPasoEnterToolStripMenuItem->Click += gcnew System::EventHandler(this, &WFormGL::moverUnPasoEnterToolStripMenuItem_Click);
 			// 
+			// activarBoundingBoxToolStripMenuItem
+			// 
+			this->activarBoundingBoxToolStripMenuItem->CheckOnClick = true;
+			this->activarBoundingBoxToolStripMenuItem->Name = L"activarBoundingBoxToolStripMenuItem";
+			this->activarBoundingBoxToolStripMenuItem->Size = System::Drawing::Size(191, 22);
+			this->activarBoundingBoxToolStripMenuItem->Text = L"Activar bounding box";
+			this->activarBoundingBoxToolStripMenuItem->Click += gcnew System::EventHandler(this, &WFormGL::activarBoundingBoxToolStripMenuItem_Click);
+			// 
 			// escenasToolStripMenuItem
 			// 
-			this->escenasToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {this->escena1ToolStripMenuItem, 
-				this->escena2ToolStripMenuItem});
+			this->escenasToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {this->escena1ToolStripMenuItem, 
+				this->escena2ToolStripMenuItem, this->escena3ToolStripMenuItem});
 			this->escenasToolStripMenuItem->Name = L"escenasToolStripMenuItem";
 			this->escenasToolStripMenuItem->Size = System::Drawing::Size(60, 22);
 			this->escenasToolStripMenuItem->Text = L"Escenas";
@@ -155,24 +172,48 @@ namespace WinCliOpenGL {
 			// escena1ToolStripMenuItem
 			// 
 			this->escena1ToolStripMenuItem->Name = L"escena1ToolStripMenuItem";
-			this->escena1ToolStripMenuItem->Size = System::Drawing::Size(119, 22);
+			this->escena1ToolStripMenuItem->Size = System::Drawing::Size(152, 22);
 			this->escena1ToolStripMenuItem->Text = L"Escena 1";
 			this->escena1ToolStripMenuItem->Click += gcnew System::EventHandler(this, &WFormGL::escena1ToolStripMenuItem_Click);
 			// 
 			// escena2ToolStripMenuItem
 			// 
 			this->escena2ToolStripMenuItem->Name = L"escena2ToolStripMenuItem";
-			this->escena2ToolStripMenuItem->Size = System::Drawing::Size(119, 22);
+			this->escena2ToolStripMenuItem->Size = System::Drawing::Size(152, 22);
 			this->escena2ToolStripMenuItem->Text = L"Escena 2";
 			this->escena2ToolStripMenuItem->Click += gcnew System::EventHandler(this, &WFormGL::escena2ToolStripMenuItem_Click);
+			// 
+			// escena3ToolStripMenuItem
+			// 
+			this->escena3ToolStripMenuItem->Name = L"escena3ToolStripMenuItem";
+			this->escena3ToolStripMenuItem->Size = System::Drawing::Size(152, 22);
+			this->escena3ToolStripMenuItem->Text = L"Escena 3";
+			this->escena3ToolStripMenuItem->Click += gcnew System::EventHandler(this, &WFormGL::escena3ToolStripMenuItem_Click);
 			// 
 			// depuraciónF1ToolStripMenuItem
 			// 
 			this->depuraciónF1ToolStripMenuItem->CheckOnClick = true;
+			this->depuraciónF1ToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {this->colaToolStripMenuItem, 
+				this->contornosToolStripMenuItem});
 			this->depuraciónF1ToolStripMenuItem->Name = L"depuraciónF1ToolStripMenuItem";
 			this->depuraciónF1ToolStripMenuItem->Size = System::Drawing::Size(80, 22);
 			this->depuraciónF1ToolStripMenuItem->Text = L"Depuración";
-			this->depuraciónF1ToolStripMenuItem->Click += gcnew System::EventHandler(this, &WFormGL::depuraciónF1ToolStripMenuItem_Click);
+			// 
+			// colaToolStripMenuItem
+			// 
+			this->colaToolStripMenuItem->CheckOnClick = true;
+			this->colaToolStripMenuItem->Name = L"colaToolStripMenuItem";
+			this->colaToolStripMenuItem->Size = System::Drawing::Size(152, 22);
+			this->colaToolStripMenuItem->Text = L"Cola";
+			this->colaToolStripMenuItem->Click += gcnew System::EventHandler(this, &WFormGL::colaToolStripMenuItem_Click);
+			// 
+			// contornosToolStripMenuItem
+			// 
+			this->contornosToolStripMenuItem->CheckOnClick = true;
+			this->contornosToolStripMenuItem->Name = L"contornosToolStripMenuItem";
+			this->contornosToolStripMenuItem->Size = System::Drawing::Size(152, 22);
+			this->contornosToolStripMenuItem->Text = L"Contornos";
+			this->contornosToolStripMenuItem->Click += gcnew System::EventHandler(this, &WFormGL::contornosToolStripMenuItem_Click);
 			// 
 			// timer1
 			// 
@@ -190,7 +231,7 @@ namespace WinCliOpenGL {
 			this->MaximizeBox = false;
 			this->Name = L"WFormGL";
 			this->Text = L"IGr - Practica 2";
-			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &WFormGL::WFormGL_FormClosing);
+			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &WFormGL::WFormGL_FormClosing_1);
 			this->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &WFormGL::WFormGL_Paint);
 			this->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &WFormGL::WFormGL_KeyPress);
 			this->Resize += gcnew System::EventHandler(this, &WFormGL::WFormGL_Resize);
@@ -246,7 +287,29 @@ private: System::Void WFormGL_KeyPress(System::Object^  sender, System::Windows:
 				GLScene();
 			}
 		 }
-private: System::Void escena1ToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) { scene->initScene(1); GLScene();}
+private: System::Void escena1ToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) { scene->initScene(1); GLScene();
+		 if (this->timer1->Enabled){
+				 this->timer1->Enabled = false;
+				 this->activarTimerToolStripMenuItem->Checked = false;
+				 this->moverUnPasoEnterToolStripMenuItem->Enabled = true;
+			 }
+		 }
+private: System::Void escena2ToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) { scene->initScene(2); GLScene();
+		 if (this->timer1->Enabled){
+				 this->timer1->Enabled = false;
+				 this->activarTimerToolStripMenuItem->Checked = false;
+				 this->moverUnPasoEnterToolStripMenuItem->Enabled = true;
+			 }
+		 }
+private: System::Void escena3ToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) { scene->initScene(3); GLScene();
+		 if (this->timer1->Enabled){
+				 this->timer1->Enabled = false;
+				 this->activarTimerToolStripMenuItem->Checked = false;
+				 this->moverUnPasoEnterToolStripMenuItem->Enabled = true;
+			 }
+		 }
+
+
 private: System::Void activarTimerToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
 			this->timer1->Enabled = ! this->timer1->Enabled;
             scene->step();
@@ -261,9 +324,7 @@ private: System::Void moverUnPasoEnterToolStripMenuItem_Click(System::Object^  s
 			 scene->step();
 			 GLScene();
 		 }
-private: System::Void escena2ToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) { scene->initScene(2); GLScene();}
-private: System::Void depuraciónF1ToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) { debugActive = !debugActive; GLScene();
-		 }
+
 private: System::Void WFormGL_FormClosing(System::Object^  sender, System::Windows::Forms::FormClosingEventArgs^  e) {
 			 if (MessageBox::Show("¿Quieres cerrar el programa?", "IGr",
 								  MessageBoxButtons::YesNo, MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes){
@@ -272,5 +333,28 @@ private: System::Void WFormGL_FormClosing(System::Object^  sender, System::Windo
 				 e->Cancel = true;
 			 }
 		 }
+
+
+private: System::Void activarBoundingBoxToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+			 scene->activeBB(this->activarBoundingBoxToolStripMenuItem->Checked);
+			 GLScene();
+			 if (this->timer1->Enabled){
+				 this->timer1->Enabled = false;
+				 this->activarTimerToolStripMenuItem->Checked = false;
+				 this->moverUnPasoEnterToolStripMenuItem->Enabled = true;
+			 }
+		 }
+
+private: System::Void WFormGL_FormClosing_1(System::Object^  sender, System::Windows::Forms::FormClosingEventArgs^  e) {
+			 if (MessageBox::Show("¿Quieres cerrar el programa?", "IGr",
+								  MessageBoxButtons::YesNo, MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes){
+				Application::Exit();
+			 } else {
+				 e->Cancel = true;
+			 }
+
+		 }
+private: System::Void colaToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {GLScene();}
+private: System::Void contornosToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {GLScene();}
 };
 }

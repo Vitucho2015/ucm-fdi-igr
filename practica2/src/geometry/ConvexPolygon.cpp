@@ -101,7 +101,7 @@ ConvexPolygon* ConvexPolygon::createBoundingBox(double dist){
 	int n = vertex.size();
 	PV2D p1,p2;
 	for (int i=0;i<n;i++){
-		j = (i+2)%n;
+		j = (i+n-1)%n;
 		p1 = *normal[j]; p1.scale(dist); p1 = *vertex[i]+p1;
 		p2 = *normal[i]; p2.scale(dist); p2 = *vertex[i]+p2;
 		tmp = createArc(vertex[i],&p1,&p2);
