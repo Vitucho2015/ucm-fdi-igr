@@ -94,8 +94,6 @@ void Scene::render(bool debug, bool debug_ball){
 	} else {
 		if (debug) for (Obstacle* o: b_obstacles) o->render(debug);
 	}
-		
-	
 }
 
 void Scene::initBall(){
@@ -140,11 +138,13 @@ void Scene::initScene(int i){
 
 	RGBColor c_tri(17,15,115);
 	RGBColor c_circ(0,77,0);
+	RGBColor c_elli(100,30,172);
 	//nextCirc->setColor(new RGBColor(66,14,156));
 	//nextTri->setColor(new RGBColor(125,50,0));
 
 	switch (i){
 		case 1:		
+			
 			nextTri = new Triangle(new PV2D(100,0),new PV2D(200,0),new PV2D(200,50));
 			nextTri->setColor(new RGBColor(c_tri));
 			obstacles.push_back(nextTri);
@@ -168,8 +168,12 @@ void Scene::initScene(int i){
 			nextCirc = new Circle(new PV2D(450,200), 10);
 			nextCirc->setColor(new RGBColor(c_circ));
 			obstacles.push_back(nextCirc);
+			
+			e = new Elipse(new PV2D(100,80),50,20);
+			e->setColor(new RGBColor(c_elli));
+			obstacles.push_back(e);
 
-			e = new Elipse(new PV2D(100,100),50,20);
+			e = new Elipse(new PV2D(400,200),10,40);
 			e->setColor(new RGBColor(c_circ));
 			obstacles.push_back(e);
 
@@ -230,9 +234,38 @@ void Scene::initScene(int i){
 			nextTri->setColor(new RGBColor(200,200,200));
 			obstacles.push_back(nextTri);
 
-			nextTri = new Triangle(new PV2D(xR-xL-100,(yT-yB)*0.75+5), new PV2D(xR-xL-95,(yT-yB)*0.75-5), new PV2D(xR-xL-105,(yT-yB)*0.75-5));
+			nextTri = new Triangle(new PV2D(xR-xL-95,(yT-yB)*0.75-5), new PV2D(xR-xL-100,(yT-yB)*0.75+5), new PV2D(xR-xL-105,(yT-yB)*0.75-5));
 			nextTri->setColor(new RGBColor(200,200,200));
 			obstacles.push_back(nextTri);
+
+			break;
+
+
+		case 4:
+
+			e = new Elipse(new PV2D(250,125),50,70);
+			e->setColor(new RGBColor(c_elli));
+			obstacles.push_back(e);
+
+			nextCirc = new Circle(new PV2D(230,200), 25);			
+			nextCirc->setColor(new RGBColor(c_circ));
+			obstacles.push_back(nextCirc);
+
+			nextCirc = new Circle(new PV2D(270,200), 25);			
+			nextCirc->setColor(new RGBColor(c_circ));
+			obstacles.push_back(nextCirc);
+
+			nextTri = new Triangle(new PV2D(230,190), new PV2D(250,160), new PV2D(270,190));
+			nextTri->setColor(new RGBColor(20,30,40));
+			obstacles.push_back(nextTri);
+
+			e = new Elipse(new PV2D(200,55),50,10);
+			e->setColor(new RGBColor(c_elli));
+			obstacles.push_back(e);
+
+			e = new Elipse(new PV2D(300,55),50,10);
+			e->setColor(new RGBColor(c_elli));
+			obstacles.push_back(e);
 
 			break;
 	}

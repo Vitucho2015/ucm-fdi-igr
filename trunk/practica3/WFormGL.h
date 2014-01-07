@@ -92,6 +92,7 @@ namespace WinCliOpenGL {
 	private: System::Windows::Forms::ToolStripMenuItem^  contornosToolStripMenuItem;
 
 	private: System::Windows::Forms::ToolStripMenuItem^  activarBoundingBoxToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^  escena4ToolStripMenuItem;
 
 	private: System::ComponentModel::IContainer^  components;
 
@@ -116,6 +117,7 @@ namespace WinCliOpenGL {
 			this->colaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->contornosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
+			this->escena4ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -163,8 +165,8 @@ namespace WinCliOpenGL {
 			// 
 			// escenasToolStripMenuItem
 			// 
-			this->escenasToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {this->escena1ToolStripMenuItem, 
-				this->escena2ToolStripMenuItem, this->escena3ToolStripMenuItem});
+			this->escenasToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {this->escena1ToolStripMenuItem, 
+				this->escena2ToolStripMenuItem, this->escena3ToolStripMenuItem, this->escena4ToolStripMenuItem});
 			this->escenasToolStripMenuItem->Name = L"escenasToolStripMenuItem";
 			this->escenasToolStripMenuItem->Size = System::Drawing::Size(60, 22);
 			this->escenasToolStripMenuItem->Text = L"Escenas";
@@ -203,7 +205,7 @@ namespace WinCliOpenGL {
 			// 
 			this->colaToolStripMenuItem->CheckOnClick = true;
 			this->colaToolStripMenuItem->Name = L"colaToolStripMenuItem";
-			this->colaToolStripMenuItem->Size = System::Drawing::Size(152, 22);
+			this->colaToolStripMenuItem->Size = System::Drawing::Size(130, 22);
 			this->colaToolStripMenuItem->Text = L"Cola";
 			this->colaToolStripMenuItem->Click += gcnew System::EventHandler(this, &WFormGL::colaToolStripMenuItem_Click);
 			// 
@@ -211,7 +213,7 @@ namespace WinCliOpenGL {
 			// 
 			this->contornosToolStripMenuItem->CheckOnClick = true;
 			this->contornosToolStripMenuItem->Name = L"contornosToolStripMenuItem";
-			this->contornosToolStripMenuItem->Size = System::Drawing::Size(152, 22);
+			this->contornosToolStripMenuItem->Size = System::Drawing::Size(130, 22);
 			this->contornosToolStripMenuItem->Text = L"Contornos";
 			this->contornosToolStripMenuItem->Click += gcnew System::EventHandler(this, &WFormGL::contornosToolStripMenuItem_Click);
 			// 
@@ -219,6 +221,13 @@ namespace WinCliOpenGL {
 			// 
 			this->timer1->Interval = 20;
 			this->timer1->Tick += gcnew System::EventHandler(this, &WFormGL::timer1_Tick);
+			// 
+			// escena4ToolStripMenuItem
+			// 
+			this->escena4ToolStripMenuItem->Name = L"escena4ToolStripMenuItem";
+			this->escena4ToolStripMenuItem->Size = System::Drawing::Size(152, 22);
+			this->escena4ToolStripMenuItem->Text = L"Escena 4";
+			this->escena4ToolStripMenuItem->Click += gcnew System::EventHandler(this, &WFormGL::escena4ToolStripMenuItem_Click);
 			// 
 			// WFormGL
 			// 
@@ -356,5 +365,12 @@ private: System::Void WFormGL_FormClosing_1(System::Object^  sender, System::Win
 		 }
 private: System::Void colaToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {GLScene();}
 private: System::Void contornosToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {GLScene();}
+private: System::Void escena4ToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) { scene->initScene(4); GLScene();
+		 if (this->timer1->Enabled){
+				 this->timer1->Enabled = false;
+				 this->activarTimerToolStripMenuItem->Checked = false;
+				 this->moverUnPasoEnterToolStripMenuItem->Enabled = true;
+			 }		 
+		 }
 };
 }

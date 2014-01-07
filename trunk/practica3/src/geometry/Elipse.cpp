@@ -26,12 +26,18 @@ bool Elipse::collisionDetection(PV2D* p, PV2D* v, double& tIn, PV2D*& normalIn){
 	bool ret;
 	PV2D p_tmp = PV2D(*p);
 	PV2D v_tmp = PV2D(*v);
-	p_tmp.scale(1/width,1/height);
-	v_tmp.scale(1/width,1/height);
 	p_tmp.translate(-center->x, -center->y);
-	v_tmp.translate(-center->x, -center->y);
+	//v_tmp.translate(-center->x, -center->y);
+	p_tmp.scale(1.0/width,1.0/height);
+	v_tmp.scale(1.0/width,1.0/height);
 	
+
+	
+	PV2D center_tmp = PV2D(*center);
+	center->x = 0; center->y = 0;
 	ret = Circle::collisionDetection(&p_tmp,&v_tmp,tIn,normalIn);
+	center->x = center_tmp.x; center->y = center_tmp.y;
+	if (ret) normalIn->scale(height,width);
 	return ret;
 }
 
