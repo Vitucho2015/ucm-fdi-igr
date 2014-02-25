@@ -1,5 +1,6 @@
 #pragma once
 #include "pixmap.h"
+
 class PixmapRGB :
 public Pixmap
 {
@@ -13,5 +14,7 @@ public:
 	PixmapRGB* weightedMean(double k, PixmapRGB* p);
 	PixmapRGB* arithmeticMean(PixmapRGB* p);
 	PixmapRGB* difference(PixmapRGB* p);
+
+	unsigned char* toY();
 };
 

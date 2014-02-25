@@ -15,6 +15,15 @@ void PixmapRGB::setPixel(int row, int col, RGBColor* color){
 	
 }
 
+unsigned char* PixmapRGB::toY(){
+	unsigned char* ret = new unsigned char [1*nRows*nCols];
+	
+	for (int i=0;i<(1*nRows*nCols);i+=3){
+			ret[i] = 0.299*matrix[3*i] + 0.587*matrix[3*i+1] + 0.114*matrix[3*i+2];
+	}
+
+	return ret;
+}
 
 PixmapRGB* PixmapRGB::weightedMean(double k, PixmapRGB* p){
 
@@ -37,16 +46,7 @@ PixmapRGB* PixmapRGB::arithmeticMean(PixmapRGB* p){
 }
 
 PixmapRGB* PixmapRGB::difference(PixmapRGB* p){
-	int maxRows, maxCols;
-	maxRows = (this->nRows > p->nRows? this->nRows : p->nRows); 
-	maxCols = (this->nCols > p->nCols? this->nCols : p->nCols); 
-	PixmapRGB* ret = new PixmapRGB(maxRows,maxCols);
-
-	for (int i=0;i<nRows;i++){
-		for (int j=0;j<nCols;j++){
-			ret->setPixel(i,j,this->getPixel(i,j)->difference(p->getPixel(i,j)));
-		}
-	}
-
-	return ret;
+	unsigned char* m1 = this->toY();
+	unsigned char* m2 = this->toY();
+	return NULL;
 }

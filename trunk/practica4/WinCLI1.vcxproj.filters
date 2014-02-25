@@ -51,9 +51,6 @@
     <ClCompile Include="src\textures\PixmapRGB.cpp">
       <Filter>Source Files\Textures</Filter>
     </ClCompile>
-    <ClCompile Include="src\textures\PixmapY.cpp">
-      <Filter>Source Files\Textures</Filter>
-    </ClCompile>
     <ClCompile Include="src\textures\TextureLoader.cpp">
       <Filter>Source Files\Textures</Filter>
     </ClCompile>
@@ -93,6 +90,9 @@
     <ClCompile Include="src\textures\TextureSaver.cpp">
       <Filter>Source Files\Textures</Filter>
     </ClCompile>
+    <ClCompile Include="src\textures\PixmapY.cpp">
+      <Filter>Source Files\Textures</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WFormGL.h">
@@ -114,9 +114,6 @@
       <Filter>Header Files\Textures</Filter>
     </ClInclude>
     <ClInclude Include="src\textures\PixmapRGB.h">
-      <Filter>Header Files\Textures</Filter>
-    </ClInclude>
-    <ClInclude Include="src\textures\PixmapY.h">
       <Filter>Header Files\Textures</Filter>
     </ClInclude>
     <ClInclude Include="src\textures\TextureLoader.h">
@@ -159,6 +156,9 @@
       <Filter>Header Files\Geometry</Filter>
     </ClInclude>
     <ClInclude Include="src\textures\TextureSaver.h">
+      <Filter>Header Files\Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="src\textures\PixmapY.h">
       <Filter>Header Files\Textures</Filter>
     </ClInclude>
   </ItemGroup>

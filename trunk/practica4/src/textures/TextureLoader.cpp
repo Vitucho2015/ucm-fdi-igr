@@ -76,7 +76,6 @@ unsigned char * loadBMPRaw(const char * imagepath, unsigned int& outWidth, unsig
 
 	// Read the actual data from the file into the buffer
 	fread(data,1,imageSize,file);
-
 	// Everything is in memory now, the file wan be closed
 	fclose (file);
 

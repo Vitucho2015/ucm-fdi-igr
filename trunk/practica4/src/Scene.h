@@ -32,10 +32,9 @@ private:
 	vector<Obstacle*> b_obstacles;
 	Ball* ball;
 	bool bb_active;
-	PixmapRGB* pixmap;
-	PixmapRGB* pixmap2, *pixmap3;
+	bool showingP3;
+	
 
-	Tree* tree;
 	double rot;
 
 public:
@@ -44,6 +43,10 @@ public:
 
 	double xL,xR,yT,yB;
 
+	
+	PixmapRGB* pixmap;
+	PixmapRGB* pixmap2, *pixmap3;
+	
 	void move(int dir, double percent);
 	void zoom(double factor);
 	
@@ -55,6 +58,9 @@ public:
 	void initBall();
 	void initScene(int i);
 
+	float* gaussianMask(int m, float delta);
+
 	void activeBB(bool bb){bb_active = bb;};
+	void showP3(bool b){showingP3 = b;};
 };
 
