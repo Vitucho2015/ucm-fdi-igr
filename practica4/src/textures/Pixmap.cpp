@@ -46,7 +46,7 @@ void Pixmap::move(int xIn, int yIn, int xOut, int yOut){
 }
 
 void Pixmap::saveBMP(){
-	saveBMPRaw("arbol.bmp",matrix,nRows,nCols);
+	saveBMPRaw("arbol.bmp",matrix,nCols,nRows);
 }
 
 unsigned char Pixmap::getChannelValue(int channel, int row, int col){ 
