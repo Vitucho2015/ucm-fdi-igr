@@ -18,7 +18,7 @@ void PixmapRGB::setPixel(int row, int col, RGBColor* color){
 unsigned char* PixmapRGB::toY(){
 	unsigned char* ret = new unsigned char [1*nRows*nCols];
 	
-	for (int i=0;i<(1*nRows*nCols);i+=3){
+	for (int i=0;i<(1*nRows*nCols);i++){
 			ret[i] = 0.299*matrix[3*i] + 0.587*matrix[3*i+1] + 0.114*matrix[3*i+2];
 	}
 

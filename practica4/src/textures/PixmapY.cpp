@@ -41,3 +41,25 @@ PixmapY* PixmapY::difference(PixmapY* p){
 
 	return ret;
 }
+
+void PixmapY::sobel(int umbral){
+	float mask_gX[] = {1,0,-1,2,0,-2,1,0,-1};
+	float mask_gY[] = {1,2,1,0,0,0,-1,-2,-1};
+	
+	unsigned char* backup = getMatrix();
+
+	applyFilter9(mask_gX);
+	unsigned char* Gx = getMatrix();
+	setMatrix(backup);
+	applyFilter9(mask_gY);
+	unsigned char* Gy = getMatrix();
+
+	int n = nRows*nCols;
+	unsigned char* res = new unsigned char[n];
+	for (int i=0;i<n;i++){
+		if (Gx[i] < 0) Gx[i] = -Gx[i];
+		if (Gy[i] < 0) Gy[i] = -Gy[i];
+		if (Gx[i] + Gy[i] > umbral) res[i] = 255; else res[i] = 0;
+	}
+	setMatrix(res);
+}

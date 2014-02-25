@@ -149,6 +149,15 @@ private: System::Windows::Forms::TextBox^  tB_limit_x;
 private: System::Windows::Forms::TextBox^  tB_limit_y;
 private: System::Windows::Forms::CheckBox^  chk_limits;
 
+private: System::Windows::Forms::ToolStripMenuItem^  aEscalaDeGrisesToolStripMenuItem;
+private: System::Windows::Forms::ToolStripMenuItem^  sobelToolStripMenuItem;
+private: System::Windows::Forms::ToolStripTextBox^  menu_tB_umbral;
+private: System::Windows::Forms::ToolStripMenuItem^  umbralToolStripMenuItem;
+
+
+
+
+
 
 
 	private: System::ComponentModel::IContainer^  components;
@@ -189,6 +198,7 @@ private: System::Windows::Forms::CheckBox^  chk_limits;
 			this->suavizado1ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->guardarEnPixmapToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->cargarPixmapToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->aEscalaDeGrisesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->tB_Xrot = (gcnew System::Windows::Forms::TextBox());
@@ -205,16 +215,19 @@ private: System::Windows::Forms::CheckBox^  chk_limits;
 			this->tB_factor_wm = (gcnew System::Windows::Forms::TextBox());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->tabPage3 = (gcnew System::Windows::Forms::TabPage());
+			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->label8 = (gcnew System::Windows::Forms::Label());
+			this->tB_limit_x = (gcnew System::Windows::Forms::TextBox());
+			this->tB_limit_y = (gcnew System::Windows::Forms::TextBox());
+			this->chk_limits = (gcnew System::Windows::Forms::CheckBox());
 			this->b_gauss = (gcnew System::Windows::Forms::Button());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->tB_gauss_m = (gcnew System::Windows::Forms::TextBox());
 			this->tB_gauss_d = (gcnew System::Windows::Forms::TextBox());
-			this->chk_limits = (gcnew System::Windows::Forms::CheckBox());
-			this->label7 = (gcnew System::Windows::Forms::Label());
-			this->label8 = (gcnew System::Windows::Forms::Label());
-			this->tB_limit_x = (gcnew System::Windows::Forms::TextBox());
-			this->tB_limit_y = (gcnew System::Windows::Forms::TextBox());
+			this->sobelToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->menu_tB_umbral = (gcnew System::Windows::Forms::ToolStripTextBox());
+			this->umbralToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
@@ -377,8 +390,8 @@ private: System::Windows::Forms::CheckBox^  chk_limits;
 			// 
 			// pixmapToolStripMenuItem
 			// 
-			this->pixmapToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {this->abrirDesdeFicheroToolStripMenuItem, 
-				this->operacionesToolStripMenuItem, this->guardarEnPixmapToolStripMenuItem, this->cargarPixmapToolStripMenuItem});
+			this->pixmapToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(5) {this->abrirDesdeFicheroToolStripMenuItem, 
+				this->operacionesToolStripMenuItem, this->guardarEnPixmapToolStripMenuItem, this->cargarPixmapToolStripMenuItem, this->aEscalaDeGrisesToolStripMenuItem});
 			this->pixmapToolStripMenuItem->Name = L"pixmapToolStripMenuItem";
 			this->pixmapToolStripMenuItem->Size = System::Drawing::Size(58, 22);
 			this->pixmapToolStripMenuItem->Text = L"Pixmap";
@@ -392,8 +405,8 @@ private: System::Windows::Forms::CheckBox^  chk_limits;
 			// 
 			// operacionesToolStripMenuItem
 			// 
-			this->operacionesToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {this->mediaPonderadaToolStripMenuItem, 
-				this->diferenciaToolStripMenuItem, this->máscarasToolStripMenuItem});
+			this->operacionesToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {this->mediaPonderadaToolStripMenuItem, 
+				this->diferenciaToolStripMenuItem, this->máscarasToolStripMenuItem, this->sobelToolStripMenuItem});
 			this->operacionesToolStripMenuItem->Name = L"operacionesToolStripMenuItem";
 			this->operacionesToolStripMenuItem->Size = System::Drawing::Size(183, 22);
 			this->operacionesToolStripMenuItem->Text = L"Operaciones";
@@ -438,6 +451,13 @@ private: System::Windows::Forms::CheckBox^  chk_limits;
 			this->cargarPixmapToolStripMenuItem->Size = System::Drawing::Size(183, 22);
 			this->cargarPixmapToolStripMenuItem->Text = L"Cargar";
 			this->cargarPixmapToolStripMenuItem->Click += gcnew System::EventHandler(this, &WFormGL::cargarPixmapToolStripMenuItem_Click);
+			// 
+			// aEscalaDeGrisesToolStripMenuItem
+			// 
+			this->aEscalaDeGrisesToolStripMenuItem->Name = L"aEscalaDeGrisesToolStripMenuItem";
+			this->aEscalaDeGrisesToolStripMenuItem->Size = System::Drawing::Size(183, 22);
+			this->aEscalaDeGrisesToolStripMenuItem->Text = L"A escala de grises";
+			this->aEscalaDeGrisesToolStripMenuItem->Click += gcnew System::EventHandler(this, &WFormGL::aEscalaDeGrisesToolStripMenuItem_Click);
 			// 
 			// timer1
 			// 
@@ -507,7 +527,7 @@ private: System::Windows::Forms::CheckBox^  chk_limits;
 			this->tabPage1->Location = System::Drawing::Point(4, 22);
 			this->tabPage1->Name = L"tabPage1";
 			this->tabPage1->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage1->Size = System::Drawing::Size(161, 201);
+			this->tabPage1->Size = System::Drawing::Size(161, 217);
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"Rotación";
 			this->tabPage1->UseVisualStyleBackColor = true;
@@ -547,7 +567,7 @@ private: System::Windows::Forms::CheckBox^  chk_limits;
 			this->tabPage2->Location = System::Drawing::Point(4, 22);
 			this->tabPage2->Name = L"tabPage2";
 			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage2->Size = System::Drawing::Size(161, 201);
+			this->tabPage2->Size = System::Drawing::Size(161, 217);
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"M.Ponderada";
 			this->tabPage2->UseVisualStyleBackColor = true;
@@ -599,6 +619,53 @@ private: System::Windows::Forms::CheckBox^  chk_limits;
 			this->tabPage3->Text = L"Gauss";
 			this->tabPage3->UseVisualStyleBackColor = true;
 			// 
+			// label7
+			// 
+			this->label7->AutoSize = true;
+			this->label7->Location = System::Drawing::Point(8, 172);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(44, 13);
+			this->label7->TabIndex = 19;
+			this->label7->Text = L"Limite Y";
+			this->label7->Visible = false;
+			// 
+			// label8
+			// 
+			this->label8->AutoSize = true;
+			this->label8->Location = System::Drawing::Point(8, 133);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(44, 13);
+			this->label8->TabIndex = 18;
+			this->label8->Text = L"Limite X";
+			this->label8->Visible = false;
+			// 
+			// tB_limit_x
+			// 
+			this->tB_limit_x->Location = System::Drawing::Point(11, 149);
+			this->tB_limit_x->Name = L"tB_limit_x";
+			this->tB_limit_x->Size = System::Drawing::Size(100, 20);
+			this->tB_limit_x->TabIndex = 16;
+			this->tB_limit_x->Visible = false;
+			// 
+			// tB_limit_y
+			// 
+			this->tB_limit_y->Location = System::Drawing::Point(11, 188);
+			this->tB_limit_y->Name = L"tB_limit_y";
+			this->tB_limit_y->Size = System::Drawing::Size(100, 20);
+			this->tB_limit_y->TabIndex = 17;
+			this->tB_limit_y->Visible = false;
+			// 
+			// chk_limits
+			// 
+			this->chk_limits->AutoSize = true;
+			this->chk_limits->Location = System::Drawing::Point(11, 115);
+			this->chk_limits->Name = L"chk_limits";
+			this->chk_limits->Size = System::Drawing::Size(58, 17);
+			this->chk_limits->TabIndex = 15;
+			this->chk_limits->Text = L"Limites";
+			this->chk_limits->UseVisualStyleBackColor = true;
+			this->chk_limits->CheckedChanged += gcnew System::EventHandler(this, &WFormGL::chk_limits_CheckedChanged);
+			// 
 			// b_gauss
 			// 
 			this->b_gauss->Location = System::Drawing::Point(11, 85);
@@ -643,52 +710,27 @@ private: System::Windows::Forms::CheckBox^  chk_limits;
 			this->tB_gauss_d->TabIndex = 11;
 			this->tB_gauss_d->Text = L"1,5";
 			// 
-			// chk_limits
+			// sobelToolStripMenuItem
 			// 
-			this->chk_limits->AutoSize = true;
-			this->chk_limits->Location = System::Drawing::Point(11, 115);
-			this->chk_limits->Name = L"chk_limits";
-			this->chk_limits->Size = System::Drawing::Size(58, 17);
-			this->chk_limits->TabIndex = 15;
-			this->chk_limits->Text = L"Limites";
-			this->chk_limits->UseVisualStyleBackColor = true;
-			this->chk_limits->CheckedChanged += gcnew System::EventHandler(this, &WFormGL::chk_limits_CheckedChanged);
+			this->sobelToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {this->umbralToolStripMenuItem, 
+				this->menu_tB_umbral});
+			this->sobelToolStripMenuItem->Name = L"sobelToolStripMenuItem";
+			this->sobelToolStripMenuItem->Size = System::Drawing::Size(165, 22);
+			this->sobelToolStripMenuItem->Text = L"Sobel";
+			this->sobelToolStripMenuItem->Click += gcnew System::EventHandler(this, &WFormGL::sobelToolStripMenuItem_Click);
 			// 
-			// label7
+			// menu_tB_umbral
 			// 
-			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(8, 172);
-			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(44, 13);
-			this->label7->TabIndex = 19;
-			this->label7->Text = L"Limite Y";
-			this->label7->Visible = false;
+			this->menu_tB_umbral->Name = L"menu_tB_umbral";
+			this->menu_tB_umbral->Size = System::Drawing::Size(152, 23);
+			this->menu_tB_umbral->Text = L"64";
 			// 
-			// label8
+			// umbralToolStripMenuItem
 			// 
-			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(8, 133);
-			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(44, 13);
-			this->label8->TabIndex = 18;
-			this->label8->Text = L"Limite X";
-			this->label8->Visible = false;
-			// 
-			// tB_limit_x
-			// 
-			this->tB_limit_x->Location = System::Drawing::Point(11, 149);
-			this->tB_limit_x->Name = L"tB_limit_x";
-			this->tB_limit_x->Size = System::Drawing::Size(100, 20);
-			this->tB_limit_x->TabIndex = 16;
-			this->tB_limit_x->Visible = false;
-			// 
-			// tB_limit_y
-			// 
-			this->tB_limit_y->Location = System::Drawing::Point(11, 188);
-			this->tB_limit_y->Name = L"tB_limit_y";
-			this->tB_limit_y->Size = System::Drawing::Size(100, 20);
-			this->tB_limit_y->TabIndex = 17;
-			this->tB_limit_y->Visible = false;
+			this->umbralToolStripMenuItem->Enabled = false;
+			this->umbralToolStripMenuItem->Name = L"umbralToolStripMenuItem";
+			this->umbralToolStripMenuItem->Size = System::Drawing::Size(212, 22);
+			this->umbralToolStripMenuItem->Text = L"Umbral";
 			// 
 			// WFormGL
 			// 
@@ -962,6 +1004,28 @@ private: System::Void chk_limits_CheckedChanged(System::Object^  sender, System:
 			 label8->Visible = chk_limits->Checked;
 			 tB_limit_x->Visible = chk_limits->Checked;
 			 tB_limit_y->Visible = chk_limits->Checked;
+		 }
+private: System::Void sobelToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+			 unsigned char* m1 = scene->pixmap->toY();
+			 PixmapY* pY_1 = new PixmapY(scene->pixmap->getRows(), scene->pixmap->getCols());
+			 pY_1->setMatrix(m1);
+			int umbral = Convert::ToInt32(menu_tB_umbral->Text);
+			 pY_1->sobel(umbral);
+
+			 unsigned char* mRes = pY_1->toRGB();
+			scene->pixmap->setMatrix(mRes);
+
+			GLScene();
+		 }
+private: System::Void aEscalaDeGrisesToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+			 unsigned char* m1 = scene->pixmap->toY();
+			 PixmapY* pY_1 = new PixmapY(scene->pixmap->getRows(), scene->pixmap->getCols());
+			 pY_1->setMatrix(m1);
+			
+			 m1 = pY_1->toRGB();
+			scene->pixmap->setMatrix(m1);
+
+			GLScene();
 		 }
 };
 };
