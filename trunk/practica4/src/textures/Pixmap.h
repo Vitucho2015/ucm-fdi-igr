@@ -17,6 +17,7 @@ public:
 
 	~Pixmap(void);
 
+	unsigned char* getMatrix();
 	void setMatrix(unsigned char* matrix);
 
 	void save(int x, int y);
@@ -39,6 +40,8 @@ public:
 	void applyMask9(float mask[]);
 	void applyMaskm(float mask[], int m);
 	void applyMaskm(float mask[], int m, int limitX, int limitY);
+
+	void applyFilter9(float mask[]);
 	//void applyMask_abs();
 
 protected:

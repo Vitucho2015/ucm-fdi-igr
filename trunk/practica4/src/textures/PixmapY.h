@@ -12,5 +12,6 @@ public:
 
 	unsigned char* toRGB();
 	PixmapY* difference(PixmapY* p);
+	void sobel(int umbral);
 };
 

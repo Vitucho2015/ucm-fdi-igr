@@ -17,6 +17,13 @@ Pixmap::~Pixmap(void){
 	delete matrix;
 }
 
+unsigned char* Pixmap::getMatrix(){
+	int n = nChannels*nRows*nCols;
+	unsigned char* m = new unsigned char[n];
+	for (int i=0;i<n;i++) m[i] = matrix[i];
+	return m;
+}
+
 void Pixmap::setMatrix(unsigned char* matrix){
 	int n = nChannels*nRows*nCols;
 	for (int i=0;i<n;i++) this->matrix[i] = matrix[i];
@@ -134,6 +141,8 @@ void Pixmap::applyMask9(float mask[]){
 	}
 }
 
+
+
 void Pixmap::applyMaskm(float mask[], int m){
 	Pixmap pix_tmp(this->nRows, this->nCols, this->nChannels);
 
@@ -204,3 +213,36 @@ void Pixmap::applyMaskm(float mask[], int m, int limitX, int limitY){
 //void Pixmap::applyMask_median(){}
 //void Pixmap::applyMask_max(){}
 //void Pixmap::applyMask_min(){}
+
+void Pixmap::applyFilter9(float mask[]){
+	Pixmap pix_tmp(this->nRows, this->nCols, this->nChannels);
+
+	float tmp;
+	for (int ch=0;ch<nChannels;ch++){
+		for (int i=0;i<nRows;i++){
+			for (int j=0;j<nCols;j++){
+				tmp = 0;
+				tmp += mask[0]*getChannelValue(ch,i-1,j-1);
+				tmp += mask[1]*getChannelValue(ch,i-1,j);
+				tmp += mask[2]*getChannelValue(ch,i-1,j+1);
+				tmp += mask[3]*getChannelValue(ch,i,j-1);
+				tmp += mask[4]*getChannelValue(ch,i,j);
+				tmp += mask[5]*getChannelValue(ch,i,j+1);
+				tmp += mask[6]*getChannelValue(ch,i+1,j-1);
+				tmp += mask[7]*getChannelValue(ch,i+1,j);
+				tmp += mask[8]*getChannelValue(ch,i+1,j+1);
+				if (tmp < 0) tmp = -tmp;
+				//if (tmp > 255) tmp = 255;
+				pix_tmp.setChannelValue(ch,i,j,(unsigned char) tmp);
+			}
+		}
+	}
+
+	for (int ch=0;ch<nChannels;ch++){
+		for (int u=0;u<nRows;u++){
+			for (int v=0;v<nCols;v++){
+				setChannelValue(ch,u,v,pix_tmp.getChannelValue(ch,u,v));
+			}
+		}
+	}
+}
