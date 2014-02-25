@@ -18,9 +18,28 @@ GLvoid WFormGL::GLScene(){
   glClear(GL_COLOR_BUFFER_BIT/* | GL_DEPTH_BUFFER_BIT*/);	// Clear screen and depth buffer
 
   // comandos para dibujar la escena
-  scene-> render(this->contornosToolStripMenuItem->Checked, this->colaToolStripMenuItem->Checked);
-
+  scene->render(this->contornosToolStripMenuItem->Checked, this->colaToolStripMenuItem->Checked);
   //glFlush();
+  
+  int xPos=0,yPos=0;
+  if (tabPage1->Visible){
+	  if (tB_Xrot->Text != "")  xPos = Convert::ToInt32(tB_Xrot->Text);
+	  if (tB_Yrot->Text != "")	yPos = Convert::ToInt32(tB_Yrot->Text);
+  } else if (tabPage3->Visible && chk_limits->Checked){
+	  if (tB_Xrot->Text != "")  xPos = Convert::ToInt32(tB_limit_x->Text);
+	  if (tB_Yrot->Text != "")	yPos = Convert::ToInt32(tB_limit_y->Text);
+  }
+ 
+  if (xPos != 0 && yPos != 0){
+	double x = scene->xL + ((double)xPos)/1024 * (scene->xR - scene->xL);
+	double y = scene->yB + ((double)yPos)/720 * (scene->yT - scene->yB);
+	glColor3d(1,0,0);
+	glBegin(GL_LINES);
+	glVertex2d(x, scene->yB);	glVertex2d(x, scene->yT);
+	glVertex2d(scene->xL, y);	glVertex2d(scene->xR, y);
+	glEnd();
+  }
+
   nwOpenGL->SwapBuffersGL() ;
 }
 

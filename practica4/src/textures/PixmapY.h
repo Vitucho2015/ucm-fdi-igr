@@ -9,5 +9,8 @@ public:
 
 	RGBColor* getPixel(int row, int col);
 	void setPixel(int row, int col, RGBColor* color);
+
+	unsigned char* toRGB();
+	PixmapY* difference(PixmapY* p);
 };
 

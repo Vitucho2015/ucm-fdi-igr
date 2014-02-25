@@ -11,32 +11,27 @@
 
 Scene::Scene(void)
 {
-	tree = new Tree();
-	tree->initTree(new Square(new PV2D(50,50), 20, 0));
+	float mask_blur[] = {1,2,1,2,4,2,1,2,1};
+	float mask_[] = {-1,-1,-1,-1,9,-1,-1,-1,-1};
+	float mask_gX[] = {1,0,-1,2,0,-2,1,0,-1};
+	float mask_gY[] = {-1,-2,-1,0,0,0,1,2,1};
+	float gaussian_mask[] = {0.0947416,0.118318,0.0947416,0.118318,0.147761,0.118318,0.0947416,0.118318,0.0947416};
+
+	showingP3 = false;
 	
-	for (int i=0;i<14;i++) tree->generateNewLevel();
-
-	pixmap = new PixmapRGB(500, 500);
-	//delete tree; 
-	rot = 0;
-
+	
+	pixmap = new PixmapRGB(0,0);
+	pixmap2 = new PixmapRGB(0,0);
+	
 	srand(time(NULL));
 	initScene(1);
 	initBall();
 	bb_active = false;
 
 	
-	pixmap2 = new PixmapRGB("img_supertopo.bmp");
-
-	//pixmap2->move(150,50, 200, 200);
 	
-	((PixmapRGB*) pixmap2)->rotate(3.141892/2,64,64);
 
-	//float mask[] = {1,2,1,2,4,2,1,2,1};
-	//float mask[] = {-1,-1,-1,-1,9,-1,-1,-1,-1};
-	float mask1[] = {1,0,-1,2,0,-2,1,0,-1};
-	float mask2[] = {-1,-2,-1,0,0,0,1,2,1};
-	float mask[] = {0.0947416,0.118318,0.0947416,0.118318,0.147761,0.118318,0.0947416,0.118318,0.0947416};
+	
 
 	//pixmap->applyMask9(mask);
 	//pixmap2->applyMask9(mask);
@@ -89,50 +84,46 @@ void Scene::zoom(double factor){
 
 void Scene::step(){
 	
-	rot += 0.01;
-	pixmap2->rotate(rot,64,64);
 	//Check Collissions
-	
-	double tIn, tHitG = 2;
-	PV2D *normal, *normalG;
-	bool succL, succG = false;
-	vector<Obstacle*> tmp;
-	if (!bb_active) tmp = obstacles; else tmp = b_obstacles;
-	for (Obstacle* o: tmp){
-		succL = o->collisionDetection(ball->getCenter(), ball->getVel(), tIn, normal);
-		if (succL && tIn > 0 && tIn <= 1){ //TODO: Check range
-			if (tIn < tHitG ){
-				tHitG = tIn;				
-				normalG = normal;
+	if (showingP3){
+		double tIn, tHitG = 2;
+		PV2D *normal, *normalG;
+		bool succL, succG = false;
+		vector<Obstacle*> tmp;
+		if (!bb_active) tmp = obstacles; else tmp = b_obstacles;
+		for (Obstacle* o: tmp){
+			succL = o->collisionDetection(ball->getCenter(), ball->getVel(), tIn, normal);
+			if (succL && tIn > 0 && tIn <= 1){ //TODO: Check range
+				if (tIn < tHitG ){
+					tHitG = tIn;				
+					normalG = normal;
+				}
+				succG |= succL;
 			}
-			succG |= succL;
-		}
 		
-	}
-	if (!succG)
-		ball->step(1);
-	else {
-		ball->step(tHitG);
-		ball->bounce(normalG);
+		}
+		if (!succG)
+			ball->step(1);
+		else {
+			ball->step(tHitG);
+			ball->bounce(normalG);
+		}
 	}
 }
 
 void Scene::render(bool debug, bool debug_ball){
-	/*
-	ball->render(debug_ball);
-	for (Obstacle* o: obstacles) o->render(false);
-	if (!bb_active){
-		if (debug) for (Obstacle* o: obstacles) o->render(debug);
-	} else {
-		if (debug) for (Obstacle* o: b_obstacles) o->render(debug);
+	pixmap->load(0,0);
+	
+	if (showingP3){
+		ball->render(debug_ball);
+		for (Obstacle* o: obstacles) o->render(false);
+		if (!bb_active){
+			if (debug) for (Obstacle* o: obstacles) o->render(debug);
+		} else {
+			if (debug) for (Obstacle* o: b_obstacles) o->render(debug);
+		}
 	}
-	*/
 
-	//pixmap->load(0,0);
-	//pixmap2->load(140,50);
-	//pixmap3->load(280,50);
-	tree->render();
-	pixmap2->load(200,0);
 }
 
 void Scene::initBall(){
@@ -153,14 +144,23 @@ void Scene::initBall(){
 	
 }
 
+float* Scene::gaussianMask(int m, float delta){
+	int tam = (2*m+1)*(2*m+1);
+	float* ret = new float[tam];
+	for (int i=-m;i<=m;i++){
+		for (int j=-m;j<=m;j++){
+			ret[(i+m)*(2*m+1)+(j+m)] = exp(-((i*i+j*j)/(2*delta*delta)));
+		}
+	}
+	return ret;
+}
+
 void Scene::initScene(int i){
 	xL= 0.0;	xR= 500.0;
 	yB= 0.0;	yT= 250.0;
 	if (!obstacles.empty()) obstacles.clear();
 	if (!b_obstacles.empty()) b_obstacles.clear();
 	int offset = 50;
-	tree->render();
-	pixmap->save(0,0);
 	//Room
 	Triangle* nextTri;
 	Circle* nextCirc;
