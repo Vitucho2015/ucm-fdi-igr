@@ -12,6 +12,8 @@ GLvoid WFormGL::InitGL(){
 	//glEnable(GL_DEPTH_TEST);							// Enables depth testing
 	//glDepthFunc(GL_LEQUAL);								// The type of depth testing to do
 	//glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);	// Really nice perspective calculations
+
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
 
 GLvoid WFormGL::GLScene(){

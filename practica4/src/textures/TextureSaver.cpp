@@ -7,6 +7,7 @@ void saveBMPRaw(const char * imagepath, unsigned char * matrix, int width, int h
 	for (int i=0;i<54;i++) header[i] = 0;
 
 	header[0] = 'B'; header[1] = 'M';
+	*(int*)&(header[0x1A]) = 1;
 	*(int*)&(header[0x1E]) = 0;
 	*(int*)&(header[0x1C]) = 24;
 
@@ -20,12 +21,8 @@ void saveBMPRaw(const char * imagepath, unsigned char * matrix, int width, int h
 	if (!file) {printf("Image could not be opened\n"); return;}
 
 	fwrite(header,1,54,file);
-	/*
-	for (int i=0;i<3*width*height;i+=3){
-		unsigned char m[4] = {matrix[i],matrix[i+1],matrix[i+2],0};
-		fwrite(m,1,4,file);
-	}
-	*/
+	
 	fwrite(matrix,1,3*width*height,file);
+	
 	fclose(file);
 }
