@@ -153,6 +153,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  aEscalaDeGrisesToolStripMen
 private: System::Windows::Forms::ToolStripMenuItem^  sobelToolStripMenuItem;
 private: System::Windows::Forms::ToolStripTextBox^  menu_tB_umbral;
 private: System::Windows::Forms::ToolStripMenuItem^  umbralToolStripMenuItem;
+private: System::Windows::Forms::ToolStripMenuItem^  sobelBlendingToolStripMenuItem;
 
 
 
@@ -196,6 +197,9 @@ private: System::Windows::Forms::ToolStripMenuItem^  umbralToolStripMenuItem;
 			this->diferenciaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->máscarasToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->suavizado1ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->sobelToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->umbralToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->menu_tB_umbral = (gcnew System::Windows::Forms::ToolStripTextBox());
 			this->guardarEnPixmapToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->cargarPixmapToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->aEscalaDeGrisesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -225,9 +229,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  umbralToolStripMenuItem;
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->tB_gauss_m = (gcnew System::Windows::Forms::TextBox());
 			this->tB_gauss_d = (gcnew System::Windows::Forms::TextBox());
-			this->sobelToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->menu_tB_umbral = (gcnew System::Windows::Forms::ToolStripTextBox());
-			this->umbralToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->sobelBlendingToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
@@ -405,8 +407,8 @@ private: System::Windows::Forms::ToolStripMenuItem^  umbralToolStripMenuItem;
 			// 
 			// operacionesToolStripMenuItem
 			// 
-			this->operacionesToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {this->mediaPonderadaToolStripMenuItem, 
-				this->diferenciaToolStripMenuItem, this->máscarasToolStripMenuItem, this->sobelToolStripMenuItem});
+			this->operacionesToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(5) {this->mediaPonderadaToolStripMenuItem, 
+				this->diferenciaToolStripMenuItem, this->máscarasToolStripMenuItem, this->sobelToolStripMenuItem, this->sobelBlendingToolStripMenuItem});
 			this->operacionesToolStripMenuItem->Name = L"operacionesToolStripMenuItem";
 			this->operacionesToolStripMenuItem->Size = System::Drawing::Size(183, 22);
 			this->operacionesToolStripMenuItem->Text = L"Operaciones";
@@ -437,6 +439,28 @@ private: System::Windows::Forms::ToolStripMenuItem^  umbralToolStripMenuItem;
 			this->suavizado1ToolStripMenuItem->Name = L"suavizado1ToolStripMenuItem";
 			this->suavizado1ToolStripMenuItem->Size = System::Drawing::Size(136, 22);
 			this->suavizado1ToolStripMenuItem->Text = L"Suavizado 1";
+			// 
+			// sobelToolStripMenuItem
+			// 
+			this->sobelToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {this->umbralToolStripMenuItem, 
+				this->menu_tB_umbral});
+			this->sobelToolStripMenuItem->Name = L"sobelToolStripMenuItem";
+			this->sobelToolStripMenuItem->Size = System::Drawing::Size(165, 22);
+			this->sobelToolStripMenuItem->Text = L"Sobel";
+			this->sobelToolStripMenuItem->Click += gcnew System::EventHandler(this, &WFormGL::sobelToolStripMenuItem_Click);
+			// 
+			// umbralToolStripMenuItem
+			// 
+			this->umbralToolStripMenuItem->Enabled = false;
+			this->umbralToolStripMenuItem->Name = L"umbralToolStripMenuItem";
+			this->umbralToolStripMenuItem->Size = System::Drawing::Size(212, 22);
+			this->umbralToolStripMenuItem->Text = L"Umbral";
+			// 
+			// menu_tB_umbral
+			// 
+			this->menu_tB_umbral->Name = L"menu_tB_umbral";
+			this->menu_tB_umbral->Size = System::Drawing::Size(152, 23);
+			this->menu_tB_umbral->Text = L"64";
 			// 
 			// guardarEnPixmapToolStripMenuItem
 			// 
@@ -710,27 +734,12 @@ private: System::Windows::Forms::ToolStripMenuItem^  umbralToolStripMenuItem;
 			this->tB_gauss_d->TabIndex = 11;
 			this->tB_gauss_d->Text = L"1,5";
 			// 
-			// sobelToolStripMenuItem
+			// sobelBlendingToolStripMenuItem
 			// 
-			this->sobelToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {this->umbralToolStripMenuItem, 
-				this->menu_tB_umbral});
-			this->sobelToolStripMenuItem->Name = L"sobelToolStripMenuItem";
-			this->sobelToolStripMenuItem->Size = System::Drawing::Size(165, 22);
-			this->sobelToolStripMenuItem->Text = L"Sobel";
-			this->sobelToolStripMenuItem->Click += gcnew System::EventHandler(this, &WFormGL::sobelToolStripMenuItem_Click);
-			// 
-			// menu_tB_umbral
-			// 
-			this->menu_tB_umbral->Name = L"menu_tB_umbral";
-			this->menu_tB_umbral->Size = System::Drawing::Size(152, 23);
-			this->menu_tB_umbral->Text = L"64";
-			// 
-			// umbralToolStripMenuItem
-			// 
-			this->umbralToolStripMenuItem->Enabled = false;
-			this->umbralToolStripMenuItem->Name = L"umbralToolStripMenuItem";
-			this->umbralToolStripMenuItem->Size = System::Drawing::Size(212, 22);
-			this->umbralToolStripMenuItem->Text = L"Umbral";
+			this->sobelBlendingToolStripMenuItem->Name = L"sobelBlendingToolStripMenuItem";
+			this->sobelBlendingToolStripMenuItem->Size = System::Drawing::Size(165, 22);
+			this->sobelBlendingToolStripMenuItem->Text = L"Sobel + Blending";
+			this->sobelBlendingToolStripMenuItem->Click += gcnew System::EventHandler(this, &WFormGL::sobelBlendingToolStripMenuItem_Click);
 			// 
 			// WFormGL
 			// 
@@ -1026,6 +1035,25 @@ private: System::Void aEscalaDeGrisesToolStripMenuItem_Click(System::Object^  se
 			scene->pixmap->setMatrix(m1);
 
 			GLScene();
+		 }
+private: System::Void sobelBlendingToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+			 unsigned char* m1 = scene->pixmap->toY();
+			 PixmapY* pY_1 = new PixmapY(scene->pixmap->getRows(), scene->pixmap->getCols());
+			 pY_1->setMatrix(m1);
+			int umbral = Convert::ToInt32(menu_tB_umbral->Text);
+			 pY_1->sobel(umbral);
+
+			 unsigned char* mRes = pY_1->toRGB();
+			 delete scene->pixmap2;
+			 scene->pixmap2 = new PixmapRGB(scene->pixmap->getRows(), scene->pixmap->getCols());
+			scene->pixmap2->setMatrix(mRes);
+			scene->pixmap->arithmeticMean(scene->pixmap2);
+
+			//glEnable(GL_BLEND);
+
+			GLScene();
+
+
 		 }
 };
 };
