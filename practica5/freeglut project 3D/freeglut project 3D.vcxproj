@@ -11,7 +11,17 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\elements\Face.cpp" />
+    <ClCompile Include="..\src\elements\Mesh.cpp" />
+    <ClCompile Include="..\src\elements\Pair_VertexNormal.cpp" />
+    <ClCompile Include="..\src\elements\PV3D.cpp" />
     <ClCompile Include="..\src\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\elements\Face.h" />
+    <ClInclude Include="..\src\elements\Mesh.h" />
+    <ClInclude Include="..\src\elements\Pair_VertexNormal.h" />
+    <ClInclude Include="..\src\elements\PV3D.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{7B0BFFD4-F43D-4F20-B1CE-F95EB35AB0A4}</ProjectGuid>
