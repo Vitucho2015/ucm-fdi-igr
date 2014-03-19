@@ -15,10 +15,12 @@ protected:
 
 public:
 	Mesh(void);
+	Mesh(int numVertex);
 	~Mesh(void);
 	void render();
 	PV3D* getNormalVector_Newell(Face* face);
-
+	void extrude(int face, PV3D* dist);
+	
 	
 };
 

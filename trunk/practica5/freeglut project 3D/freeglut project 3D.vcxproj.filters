@@ -24,9 +24,6 @@
     <ClCompile Include="..\src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\elements\PV3D.cpp">
-      <Filter>Source Files\Elements</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\elements\Face.cpp">
       <Filter>Source Files\Elements</Filter>
     </ClCompile>
@@ -36,18 +33,27 @@
     <ClCompile Include="..\src\elements\Pair_VertexNormal.cpp">
       <Filter>Source Files\Elements</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\elements\PV3D.cpp">
+      <Filter>Source Files\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\elements\Polygon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\src\elements\Pair_VertexNormal.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\elements\Face.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Elements</Filter>
     </ClInclude>
     <ClInclude Include="..\src\elements\Mesh.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\elements\Pair_VertexNormal.h">
+      <Filter>Header Files\Elements</Filter>
     </ClInclude>
     <ClInclude Include="..\src\elements\PV3D.h">
+      <Filter>Header Files\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\elements\Polygon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -5,6 +5,15 @@ Mesh::Mesh(void)
 {
 }
 
+Mesh::Mesh(int numVertex){
+	this->numVertex = numVertex;
+	vertex = new PV3D*[numVertex];
+	this->numNormals = numVertex;
+	normal = new PV3D*[numVertex];
+	this->numFaces = 1;
+	face = new Face*[1];
+	face[0] = new Face();
+}
 
 Mesh::~Mesh(void)
 {
