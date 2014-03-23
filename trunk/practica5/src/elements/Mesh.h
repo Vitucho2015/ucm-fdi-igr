@@ -1,26 +1,45 @@
 #pragma once
 
+#include <vector>
 #include <Windows.h>
 #include <gl/GL.h>
 
 #include "PV3D.h"
 #include "Face.h"
 
+
+using namespace std;
+
 class Mesh
 {
 protected:
-	int numVertex, numFaces, numNormals;
-	PV3D** vertex, **normal;
-	Face** face;
+	vector<PV3D*> vertex, normal;
+	vector<Face*> face;
+
+	bool filled;
 
 public:
 	Mesh(void);
-	Mesh(int numVertex);
 	~Mesh(void);
+	Mesh* clone();
+
 	void render();
-	PV3D* getNormalVector_Newell(Face* face);
+	PV3D* getNormalVector_Newell(int face_i);
+
 	void extrude(int face, PV3D* dist);
-	
-	
+
+	void addPolygon(Mesh* p);
+	void addMesh(Mesh* p);
+
+	void translate(PV3D* dir);
+
+	vector<PV3D*> getVertex()	{return vertex;};
+	vector<PV3D*> getNormal()	{return normal;};
+	vector<Face*> getFace()		{return face;};
+	bool isFilled() { return filled;};
+	void setVertex(vector<PV3D*> vs)	{vertex = vector<PV3D*>(); for (PV3D* v : vs) vertex.push_back(v->clone());};
+	void setNormal(vector<PV3D*> ns)	{normal = vector<PV3D*>(); for (PV3D* n : ns) normal.push_back(n->clone());};
+	void setFace(vector<Face*> fs)		{face	= vector<Face*>(); for (Face* f : fs) face.push_back(f->clone());};
+	void setFilled(bool b)				{filled = b;};
 };
 

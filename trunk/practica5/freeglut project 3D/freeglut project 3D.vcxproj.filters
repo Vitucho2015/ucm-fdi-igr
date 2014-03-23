@@ -37,6 +37,18 @@
       <Filter>Source Files\Elements</Filter>
     </ClCompile>
     <ClCompile Include="..\src\elements\Polygon.cpp">
+      <Filter>Source Files\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\elements\CurveP5.cpp">
+      <Filter>Source Files\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\elements\ParametricCurve.cpp">
+      <Filter>Source Files\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\elements\RegularPolygon.cpp">
+      <Filter>Source Files\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\elements\RollerCoaster.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -54,6 +66,18 @@
       <Filter>Header Files\Elements</Filter>
     </ClInclude>
     <ClInclude Include="..\src\elements\Polygon.h">
+      <Filter>Header Files\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\elements\CurveP5.h">
+      <Filter>Header Files\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\elements\ParametricCurve.h">
+      <Filter>Header Files\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\elements\RegularPolygon.h">
+      <Filter>Header Files\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\elements\RollerCoaster.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

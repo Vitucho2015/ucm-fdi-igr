@@ -1,11 +1,13 @@
 #include "PV3D.h"
 
 
-PV3D::PV3D(void)
-{
+PV3D::PV3D(void) {
 	x = 0; y = 0; z = 0;
 }
 
+PV3D::PV3D(GLdouble x, GLdouble y, GLdouble z) {
+	this->x = x; this->y = y; this->z = z;
+}
 
 PV3D::~PV3D(void)
 {
@@ -45,3 +47,5 @@ PV3D* PV3D::cross(PV3D* v){
 	return ret;
 
 }
+
+PV3D* PV3D::clone(){ return new PV3D(x,y,z); }
