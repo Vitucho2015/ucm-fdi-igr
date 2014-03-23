@@ -1,9 +1,18 @@
 #pragma once
 #include "Mesh.h"
-class Polygon : public Mesh
-{
+class Polygon : public Mesh {
+
+protected:
+	bool isClosed;
+
 public:
-	Polygon(void) : Mesh(5){};
+	Polygon(void);
 	~Polygon(void);
+
+	void addVertex(PV3D* v);
+	void close();
+
+	Mesh* extrude(PV3D* dir);
+	Mesh* extrude(Polygon* p);
 };
 

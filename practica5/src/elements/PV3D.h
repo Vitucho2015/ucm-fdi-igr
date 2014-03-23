@@ -12,7 +12,8 @@ struct PV3D
 	GLdouble x, y, z;
 	int pv;
 
-	PV3D(void);
+	PV3D();
+	PV3D(GLdouble x, GLdouble y, GLdouble z);
 	~PV3D(void);
 	PV3D* clone();
 	
@@ -26,5 +27,7 @@ struct PV3D
 	GLdouble dot(PV3D* v);
 	PV3D* cross(PV3D* v);
 
+	void plus(PV3D* v){ x += v->x; y += v->y; z += v->z; }
+	void minus(PV3D* v){ x -= v->x; y -= v->y; z -= v->z; }
 };
 

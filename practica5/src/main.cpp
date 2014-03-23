@@ -5,6 +5,9 @@
 #include <GL/freeglut.h>
 //#include <GL/glut.h>
 
+#include "elements\RegularPolygon.h"
+#include "elements\RollerCoaster.h"
+
 #include <iostream>
 using namespace std;
 
@@ -16,14 +19,37 @@ using namespace std;
 int WIDTH= 500, HEIGHT= 500;
 
 // Viewing frustum parameters
-GLdouble xRight=10, xLeft=-xRight, yTop=10, yBot=-yTop, N=1, F=1000;
+GLdouble xRight=5, xLeft=-xRight, yTop=5, yBot=-yTop, N=1, F=1000;
 
 // Camera parameters
 GLdouble eyeX=100.0, eyeY=100.0, eyeZ=100.0;
 GLdouble lookX=0.0, lookY=0.0, lookZ=0.0;
 GLdouble upX=0, upY=1, upZ=0;
 
+RegularPolygon* rp, *rp2;
+Mesh* mesh;
+RollerCoaster* rc;
+
+
 void initGL() {	 		 
+
+	rp = new RegularPolygon(4,5);
+	//mesh = rp->extrude(new PV3D(0.0,0.0,-30.0));
+	rp2 = new RegularPolygon(4, 7);
+	rp2->translate(new PV3D(0.0,0.0,-3.0));
+	mesh = rp->extrude(rp2);
+
+	rp = rp2;
+
+	rp2 = new RegularPolygon(4, 10);
+	rp2->translate(new PV3D(0.0,0.0,-9.0));
+
+	//mesh->setFilled(true);
+	mesh->addMesh(rp->extrude(rp2));
+
+	rc = new RollerCoaster(30, 30);
+	//rc->setFilled(true);
+
 	glClearColor(0.6f,0.7f,0.8f,1.0);
     glEnable(GL_LIGHTING);    
 
@@ -77,7 +103,13 @@ void display(void) {
 	glEnd();
 
 	glColor3f(1.0, 1.0, 1.0);
-	glutSolidSphere(3, 30, 30);
+	//glutSolidSphere(3, 30, 30);
+
+	//rp->render();
+	//rp2->render();
+	//mesh->render();
+	rc->render();
+	//glutSolidCube(5);
 
 	glFlush();
 	glutSwapBuffers();
@@ -161,7 +193,7 @@ int main(int argc, char *argv[]){
 	glutMainLoop(); 
   
 	// We would never reach this point using classic glut
-	system("PAUSE"); 
+	//system("PAUSE"); 
    
 	return 0;
 }
