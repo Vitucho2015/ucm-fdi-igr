@@ -150,7 +150,13 @@ void key(unsigned char key, int x, int y){
 			//continue_in_main_loop = false; // (**)
 			//Freeglut's sentence for stopping glut's main loop (*)
 			glutLeaveMainLoop (); 
-			break;		 			 
+			break;		
+		case 'g':
+			rc->setFilled(true);
+			break;
+		case 'h':
+			rc->setFilled(false);
+			break;
 		default:
 			need_redisplay = false;
 			break;

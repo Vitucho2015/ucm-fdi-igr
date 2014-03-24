@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\elements\CurveCirc.cpp" />
     <ClCompile Include="..\src\elements\CurveP5.cpp" />
     <ClCompile Include="..\src\elements\Face.cpp" />
     <ClCompile Include="..\src\elements\Mesh.cpp" />
@@ -23,6 +24,7 @@
     <ClCompile Include="..\src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\src\elements\CurveCirc.h" />
     <ClInclude Include="..\src\elements\CurveP5.h" />
     <ClInclude Include="..\src\elements\Face.h" />
     <ClInclude Include="..\src\elements\Mesh.h" />
