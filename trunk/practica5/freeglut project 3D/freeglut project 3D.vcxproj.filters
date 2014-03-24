@@ -51,6 +51,9 @@
     <ClCompile Include="..\src\elements\RollerCoaster.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\elements\CurveCirc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\elements\Face.h">
@@ -78,6 +81,9 @@
       <Filter>Header Files\Elements</Filter>
     </ClInclude>
     <ClInclude Include="..\src\elements\RollerCoaster.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\elements\CurveCirc.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
