@@ -2,7 +2,8 @@
 
 
 Mesh::Mesh(void){
-	filled = false;
+	render_filled = false;
+	render_normals = false;
 }
 
 
@@ -15,7 +16,7 @@ void Mesh::render(){
 	glColor3f(0,0,1);
 	for (int i=0; i<face.size();i++){
 		glLineWidth(1.0);
-		filled ? glBegin(GL_POLYGON) : glBegin(GL_LINE_LOOP);
+		render_filled ? glBegin(GL_POLYGON) : glBegin(GL_LINE_LOOP);
 		for (int j=0; j<face[i]->getNumVertex(); j++) {
 			int iN = face[i]->getVertexNormal(j).normalIndex;
 			int iV = face[i]->getVertexNormal(j).vertexIndex;
@@ -27,6 +28,7 @@ void Mesh::render(){
 	}
 	
 	//Normals
+	if (render_normals){
 	PV3D *tmp, *center, *n;
 	glColor3f(1,0,0);
 	for (int i=0; i<face.size();i++){
@@ -37,13 +39,14 @@ void Mesh::render(){
 			tmp->scale(1.0/face[i]->getNumVertex());
 			center->plus(tmp);
 		}
-		glBegin(GL_LINE);
+		glBegin(GL_LINES);
 			glVertex3f(center->x, center->y, center->z);
 			n = normal[face[i]->getVertexNormal(0).normalIndex];
 			glVertex3f(center->x + n->x, center->y + n->y, center->z + n->z);
 		glEnd();
 	}
 	glColor3f(0,0,1);
+	}
 	
 }
 
@@ -60,6 +63,7 @@ PV3D* Mesh::getNormalVector_Newell(int face_i){
 		n->z += (currVertex->x - nextVertex->x) * (currVertex->y + nextVertex->y);
 	}
 	n->normalize();
+	n->scale(-1);
 	return n;
 }
 

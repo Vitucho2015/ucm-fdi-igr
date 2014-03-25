@@ -36,25 +36,8 @@ RollerCoaster* rc;
 
 void initGL() {	 		 
 
-	rp = new RegularPolygon(4,1);
+	rc = new RollerCoaster(30, 100);
 	
-	/*
-	//mesh = rp->extrude(new PV3D(0.0,0.0,-30.0));
-	rp2 = new RegularPolygon(4, 7);
-	rp2->translate(new PV3D(0.0,0.0,-3.0));
-	mesh = rp->extrude(rp2);
-
-	//rp = rp2;
-
-	rp2 = new RegularPolygon(4, 10);
-	rp2->translate(new PV3D(0.0,0.0,-9.0));
-	
-	//mesh->setFilled(true);
-	//mesh->addMesh(rp->extrude(rp2));
-	*/
-	rc = new RollerCoaster(30, 50);
-	//rc->setFilled(true);
-
 	glClearColor(0.6f,0.7f,0.8f,1.0);
     glEnable(GL_LIGHTING);    
 
@@ -90,8 +73,15 @@ void initGL() {
  }
 
 void display(void) {
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+	gluLookAt(eyeX, eyeY, eyeZ, lookX, lookY, lookZ, upX, upY, upZ);
+
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);  
 
+	glRotatef(rot_x,1.0,0.0,0.0);
+	glRotatef(rot_y,0.0,1.0,0.0);
+	glRotatef(rot_z,0.0,0.0,1.0);
 	// Drawing axes
 	glBegin( GL_LINES );
 		glColor3f(1.0,0.0,0.0); 
@@ -107,23 +97,14 @@ void display(void) {
 		glVertex3f(0, 0, 20);	     
 	glEnd();
 
-	glPushMatrix();
-	glRotated(rot_x,1,0,0);
-	glRotated(rot_y,0,1,0);
-	glRotated(rot_z,0,0,1);
 
-	glColor3f(1.0, 1.0, 1.0);
-	//glutSolidSphere(3, 30, 30);
 
-	//rp->render();
-	//rp2->render();
-	//mesh->render();
 	rc->render();
-	//glutSolidCube(5);
 
+	
 	glFlush();
 	glutSwapBuffers();
-	glPopMatrix();
+	
 }
 
 
@@ -156,43 +137,41 @@ void resize(int newWidth, int newHeight) {
 
 void key(unsigned char key, int x, int y){
 	bool need_redisplay = true;
-	cout << "Pulsado: "<< key << endl;
 	switch (key) {
 		case 27:  /* Escape key */
 			//continue_in_main_loop = false; // (**)
 			//Freeglut's sentence for stopping glut's main loop (*)
 			glutLeaveMainLoop (); 
 			break;		
-
+			
 		//Eje X
-		case 'n' : rot_x += 0.1; break;
-		case 'm' : rot_x -= 0.1; break;
+		case 'n' : rot_x += 1; if (rot_x>360) rot_x -= 360; break;
+		case 'm' : rot_x -= 1; if (rot_x<0) rot_x += 360; break;
 		
 		//Eje Y
-		case 'v' : break;
-		case 'b' : break;
+		case 'v' : rot_y += 1; if (rot_y>360) rot_y -= 360; break;
+		case 'b' : rot_y -= 1; if (rot_y<0) rot_y += 360; break;
 
 		//Eje Z
-		case 'a': break;
-		case 'z': break;
+		case 'a': rot_z += 1; if (rot_z>360) rot_z -= 360; break;
+		case 'z': rot_z -= 1; if (rot_z<0) rot_z += 360; break;
 
 		//Avance coche
 		case 'q': break;
 		case 'w': break;
 
 		//Relleno Mesh
-		case 'g': rc->setFilled(true); break;
-		case 'h': rc->setFilled(false); break;
+		case 'g': rc->setRender_Filled(true); break;
+		case 'h': rc->setRender_Filled(false); break;
 
 		//Pintar normales
-		case 'j': break;
-		case 'k': break;
+		case 'j': rc->setRender_Normals(true); break;
+		case 'k': rc->setRender_Normals(false); break;
 
 		default:
 			need_redisplay = false;
 			break;
 	}
-	display();
 	if (need_redisplay)
 		glutPostRedisplay();
 }
