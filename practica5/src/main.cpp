@@ -26,6 +26,9 @@ GLdouble eyeX=100.0, eyeY=100.0, eyeZ=100.0;
 GLdouble lookX=0.0, lookY=0.0, lookZ=0.0;
 GLdouble upX=0, upY=1, upZ=0;
 
+GLdouble rot_x=0, rot_y=0, rot_z=0;
+
+
 RegularPolygon* rp, *rp2;
 Mesh* mesh;
 RollerCoaster* rc;
@@ -33,21 +36,23 @@ RollerCoaster* rc;
 
 void initGL() {	 		 
 
-	rp = new RegularPolygon(4,5);
+	rp = new RegularPolygon(4,1);
+	
+	/*
 	//mesh = rp->extrude(new PV3D(0.0,0.0,-30.0));
 	rp2 = new RegularPolygon(4, 7);
 	rp2->translate(new PV3D(0.0,0.0,-3.0));
 	mesh = rp->extrude(rp2);
 
-	rp = rp2;
+	//rp = rp2;
 
 	rp2 = new RegularPolygon(4, 10);
 	rp2->translate(new PV3D(0.0,0.0,-9.0));
-
+	
 	//mesh->setFilled(true);
-	mesh->addMesh(rp->extrude(rp2));
-
-	rc = new RollerCoaster(30, 30);
+	//mesh->addMesh(rp->extrude(rp2));
+	*/
+	rc = new RollerCoaster(30, 50);
 	//rc->setFilled(true);
 
 	glClearColor(0.6f,0.7f,0.8f,1.0);
@@ -102,6 +107,11 @@ void display(void) {
 		glVertex3f(0, 0, 20);	     
 	glEnd();
 
+	glPushMatrix();
+	glRotated(rot_x,1,0,0);
+	glRotated(rot_y,0,1,0);
+	glRotated(rot_z,0,0,1);
+
 	glColor3f(1.0, 1.0, 1.0);
 	//glutSolidSphere(3, 30, 30);
 
@@ -113,6 +123,7 @@ void display(void) {
 
 	glFlush();
 	glutSwapBuffers();
+	glPopMatrix();
 }
 
 
@@ -145,23 +156,43 @@ void resize(int newWidth, int newHeight) {
 
 void key(unsigned char key, int x, int y){
 	bool need_redisplay = true;
+	cout << "Pulsado: "<< key << endl;
 	switch (key) {
 		case 27:  /* Escape key */
 			//continue_in_main_loop = false; // (**)
 			//Freeglut's sentence for stopping glut's main loop (*)
 			glutLeaveMainLoop (); 
 			break;		
-		case 'g':
-			rc->setFilled(true);
-			break;
-		case 'h':
-			rc->setFilled(false);
-			break;
+
+		//Eje X
+		case 'n' : rot_x += 0.1; break;
+		case 'm' : rot_x -= 0.1; break;
+		
+		//Eje Y
+		case 'v' : break;
+		case 'b' : break;
+
+		//Eje Z
+		case 'a': break;
+		case 'z': break;
+
+		//Avance coche
+		case 'q': break;
+		case 'w': break;
+
+		//Relleno Mesh
+		case 'g': rc->setFilled(true); break;
+		case 'h': rc->setFilled(false); break;
+
+		//Pintar normales
+		case 'j': break;
+		case 'k': break;
+
 		default:
 			need_redisplay = false;
 			break;
 	}
-
+	display();
 	if (need_redisplay)
 		glutPostRedisplay();
 }
