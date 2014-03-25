@@ -11,9 +11,11 @@ Mesh::~Mesh(void)
 }
 
 void Mesh::render(){
+	//Faces
+	glColor3f(0,0,1);
 	for (int i=0; i<face.size();i++){
 		glLineWidth(1.0);
-		if (filled) glBegin(GL_POLYGON); else glBegin(GL_LINE_LOOP);
+		filled ? glBegin(GL_POLYGON) : glBegin(GL_LINE_LOOP);
 		for (int j=0; j<face[i]->getNumVertex(); j++) {
 			int iN = face[i]->getVertexNormal(j).normalIndex;
 			int iV = face[i]->getVertexNormal(j).vertexIndex;
@@ -23,6 +25,26 @@ void Mesh::render(){
 		}
 		glEnd();
 	}
+	
+	//Normals
+	PV3D *tmp, *center, *n;
+	glColor3f(1,0,0);
+	for (int i=0; i<face.size();i++){
+		center = new PV3D();
+		for (int j=0; j<face[i]->getNumVertex(); j++) {
+			int iV = face[i]->getVertexNormal(j).vertexIndex;
+			tmp = vertex[iV]->clone();
+			tmp->scale(1.0/face[i]->getNumVertex());
+			center->plus(tmp);
+		}
+		glBegin(GL_LINE);
+			glVertex3f(center->x, center->y, center->z);
+			n = normal[face[i]->getVertexNormal(0).normalIndex];
+			glVertex3f(center->x + n->x, center->y + n->y, center->z + n->z);
+		glEnd();
+	}
+	glColor3f(0,0,1);
+	
 }
 
 

@@ -41,7 +41,8 @@ PV3D* PV3D::cross(PV3D* v){
 
 	PV3D* ret = new PV3D();
 	ret->x = this->y * v->z - this->z * v->y;
-	ret->y = this->x * v->z - this->z * v->x;
+	//ret->y = this->x * v->z - this->z * v->x;
+	ret->y = this->z * v->x - this->x * v->z;
 	ret->z = this->x * v->y - this->y * v->x;
 	ret->normalize();
 	return ret;

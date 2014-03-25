@@ -1,30 +1,5 @@
-﻿Compilación iniciada a las 23/03/2014 15:42:47.
-     1>Proyecto "D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\freeglut project 3D.vcxproj" en el nodo 2 (Build destinos).
-     1>ClCompile:
-         D:\Aplicaciones\Programacion\IDEs\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut\include\\" /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt ..\src\elements\RollerCoaster.cpp
-         RollerCoaster.cpp
-     1>d:\xavi\workspaces\visual studio 2012\igr\practica5\src\elements\rollercoaster.cpp(17): warning C4244: '=' : conversión de 'GLdouble' a 'float'; posible pérdida de datos
-     1>d:\xavi\workspaces\visual studio 2012\igr\practica5\src\elements\rollercoaster.cpp(18): warning C4244: '=' : conversión de 'GLdouble' a 'float'; posible pérdida de datos
-     1>d:\xavi\workspaces\visual studio 2012\igr\practica5\src\elements\rollercoaster.cpp(19): warning C4244: '=' : conversión de 'GLdouble' a 'float'; posible pérdida de datos
-     1>d:\xavi\workspaces\visual studio 2012\igr\practica5\src\elements\rollercoaster.cpp(26): warning C4244: '=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>d:\xavi\workspaces\visual studio 2012\igr\practica5\src\elements\rollercoaster.cpp(33): warning C4244: '=' : conversión de 'GLdouble' a 'float'; posible pérdida de datos
-     1>d:\xavi\workspaces\visual studio 2012\igr\practica5\src\elements\rollercoaster.cpp(34): warning C4244: '=' : conversión de 'GLdouble' a 'float'; posible pérdida de datos
-     1>d:\xavi\workspaces\visual studio 2012\igr\practica5\src\elements\rollercoaster.cpp(35): warning C4244: '=' : conversión de 'GLdouble' a 'float'; posible pérdida de datos
-       Link:
-         D:\Aplicaciones\Programacion\IDEs\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\Debug\practica5.exe" /INCREMENTAL /NOLOGO /LIBPATH:"D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut\lib\\" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\Debug\practica5.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\Debug\practica5.lib" /MACHINE:X86 Debug\CurveCirc.obj
-         Debug\CurveP5.obj
-         Debug\Face.obj
-         Debug\Mesh.obj
-         Debug\Pair_VertexNormal.obj
-         Debug\ParametricCurve.obj
-         Debug\Polygon.obj
-         Debug\PV3D.obj
-         Debug\RegularPolygon.obj
-         Debug\RollerCoaster.obj
-         Debug\main.obj
-         freeglut project 3D.vcxproj -> D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\Debug\practica5.exe
-     1>Compilación del proyecto terminada "D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\freeglut project 3D.vcxproj" (Build destinos).
+﻿Build started 25/03/2014 14:23:37.
 
-Compilación correcta.
+Build succeeded.
 
-Tiempo transcurrido 00:00:01.28
+Time Elapsed 00:00:00.03
