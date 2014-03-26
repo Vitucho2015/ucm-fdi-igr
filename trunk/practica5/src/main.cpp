@@ -7,6 +7,8 @@
 
 #include "elements\RegularPolygon.h"
 #include "elements\RollerCoaster.h"
+#include "elements\Wheel.h"
+#include "elements\Car.h"
 
 #include <iostream>
 using namespace std;
@@ -29,15 +31,14 @@ GLdouble upX=0, upY=1, upZ=0;
 GLdouble rot_x=0, rot_y=0, rot_z=0;
 
 
-RegularPolygon* rp, *rp2;
-Mesh* mesh;
 RollerCoaster* rc;
-
+Car* car;
 
 void initGL() {	 		 
 
-	rc = new RollerCoaster(30, 100);
-	
+	rc = new RollerCoaster(20, 25);
+	car = new Car(200);
+
 	glClearColor(0.6f,0.7f,0.8f,1.0);
     glEnable(GL_LIGHTING);    
 
@@ -82,6 +83,7 @@ void display(void) {
 	glRotatef(rot_x,1.0,0.0,0.0);
 	glRotatef(rot_y,0.0,1.0,0.0);
 	glRotatef(rot_z,0.0,0.0,1.0);
+	
 	// Drawing axes
 	glBegin( GL_LINES );
 		glColor3f(1.0,0.0,0.0); 
@@ -96,12 +98,10 @@ void display(void) {
 		glVertex3f(0, 0, 0);
 		glVertex3f(0, 0, 20);	     
 	glEnd();
-
-
-
-	rc->render();
-
 	
+	rc->render();
+	car->render();
+
 	glFlush();
 	glutSwapBuffers();
 	
@@ -144,21 +144,13 @@ void key(unsigned char key, int x, int y){
 			glutLeaveMainLoop (); 
 			break;		
 			
-		//Eje X
-		case 'n' : rot_x += 1; if (rot_x>360) rot_x -= 360; break;
-		case 'm' : rot_x -= 1; if (rot_x<0) rot_x += 360; break;
-		
-		//Eje Y
-		case 'v' : rot_y += 1; if (rot_y>360) rot_y -= 360; break;
-		case 'b' : rot_y -= 1; if (rot_y<0) rot_y += 360; break;
-
 		//Eje Z
 		case 'a': rot_z += 1; if (rot_z>360) rot_z -= 360; break;
 		case 'z': rot_z -= 1; if (rot_z<0) rot_z += 360; break;
 
 		//Avance coche
-		case 'q': break;
-		case 'w': break;
+		case 'q': car->stepBackward(); break;
+		case 'w': car->stepForward(); break;
 
 		//Relleno Mesh
 		case 'g': rc->setRender_Filled(true); break;
@@ -168,9 +160,30 @@ void key(unsigned char key, int x, int y){
 		case 'j': rc->setRender_Normals(true); break;
 		case 'k': rc->setRender_Normals(false); break;
 
+		case 'r': rot_x = 0; rot_y = 0; rot_z = 0; break;
 		default:
 			need_redisplay = false;
 			break;
+	}
+	if (need_redisplay)
+		glutPostRedisplay();
+}
+
+void special(int key, int x, int y){
+	bool need_redisplay = true;
+	switch(key) {
+
+	//Eje X
+	case GLUT_KEY_UP:		rot_x -= 1; if (rot_x<0) rot_x += 360;		break;
+	case GLUT_KEY_DOWN:		rot_x += 1; if (rot_x>360) rot_x -= 360;	break;
+
+	//Eje Y
+	case GLUT_KEY_LEFT:		rot_y -= 1; if (rot_y<0) rot_y += 360;		break;
+	case GLUT_KEY_RIGHT:	rot_y += 1; if (rot_y>360) rot_y -= 360;	break;
+
+	default:
+		need_redisplay = false;
+		break;
 	}
 	if (need_redisplay)
 		glutPostRedisplay();
@@ -193,6 +206,7 @@ int main(int argc, char *argv[]){
 	// Callback registration
 	glutReshapeFunc(resize);
 	glutKeyboardFunc(key);
+	glutSpecialFunc(special);
 	glutDisplayFunc(display);
 
 	// OpenGL basic setting

@@ -13,7 +13,7 @@ Mesh::~Mesh(void)
 
 void Mesh::render(){
 	//Faces
-	glColor3f(0,0,1);
+	//glColor3f(0,0,1);
 	for (int i=0; i<face.size();i++){
 		glLineWidth(1.0);
 		render_filled ? glBegin(GL_POLYGON) : glBegin(GL_LINE_LOOP);
@@ -63,7 +63,6 @@ PV3D* Mesh::getNormalVector_Newell(int face_i){
 		n->z += (currVertex->x - nextVertex->x) * (currVertex->y + nextVertex->y);
 	}
 	n->normalize();
-	n->scale(-1);
 	return n;
 }
 

@@ -14,5 +14,7 @@ public:
 	PV3D* B(float t);
 	PV3D* T(float t);
 	PV3D* N(float t);
+
+	GLdouble* getFrenetMatrix(float t);
 };
 
