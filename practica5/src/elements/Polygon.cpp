@@ -1,3 +1,6 @@
+/**
+	Autor: Xavier Gallofré Nieva
+*/
 #include "Polygon.h"
 
 Polygon::Polygon(void){
@@ -79,14 +82,14 @@ Mesh* Polygon::extrude(Polygon* p, bool divCenter){
 			f = new Face(3);
 			f->setVertex(0,j);
 			f->setVertex(1,(j+1)%N);			
-			f->setVertex(2,j+N);
+			f->setVertex(2,(j+1)%N+N);
 			f->setNormal(j);
 			face_.push_back(f);
 
 			f = new Face(3);
-			f->setVertex(0,(j+1)%N);			
-			f->setVertex(1,(j+1)%N+N);
-			f->setVertex(2,j+N);
+			f->setVertex(0,(j+1)%N+N);			
+			f->setVertex(1,j+N);
+			f->setVertex(2,j);
 			f->setNormal(j);
 			face_.push_back(f);
 			

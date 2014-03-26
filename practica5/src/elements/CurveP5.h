@@ -1,3 +1,6 @@
+/**
+	Autor: Xavier Gallofré Nieva
+*/
 #pragma once
 #include "parametriccurve.h"
 class CurveP5 : public ParametricCurve {

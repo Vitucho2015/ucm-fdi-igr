@@ -1,3 +1,6 @@
+/**
+	Autor: Xavier Gallofré Nieva
+*/
 #include "CurveCirc.h"
 
 PV3D* CurveCirc::C(float t){
