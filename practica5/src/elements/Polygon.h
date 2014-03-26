@@ -14,5 +14,7 @@ public:
 
 	Mesh* extrude(PV3D* dir);
 	Mesh* extrude(Polygon* p);
+	Mesh* extrude(Polygon* p, bool divCenter);
+	
 };
 

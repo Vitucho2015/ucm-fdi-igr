@@ -33,6 +33,13 @@ void PV3D::scale(GLdouble kx, GLdouble ky, GLdouble kz){
 	this->z *= kz;
 }
 
+GLdouble PV3D::angle(PV3D* v){
+	GLdouble cos_tv = this->dot(v);
+	cos_tv = cos_tv / (this->mod() * v->mod());
+	cos_tv = cosh(cos_tv) / (2*PI) * 360.0;
+	return cos_tv;
+}
+
 GLdouble PV3D::dot(PV3D* v){
 	return this->x * v->x + this->y * v->y + this->z * v->z;
 }
@@ -41,7 +48,6 @@ PV3D* PV3D::cross(PV3D* v){
 
 	PV3D* ret = new PV3D();
 	ret->x = this->y * v->z - this->z * v->y;
-	//ret->y = this->x * v->z - this->z * v->x;
 	ret->y = this->z * v->x - this->x * v->z;
 	ret->z = this->x * v->y - this->y * v->x;
 	ret->normalize();

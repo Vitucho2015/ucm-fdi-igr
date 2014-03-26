@@ -23,7 +23,9 @@ struct PV3D
 	void scale(GLdouble kx, GLdouble ky, GLdouble kz);
 	
 	//angles
-	
+	GLdouble angle(PV3D* v);
+
+
 	GLdouble dot(PV3D* v);
 	PV3D* cross(PV3D* v);
 
