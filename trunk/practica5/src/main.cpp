@@ -1,3 +1,8 @@
+/**
+	Autor: Xavier Gallofré Nieva
+*/
+
+
 #include <Windows.h>
 #include <gl/GL.h>
 #include <gl/GLU.h>
@@ -36,7 +41,7 @@ Car* car;
 
 void initGL() {	 		 
 
-	rc = new RollerCoaster(20, 25);
+	rc = new RollerCoaster(30, 150);
 	car = new Car(200);
 
 	glClearColor(0.6f,0.7f,0.8f,1.0);
@@ -99,6 +104,7 @@ void display(void) {
 		glVertex3f(0, 0, 20);	     
 	glEnd();
 	
+	glColor3f(0.0,1.0,0.0);
 	rc->render();
 	car->render();
 

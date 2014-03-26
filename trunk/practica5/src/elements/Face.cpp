@@ -1,3 +1,6 @@
+/**
+	Autor: Xavier Gallofré Nieva
+*/
 #include "Face.h"
 
 

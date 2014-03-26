@@ -1,3 +1,6 @@
+/**
+	Autor: Xavier Gallofré Nieva
+*/
 #pragma once
 
 #include "PV3D.h"

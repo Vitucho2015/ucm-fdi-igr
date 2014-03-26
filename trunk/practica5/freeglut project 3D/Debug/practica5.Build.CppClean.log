@@ -1,105 +1,45 @@
-D:\XAVI\WORKSPACES\VISUAL STUDIO 2012\IGR\PRACTICA5\FREEGLUT PROJECT 3D\DEBUG\CURVEP5.OBJ
-D:\XAVI\WORKSPACES\VISUAL STUDIO 2012\IGR\PRACTICA5\FREEGLUT PROJECT 3D\DEBUG\FACE.OBJ
-D:\XAVI\WORKSPACES\VISUAL STUDIO 2012\IGR\PRACTICA5\FREEGLUT PROJECT 3D\DEBUG\MESH.OBJ
-D:\XAVI\WORKSPACES\VISUAL STUDIO 2012\IGR\PRACTICA5\FREEGLUT PROJECT 3D\DEBUG\PAIR_VERTEXNORMAL.OBJ
-D:\XAVI\WORKSPACES\VISUAL STUDIO 2012\IGR\PRACTICA5\FREEGLUT PROJECT 3D\DEBUG\PARAMETRICCURVE.OBJ
-D:\XAVI\WORKSPACES\VISUAL STUDIO 2012\IGR\PRACTICA5\FREEGLUT PROJECT 3D\DEBUG\POLYGON.OBJ
-D:\XAVI\WORKSPACES\VISUAL STUDIO 2012\IGR\PRACTICA5\FREEGLUT PROJECT 3D\DEBUG\PV3D.OBJ
-D:\XAVI\WORKSPACES\VISUAL STUDIO 2012\IGR\PRACTICA5\FREEGLUT PROJECT 3D\DEBUG\REGULARPOLYGON.OBJ
-D:\XAVI\WORKSPACES\VISUAL STUDIO 2012\IGR\PRACTICA5\FREEGLUT PROJECT 3D\DEBUG\ROLLERCOASTER.OBJ
-D:\XAVI\WORKSPACES\VISUAL STUDIO 2012\IGR\PRACTICA5\FREEGLUT PROJECT 3D\DEBUG\MAIN.OBJ
-D:\XAVI\WORKSPACES\VISUAL STUDIO 2012\IGR\PRACTICA5\FREEGLUT PROJECT 3D\DEBUG\VC110.PDB
-D:\XAVI\WORKSPACES\VISUAL STUDIO 2012\IGR\PRACTICA5\FREEGLUT PROJECT 3D\DEBUG\CURVECIRC.OBJ
-D:\XAVI\WORKSPACES\VISUAL STUDIO 2012\IGR\PRACTICA5\FREEGLUT PROJECT 3D\DEBUG\CAR.OBJ
-D:\XAVI\WORKSPACES\VISUAL STUDIO 2012\IGR\PRACTICA5\FREEGLUT PROJECT 3D\DEBUG\WHEEL.OBJ
-D:\XAVI\WORKSPACES\VISUAL STUDIO 2012\IGR\PRACTICA5\DEBUG\PRACTICA5.ILK
-D:\XAVI\WORKSPACES\VISUAL STUDIO 2012\IGR\PRACTICA5\DEBUG\PRACTICA5.EXE
-D:\XAVI\WORKSPACES\VISUAL STUDIO 2012\IGR\PRACTICA5\DEBUG\PRACTICA5.PDB
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\Car.obj
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\CurveCirc.obj
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\CurveP5.obj
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\Face.obj
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\main.obj
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\Mesh.obj
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\Pair_VertexNormal.obj
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\ParametricCurve.obj
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\Polygon.obj
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\PV3D.obj
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\RegularPolygon.obj
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\RollerCoaster.obj
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\Wheel.obj
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\cl.command.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\CL.read.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\CL.write.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link-cvtres.read.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link-cvtres.write.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link-rc.read.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link-rc.write.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.1552-cvtres.read.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.1552-cvtres.write.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.1552-rc.read.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.1552-rc.write.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.1552.read.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.1552.write.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.1960-cvtres.read.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.1960-cvtres.write.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.1960-rc.read.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.1960-rc.write.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.1960.read.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.1960.write.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.2224-cvtres.read.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.2224-cvtres.write.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.2224-rc.read.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.2224-rc.write.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.2224.read.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.2224.write.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.3860-cvtres.read.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.3860-cvtres.write.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.3860-rc.read.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.3860-rc.write.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.3860.read.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.3860.write.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.3864-cvtres.read.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.3864-cvtres.write.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.3864-rc.read.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.3864-rc.write.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.3864.read.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.3864.write.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.4888-cvtres.read.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.4888-cvtres.write.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.4888-rc.read.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.4888-rc.write.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.4888.read.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.4888.write.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.5776-cvtres.read.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.5776-cvtres.write.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.5776-rc.read.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.5776-rc.write.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.5776.read.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.5776.write.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.7544-cvtres.read.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.7544-cvtres.write.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.7544-rc.read.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.7544-rc.write.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.7544.read.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.7544.write.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.7548-cvtres.read.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.7548-cvtres.write.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.7548-rc.read.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.7548-rc.write.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.7548.read.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.7548.write.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.7692-cvtres.read.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.7692-cvtres.write.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.7692-rc.read.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.7692-rc.write.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.7692.read.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.7692.write.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.command.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.read.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\link.write.1.tlog
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\vc110.idb
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\freeglut project 3D\Debug\vc110.pdb
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\Debug\practica5.pdb
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\Debug\practica5.exe
-D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica5\Debug\practica5.ilk
+C:\HLOCAL\IGR\PRACTICA5\FREEGLUT PROJECT 3D\DEBUG\CAR.OBJ
+C:\HLOCAL\IGR\PRACTICA5\FREEGLUT PROJECT 3D\DEBUG\CURVECIRC.OBJ
+C:\HLOCAL\IGR\PRACTICA5\FREEGLUT PROJECT 3D\DEBUG\CURVEP5.OBJ
+C:\HLOCAL\IGR\PRACTICA5\FREEGLUT PROJECT 3D\DEBUG\FACE.OBJ
+C:\HLOCAL\IGR\PRACTICA5\FREEGLUT PROJECT 3D\DEBUG\MESH.OBJ
+C:\HLOCAL\IGR\PRACTICA5\FREEGLUT PROJECT 3D\DEBUG\PAIR_VERTEXNORMAL.OBJ
+C:\HLOCAL\IGR\PRACTICA5\FREEGLUT PROJECT 3D\DEBUG\PARAMETRICCURVE.OBJ
+C:\HLOCAL\IGR\PRACTICA5\FREEGLUT PROJECT 3D\DEBUG\POLYGON.OBJ
+C:\HLOCAL\IGR\PRACTICA5\FREEGLUT PROJECT 3D\DEBUG\PV3D.OBJ
+C:\HLOCAL\IGR\PRACTICA5\FREEGLUT PROJECT 3D\DEBUG\REGULARPOLYGON.OBJ
+C:\HLOCAL\IGR\PRACTICA5\FREEGLUT PROJECT 3D\DEBUG\ROLLERCOASTER.OBJ
+C:\HLOCAL\IGR\PRACTICA5\FREEGLUT PROJECT 3D\DEBUG\WHEEL.OBJ
+C:\HLOCAL\IGR\PRACTICA5\FREEGLUT PROJECT 3D\DEBUG\MAIN.OBJ
+C:\HLOCAL\IGR\PRACTICA5\FREEGLUT PROJECT 3D\DEBUG\VC110.PDB
+C:\HLOCAL\IGR\PRACTICA5\DEBUG\PRACTICA5.ILK
+C:\HLOCAL\IGR\PRACTICA5\DEBUG\PRACTICA5.EXE
+C:\HLOCAL\IGR\PRACTICA5\DEBUG\PRACTICA5.PDB
+C:\hlocal\igr\practica5\freeglut project 3D\Debug\Car.obj
+C:\hlocal\igr\practica5\freeglut project 3D\Debug\CurveCirc.obj
+C:\hlocal\igr\practica5\freeglut project 3D\Debug\CurveP5.obj
+C:\hlocal\igr\practica5\freeglut project 3D\Debug\Face.obj
+C:\hlocal\igr\practica5\freeglut project 3D\Debug\main.obj
+C:\hlocal\igr\practica5\freeglut project 3D\Debug\Mesh.obj
+C:\hlocal\igr\practica5\freeglut project 3D\Debug\Pair_VertexNormal.obj
+C:\hlocal\igr\practica5\freeglut project 3D\Debug\ParametricCurve.obj
+C:\hlocal\igr\practica5\freeglut project 3D\Debug\Polygon.obj
+C:\hlocal\igr\practica5\freeglut project 3D\Debug\PV3D.obj
+C:\hlocal\igr\practica5\freeglut project 3D\Debug\RegularPolygon.obj
+C:\hlocal\igr\practica5\freeglut project 3D\Debug\RollerCoaster.obj
+C:\hlocal\igr\practica5\freeglut project 3D\Debug\Wheel.obj
+C:\hlocal\igr\practica5\freeglut project 3D\Debug\cl.command.1.tlog
+C:\hlocal\igr\practica5\freeglut project 3D\Debug\CL.read.1.tlog
+C:\hlocal\igr\practica5\freeglut project 3D\Debug\CL.write.1.tlog
+C:\hlocal\igr\practica5\freeglut project 3D\Debug\link-cvtres.read.1.tlog
+C:\hlocal\igr\practica5\freeglut project 3D\Debug\link-cvtres.write.1.tlog
+C:\hlocal\igr\practica5\freeglut project 3D\Debug\link-rc.read.1.tlog
+C:\hlocal\igr\practica5\freeglut project 3D\Debug\link-rc.write.1.tlog
+C:\hlocal\igr\practica5\freeglut project 3D\Debug\link.command.1.tlog
+C:\hlocal\igr\practica5\freeglut project 3D\Debug\link.read.1.tlog
+C:\hlocal\igr\practica5\freeglut project 3D\Debug\link.write.1.tlog
+C:\hlocal\igr\practica5\freeglut project 3D\Debug\vc110.idb
+C:\hlocal\igr\practica5\freeglut project 3D\Debug\vc110.pdb
+C:\hlocal\igr\practica5\Debug\practica5.pdb
+C:\hlocal\igr\practica5\Debug\practica5.exe
+C:\hlocal\igr\practica5\Debug\practica5.ilk

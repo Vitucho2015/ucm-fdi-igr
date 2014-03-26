@@ -1,3 +1,6 @@
+/**
+	Autor: Xavier Gallofré Nieva
+*/
 #include "CurveP5.h"
 
 PV3D* CurveP5::C(float t){

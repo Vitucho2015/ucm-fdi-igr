@@ -1,3 +1,6 @@
+/**
+	Autor: Xavier Gallofré Nieva
+*/
 #include "PV3D.h"
 
 
