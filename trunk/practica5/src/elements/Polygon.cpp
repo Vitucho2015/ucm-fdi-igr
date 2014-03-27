@@ -64,7 +64,7 @@ Mesh* Polygon::extrude(Polygon* p){
 }
 
 Mesh* Polygon::extrude(Polygon* p, bool divCenter){
-		Mesh* mesh = new Mesh();
+	Mesh* mesh = new Mesh();
 	
 	int N = vertex.size();
 	vector<PV3D*> vertex1 = getVertex();
@@ -81,13 +81,13 @@ Mesh* Polygon::extrude(Polygon* p, bool divCenter){
 		if (!divCenter){
 			f = new Face(3);
 			f->setVertex(0,j);
-			f->setVertex(1,(j+1)%N);			
+			f->setVertex(1,(j+1)%N);
 			f->setVertex(2,(j+1)%N+N);
 			f->setNormal(j);
 			face_.push_back(f);
 
 			f = new Face(3);
-			f->setVertex(0,(j+1)%N+N);			
+			f->setVertex(0,(j+1)%N+N);
 			f->setVertex(1,j+N);
 			f->setVertex(2,j);
 			f->setNormal(j);
@@ -136,7 +136,13 @@ Mesh* Polygon::extrude(Polygon* p, bool divCenter){
 	mesh->setFace(face_);
 
 	vector<PV3D*> normal_;
-	for (int j=0;j<N;j++) normal_.push_back(mesh->getNormalVector_Newell(j)); 
+	if (!divCenter){		
+		for (int j=0;j<2*N;j+=2) normal_.push_back(mesh->getNormalVector_Newell(j)); 
+	} else {
+		for (int j=0;j<4*N;j+=4) normal_.push_back(mesh->getNormalVector_Newell(j)); 
+	}
+
+	
 
 	mesh->setNormal(normal_);
 	return mesh;
