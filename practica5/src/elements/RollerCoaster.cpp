@@ -40,16 +40,16 @@ RollerCoaster::RollerCoaster(int np, int nq) : Mesh() {
 			z = n->z * v->x + b->z * v->y + t->z * v->z + c->z;
 			v->x = x; v->y = y; v->z = z;
 		}
-		this->addMesh(prev->extrude(slice));
+		//this->addMesh(prev->extrude(slice));
 		//this->addMesh(prev->extrude(slice, false));
-		//this->addMesh(prev->extrude(slice, true));
+		this->addMesh(prev->extrude(slice, true));
 		
 		//this->addMesh(slice);
 		prev = slice;
 	}
-	this->addMesh(prev->extrude(first));
+	//this->addMesh(prev->extrude(first));
 	//this->addMesh(prev->extrude(first, false));
-	//this->addMesh(prev->extrude(first, true));
+	this->addMesh(prev->extrude(first, true));
 	
 }
 

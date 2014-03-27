@@ -35,13 +35,12 @@ GLdouble upX=0, upY=1, upZ=0;
 
 GLdouble rot_x=0, rot_y=0, rot_z=0;
 
-
 RollerCoaster* rc;
 Car* car;
 
 void initGL() {	 		 
 
-	rc = new RollerCoaster(30, 150);
+	rc = new RollerCoaster(30, 200);
 	car = new Car(200);
 
 	glClearColor(0.6f,0.7f,0.8f,1.0);
