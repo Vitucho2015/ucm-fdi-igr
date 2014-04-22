@@ -12,12 +12,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\elements\AffineT.cpp" />
+    <ClCompile Include="..\src\elements\Bed.cpp" />
+    <ClCompile Include="..\src\elements\BilliardTable.cpp" />
     <ClCompile Include="..\src\elements\Camera.cpp" />
     <ClCompile Include="..\src\elements\Car.cpp" />
     <ClCompile Include="..\src\elements\CompositeObject.cpp" />
     <ClCompile Include="..\src\elements\CurveCirc.cpp" />
     <ClCompile Include="..\src\elements\CurveP5.cpp" />
     <ClCompile Include="..\src\elements\Face.cpp" />
+    <ClCompile Include="..\src\elements\Leg.cpp" />
     <ClCompile Include="..\src\elements\Mesh.cpp" />
     <ClCompile Include="..\src\elements\Object3D.cpp" />
     <ClCompile Include="..\src\elements\Pair_VertexNormal.cpp" />
@@ -25,6 +28,7 @@
     <ClCompile Include="..\src\elements\Polygon.cpp" />
     <ClCompile Include="..\src\elements\PV3D.cpp" />
     <ClCompile Include="..\src\elements\RegularPolygon.cpp" />
+    <ClCompile Include="..\src\elements\RGBColor.cpp" />
     <ClCompile Include="..\src\elements\RollerCoaster.cpp" />
     <ClCompile Include="..\src\elements\Wheel.cpp" />
     <ClCompile Include="..\src\main.cpp" />
@@ -32,12 +36,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\elements\AffineT.h" />
+    <ClInclude Include="..\src\elements\Bed.h" />
+    <ClInclude Include="..\src\elements\BilliardTable.h" />
     <ClInclude Include="..\src\elements\Camera.h" />
     <ClInclude Include="..\src\elements\Car.h" />
     <ClInclude Include="..\src\elements\CompositeObject.h" />
     <ClInclude Include="..\src\elements\CurveCirc.h" />
     <ClInclude Include="..\src\elements\CurveP5.h" />
     <ClInclude Include="..\src\elements\Face.h" />
+    <ClInclude Include="..\src\elements\Leg.h" />
     <ClInclude Include="..\src\elements\Mesh.h" />
     <ClInclude Include="..\src\elements\Object3D.h" />
     <ClInclude Include="..\src\elements\Pair_VertexNormal.h" />
@@ -46,6 +53,7 @@
     <ClInclude Include="..\src\elements\PV3D.h" />
     <ClInclude Include="..\src\elements\QuadricObject.h" />
     <ClInclude Include="..\src\elements\RegularPolygon.h" />
+    <ClInclude Include="..\src\elements\RGBColor.h" />
     <ClInclude Include="..\src\elements\RollerCoaster.h" />
     <ClInclude Include="..\src\elements\Wheel.h" />
     <ClInclude Include="..\src\Scene.h" />
