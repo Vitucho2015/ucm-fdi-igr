@@ -5,12 +5,15 @@
 class Object3D{
 
 protected:
-	AffineT mT;
+	
 	
 	void push();
 	void pop();
 
 public:
+
+	AffineT mT;
+
 	Object3D(void);
 	~Object3D(void);
 
