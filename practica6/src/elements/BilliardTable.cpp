@@ -3,26 +3,33 @@
 
 BilliardTable::BilliardTable(void)
 {
-	Bed* bed = new Bed();
+	GLdouble width,height, depth;
+	width = 2;
+	height = 0.2;
+	depth = 4;
 
+	Bed* bed = new Bed(width,height,depth);
+	bed->mT.translate(width/2,0,depth/2);
 	childs.push_back(bed);
 
 	Leg* leg;
-	
-	leg = new Leg();
-	leg->mT.translate(0,1,0);
+	height = 2;
+	width = 0.1;
+
+	leg = new Leg(width,height);
+	leg->mT.translate(1-width,-height,2-width);
 	childs.push_back(leg);
 	
-	leg = new Leg();
-	leg->mT.translate(0,1,0);
+	leg = new Leg(width,height);
+	leg->mT.translate(-1+width,-height,2-width);
 	childs.push_back(leg);
 	
-	leg = new Leg();
-	leg->mT.translate(0,1,0);
+	leg = new Leg(width,height);
+	leg->mT.translate(-1+width,-height,-2+width);
 	childs.push_back(leg);
 	
-	leg = new Leg();
-	leg->mT.translate(0,1,0);
+	leg = new Leg(width,height);
+	leg->mT.translate(1-width,-height,-2+width);
 	childs.push_back(leg);
 	
 }

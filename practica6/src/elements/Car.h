@@ -20,7 +20,7 @@ private:
 public:
 	Car(int totalSteps);
 	~Car(void);
-	void render();
+	void draw();
 	void stepForward(){ step++; if (step == totalSteps) step = 0; wheel->stepForward();};
 	void stepBackward(){ step--; if (step == 0) step = totalSteps; wheel->stepBackward();};
 };

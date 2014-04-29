@@ -1,15 +1,9 @@
 #include "Leg.h"
 
-
-Leg::Leg(void)
-{
-}
-
-
 Leg::~Leg(void)
 {
 }
 
-void Leg::render(){
-
+void Leg::draw(){
+	glutSolidCylinder(width,height,10,10);
 }

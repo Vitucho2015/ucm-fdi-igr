@@ -4,7 +4,7 @@
 #include "Bed.h"
 #include "Leg.h"
 
-class BilliardTable : CompositeObject {
+class BilliardTable : public CompositeObject {
 public:
 	BilliardTable(void);
 	~BilliardTable(void);
