@@ -1,15 +1,10 @@
 #include "Bed.h"
 
 
-Bed::Bed(void)
-{
-}
-
-
 Bed::~Bed(void)
 {
 }
 
-void Bed::render(){
-
+void Bed::draw(){
+	glutSolidCube(width);
 }

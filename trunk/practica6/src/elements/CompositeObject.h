@@ -16,6 +16,6 @@ public:
 	CompositeObject(void);
 	~CompositeObject(void);
 
-	void render();
+	void draw();
 };
 

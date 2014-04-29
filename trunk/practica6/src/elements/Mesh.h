@@ -15,7 +15,7 @@
 
 using namespace std;
 
-class Mesh : Object3D{
+class Mesh : public Object3D{
 protected:
 	vector<PV3D*> vertex, normal;
 	vector<Face*> face;
@@ -27,7 +27,7 @@ public:
 	~Mesh(void);
 	Mesh* clone();
 
-	void render();
+	void draw();
 	PV3D* getNormalVector_Newell(int face_i);
 
 	void extrude(int face, PV3D* dist);

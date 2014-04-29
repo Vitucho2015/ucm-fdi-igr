@@ -10,7 +10,7 @@ CompositeObject::~CompositeObject(void)
 {
 }
 
-void CompositeObject::render(){
+void CompositeObject::draw(){
 
 	glMatrixMode(GL_MODELVIEW);
 	glPushMatrix();

@@ -15,6 +15,7 @@
 #include "elements\Wheel.h"
 #include "elements\Car.h"
 #include "elements\Camera.h"
+#include "elements\BilliardTable.h"
 
 #include <iostream>
 using namespace std;
@@ -33,13 +34,20 @@ GLdouble rot_x=0, rot_y=0, rot_z=0;
 
 RollerCoaster* rc;
 Car* car;
+BilliardTable *bt;
 
 Camera* camera;
 
 void initGL() {	 		 
 
 	rc = new RollerCoaster(30, 200);
+
+	rc->color.r = 0.1;
+	rc->color.g = 0.2;
+	rc->color.b = 0.3;
+
 	car = new Car(200);
+	bt = new BilliardTable();
 
 	glClearColor(0.6f,0.7f,0.8f,1.0);
     glEnable(GL_LIGHTING);    
@@ -94,7 +102,8 @@ void display(void) {
 
 	glColor3f(0.0,1.0,0.0);
 	rc->render();
-	car->render();
+	//car->render();
+	//bt->render();
 
 	glFlush();
 	glutSwapBuffers();
