@@ -31,7 +31,7 @@
     <ClCompile Include="..\src\elements\Object3D.cpp" />
     <ClCompile Include="..\src\elements\Pair_VertexNormal.cpp" />
     <ClCompile Include="..\src\elements\ParametricCurve.cpp" />
-    <ClCompile Include="..\src\elements\Polygon.cpp" />
+    <ClCompile Include="..\src\elements\Polygon3D.cpp" />
     <ClCompile Include="..\src\elements\PV3D.cpp" />
     <ClCompile Include="..\src\elements\RegularPolygon.cpp" />
     <ClCompile Include="..\src\elements\RGBColor.cpp" />
@@ -63,7 +63,7 @@
     <ClInclude Include="..\src\elements\Object3D.h" />
     <ClInclude Include="..\src\elements\Pair_VertexNormal.h" />
     <ClInclude Include="..\src\elements\ParametricCurve.h" />
-    <ClInclude Include="..\src\elements\Polygon.h" />
+    <ClInclude Include="..\src\elements\Polygon3D.h" />
     <ClInclude Include="..\src\elements\PV3D.h" />
     <ClInclude Include="..\src\elements\QuadricObject.h" />
     <ClInclude Include="..\src\elements\RegularPolygon.h" />

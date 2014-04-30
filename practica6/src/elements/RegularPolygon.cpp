@@ -4,7 +4,7 @@
 #include "RegularPolygon.h"
 
 
-RegularPolygon::RegularPolygon(int sides, float radius) : Polygon()
+RegularPolygon::RegularPolygon(int sides, float radius) : Polygon3D()
 {
 	float inc = 2*PI/sides;
     for (int i=0;i<sides;i++){
@@ -13,7 +13,7 @@ RegularPolygon::RegularPolygon(int sides, float radius) : Polygon()
 	close();
 }
 
-RegularPolygon::RegularPolygon(int sides, float radius, float start) : Polygon()
+RegularPolygon::RegularPolygon(int sides, float radius, float start) : Polygon3D()
 {
 	float inc = 2*PI/sides;
     for (int i=0;i<sides;i++){

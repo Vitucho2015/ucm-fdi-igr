@@ -1,36 +1,36 @@
 /**
 	Autor: Xavier Gallofré Nieva
 */
-#include "Polygon.h"
+#include "Polygon3D.h"
 
-Polygon::Polygon(void){
+Polygon3D::Polygon3D(void){
 	isClosed = false;
 }
 
-Polygon::~Polygon(void){
+Polygon3D::~Polygon3D(void){
 
 }
 
-void Polygon::addVertex(PV3D* v){
+void Polygon3D::addVertex(PV3D* v){
 	if (isClosed) return;
 	vertex.push_back(v);
 }
 
-void Polygon::close(){
+void Polygon3D::close(){
 	isClosed = true;
 	face.push_back(new Face(vertex.size()));
 	PV3D* n = getNormalVector_Newell(0);
 	normal.push_back(n);
 }
 
-Mesh* Polygon::extrude(PV3D* dir){
+Mesh* Polygon3D::extrude(PV3D* dir){
 	Mesh* mesh = this->clone();
 	mesh->translate(dir);
 
-	return extrude((Polygon*) mesh);
+	return extrude((Polygon3D*) mesh);
 }
 
-Mesh* Polygon::extrude(Polygon* p){
+Mesh* Polygon3D::extrude(Polygon3D* p){
 	Mesh* mesh = new Mesh();
 	
 	int N = vertex.size();
@@ -63,7 +63,7 @@ Mesh* Polygon::extrude(Polygon* p){
 	return mesh;
 }
 
-Mesh* Polygon::extrude(Polygon* p, bool divCenter){
+Mesh* Polygon3D::extrude(Polygon3D* p, bool divCenter){
 	Mesh* mesh = new Mesh();
 	
 	int N = vertex.size();

@@ -3,21 +3,21 @@
 */
 #pragma once
 #include "Mesh.h"
-class Polygon : public Mesh {
+class Polygon3D : public Mesh {
 
 protected:
 	bool isClosed;
 
 public:
-	Polygon(void);
-	~Polygon(void);
+	Polygon3D(void);
+	~Polygon3D(void);
 
 	void addVertex(PV3D* v);
 	void close();
 
 	Mesh* extrude(PV3D* dir);
-	Mesh* extrude(Polygon* p);
-	Mesh* extrude(Polygon* p, bool divCenter);
+	Mesh* extrude(Polygon3D* p);
+	Mesh* extrude(Polygon3D* p, bool divCenter);
 	
 };
 

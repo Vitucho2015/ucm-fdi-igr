@@ -1,7 +1,11 @@
+/**
+	Autor: Xavier Gallofré Nieva
+*/
 #pragma once
 #include "Mesh.h"
 #include "RegularPolygon.h"
-#include "Polygon.h"
+#include "Polygon3D.h"
+#include "Sidebar.h"
 #include <GL/freeglut.h>
 
 class Bed : public Mesh {

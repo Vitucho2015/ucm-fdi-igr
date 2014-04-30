@@ -1,3 +1,6 @@
+/**
+	Autor: Xavier Gallofré Nieva
+*/
 #include "BilliardScene.h"
 
 
@@ -21,6 +24,12 @@ BilliardScene::BilliardScene(void) : Scene(){
 	chalk->mT.translate(0,0.1,0.05);
 	
 	addObject(chalk);
+
+	Cylinder* taco = new Cylinder(0.05,0.025,2.5,10,10);
+	taco->color.setColor(100.0/255,50.0/255,11.0/255);
+	taco->mT.rotate(170,0,0);
+	taco->mT.translate(1,0.75,6);
+	addObject(taco);
 
 	mT.translate(0,2,0);
 
