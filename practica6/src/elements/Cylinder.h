@@ -3,9 +3,7 @@
 */
 #pragma once
 #include "quadricobject.h"
-class Cylinder :
-	public QuadricObject
-{
+class Cylinder : public QuadricObject {
 protected:
 	GLdouble baseRadius;
 	GLdouble topRadius;

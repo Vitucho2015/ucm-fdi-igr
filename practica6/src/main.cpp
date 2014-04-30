@@ -31,7 +31,7 @@ int WIDTH= 500, HEIGHT= 500;
 // Viewing frustum parameters 
 GLdouble xRight=5, xLeft=-xRight, yTop=5, yBot=-yTop, N=1, F=1000;
 
-GLdouble rot_x=0, rot_y=0, rot_z=0;
+//GLdouble rot_x=0, rot_y=0, rot_z=0;
 
 BilliardScene* scene;
 Camera* camera;
@@ -39,7 +39,7 @@ Camera* camera;
 void initGL() {	 		 
 
 	scene = new BilliardScene();
-	//scene->mT.scale(3);
+	scene->setRecoatMode(1);
 
 	glClearColor(0.6f,0.7f,0.8f,1.0);
     glEnable(GL_LIGHTING);    
@@ -69,12 +69,8 @@ void initGL() {
 void display(void) {
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);  
-	
-	glRotatef(rot_x,1.0,0.0,0.0);
-	glRotatef(rot_y,0.0,1.0,0.0);
-	glRotatef(rot_z,0.0,0.0,1.0);
 		
-		scene->render();
+	scene->render();
 
 	glFlush();
 	glutSwapBuffers();
@@ -120,8 +116,8 @@ void key(unsigned char key, int x, int y){
 			break;		
 			
 		//Eje Z
-		case 'a': rot_z += 1; if (rot_z>360) rot_z -= 360; break;
-		case 'z': rot_z -= 1; if (rot_z<0) rot_z += 360; break;
+		//case 'a': rot_z += 1; if (rot_z>360) rot_z -= 360; break;
+		//case 'z': rot_z -= 1; if (rot_z<0) rot_z += 360; break;
 
 		//Walk axis
 		case 'e': camera->translate(new PV3D(-0.5,0,0)); break;
@@ -132,7 +128,7 @@ void key(unsigned char key, int x, int y){
 
 		case 'c': camera->translate(new PV3D(0,0,-0.5)); break;
 		case 'v': camera->translate(new PV3D(0,0,0.5)); break;
-
+			
 		//Rotate Camera
 		case 'u': camera->roll(0.1); break;
 		case 'i': camera->roll(-0.1); break;
@@ -178,7 +174,7 @@ void special(int key, int x, int y){
 	bool need_redisplay = true;
 	
 	switch(key) {
-
+/*
 	//Eje X
 	case GLUT_KEY_UP:		rot_x -= 1; if (rot_x<0) rot_x += 360;		break;
 	case GLUT_KEY_DOWN:		rot_x += 1; if (rot_x>360) rot_x -= 360;	break;
@@ -186,6 +182,10 @@ void special(int key, int x, int y){
 	//Eje Y
 	case GLUT_KEY_LEFT:		rot_y -= 1; if (rot_y<0) rot_y += 360;		break;
 	case GLUT_KEY_RIGHT:	rot_y += 1; if (rot_y>360) rot_y -= 360;	break;
+*/
+	case GLUT_KEY_F1:		scene->setRecoatMode(0); break;
+	case GLUT_KEY_F2:		scene->setRecoatMode(1); break;
+	case GLUT_KEY_F3:		scene->setRecoatMode(2); break;
 
 	default:
 		need_redisplay = false;

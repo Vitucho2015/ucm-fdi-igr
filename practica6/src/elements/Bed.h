@@ -5,7 +5,7 @@
 #include "Mesh.h"
 #include "RegularPolygon.h"
 #include "Polygon3D.h"
-#include "Sidebar.h"
+#include "Parallelepiped.h"
 #include <GL/freeglut.h>
 
 class Bed : public Mesh {

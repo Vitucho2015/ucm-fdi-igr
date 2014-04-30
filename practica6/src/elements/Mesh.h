@@ -48,5 +48,7 @@ public:
 	void setFace(vector<Face*> fs)		{face	= vector<Face*>(); for (Face* f : fs) face.push_back(f->clone());};
 	void setRender_Filled(bool b)		{render_filled = b;};
 	void setRender_Normals(bool b)		{render_normals = b;};
+
+	void setRecoatMode(int i);
 };
 

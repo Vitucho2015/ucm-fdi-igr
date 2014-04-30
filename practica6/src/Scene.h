@@ -21,5 +21,7 @@ public:
 
 	void draw();
 	void drawAxis();
+
+	void setRecoatMode(int i);
 };
 
