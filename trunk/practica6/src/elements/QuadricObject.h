@@ -18,7 +18,7 @@ public:
 		case 2: gluQuadricDrawStyle(q,GL_FILL); break;
 		}
 	};
-
+	
 	virtual void draw() = 0;
 	
 };

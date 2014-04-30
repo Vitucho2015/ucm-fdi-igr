@@ -11,11 +11,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\BilliardScene.cpp" />
     <ClCompile Include="..\src\elements\AffineT.cpp" />
+    <ClCompile Include="..\src\elements\Ball.cpp" />
+    <ClCompile Include="..\src\elements\Balls.cpp" />
     <ClCompile Include="..\src\elements\Bed.cpp" />
     <ClCompile Include="..\src\elements\BilliardTable.cpp" />
     <ClCompile Include="..\src\elements\Camera.cpp" />
     <ClCompile Include="..\src\elements\Car.cpp" />
+    <ClCompile Include="..\src\elements\Chalk.cpp" />
     <ClCompile Include="..\src\elements\CompositeObject.cpp" />
     <ClCompile Include="..\src\elements\CurveCirc.cpp" />
     <ClCompile Include="..\src\elements\CurveP5.cpp" />
@@ -32,17 +36,22 @@
     <ClCompile Include="..\src\elements\RegularPolygon.cpp" />
     <ClCompile Include="..\src\elements\RGBColor.cpp" />
     <ClCompile Include="..\src\elements\RollerCoaster.cpp" />
+    <ClCompile Include="..\src\elements\Sidebar.cpp" />
     <ClCompile Include="..\src\elements\Sphere.cpp" />
     <ClCompile Include="..\src\elements\Wheel.cpp" />
     <ClCompile Include="..\src\main.cpp" />
     <ClCompile Include="..\src\Scene.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\src\BilliardScene.h" />
     <ClInclude Include="..\src\elements\AffineT.h" />
+    <ClInclude Include="..\src\elements\Ball.h" />
+    <ClInclude Include="..\src\elements\Balls.h" />
     <ClInclude Include="..\src\elements\Bed.h" />
     <ClInclude Include="..\src\elements\BilliardTable.h" />
     <ClInclude Include="..\src\elements\Camera.h" />
     <ClInclude Include="..\src\elements\Car.h" />
+    <ClInclude Include="..\src\elements\Chalk.h" />
     <ClInclude Include="..\src\elements\CompositeObject.h" />
     <ClInclude Include="..\src\elements\CurveCirc.h" />
     <ClInclude Include="..\src\elements\CurveP5.h" />
@@ -60,6 +69,7 @@
     <ClInclude Include="..\src\elements\RegularPolygon.h" />
     <ClInclude Include="..\src\elements\RGBColor.h" />
     <ClInclude Include="..\src\elements\RollerCoaster.h" />
+    <ClInclude Include="..\src\elements\Sidebar.h" />
     <ClInclude Include="..\src\elements\Sphere.h" />
     <ClInclude Include="..\src\elements\Wheel.h" />
     <ClInclude Include="..\src\Scene.h" />

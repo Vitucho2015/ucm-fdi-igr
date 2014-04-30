@@ -15,7 +15,8 @@
 #include "elements\Wheel.h"
 #include "elements\Car.h"
 #include "elements\Camera.h"
-#include "elements\BilliardTable.h"
+
+#include "BilliardScene.h"
 
 #include <iostream>
 using namespace std;
@@ -28,26 +29,17 @@ using namespace std;
 int WIDTH= 500, HEIGHT= 500;
 
 // Viewing frustum parameters 
-GLdouble xRight=5, xLeft=-xRight, yTop=5, yBot=-yTop, N=1, F=1000;
+GLdouble xRight=10, xLeft=-xRight, yTop=10, yBot=-yTop, N=1, F=1000;
 
 GLdouble rot_x=0, rot_y=0, rot_z=0;
 
-RollerCoaster* rc;
-Car* car;
-BilliardTable *bt;
-
+BilliardScene* scene;
 Camera* camera;
 
 void initGL() {	 		 
 
-	rc = new RollerCoaster(30, 200);
-
-	rc->color.r = 0.1;
-	rc->color.g = 0.2;
-	rc->color.b = 0.3;
-
-	car = new Car(200);
-	bt = new BilliardTable();
+	scene = new BilliardScene();
+	scene->mT.scale(3);
 
 	glClearColor(0.6f,0.7f,0.8f,1.0);
     glEnable(GL_LIGHTING);    
@@ -59,7 +51,7 @@ void initGL() {
 	glShadeModel(GL_SMOOTH);
 
 	// buildSceneObjects();
-	camera = new Camera(new PV3D(5,5,5), new PV3D(0,0,0), new PV3D(0,1,0));
+	camera = new Camera(new PV3D(10,10,10), new PV3D(0,0,0), new PV3D(0,1,0.00002));
 
 	// Viewport set up
     glViewport(0, 0, WIDTH, HEIGHT);  
@@ -76,34 +68,13 @@ void initGL() {
 
 void display(void) {
 
-	
-	//camera->view();
-
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);  
 	
-	// Drawing axes
-	glBegin( GL_LINES );
-		glColor3f(1.0,0.0,0.0); 
-		glVertex3f(0, 0, 0);
-		glVertex3f(20, 0, 0);	     
-	 
-		glColor3f(0.0,1.0,0.0); 
-		glVertex3f(0, 0, 0);
-		glVertex3f(0, 20, 0);	 
-	 
-		glColor3f(0.0,0.0,1.0); 
-		glVertex3f(0, 0, 0);
-		glVertex3f(0, 0, 20);	     
-	glEnd();
-
 	glRotatef(rot_x,1.0,0.0,0.0);
 	glRotatef(rot_y,0.0,1.0,0.0);
 	glRotatef(rot_z,0.0,0.0,1.0);
-
-	glColor3f(0.0,1.0,0.0);
-	rc->render();
-	//car->render();
-	//bt->render();
+		
+		scene->render();
 
 	glFlush();
 	glutSwapBuffers();
@@ -140,6 +111,7 @@ void resize(int newWidth, int newHeight) {
 
 void key(unsigned char key, int x, int y){
 	bool need_redisplay = true;
+
 	switch (key) {
 		case 27:  /* Escape key */
 			//continue_in_main_loop = false; // (**)
@@ -150,14 +122,6 @@ void key(unsigned char key, int x, int y){
 		//Eje Z
 		case 'a': rot_z += 1; if (rot_z>360) rot_z -= 360; break;
 		case 'z': rot_z -= 1; if (rot_z<0) rot_z += 360; break;
-
-		//Avance coche
-		case 'q': car->stepBackward(); break;
-		case 'w': car->stepForward(); break;
-
-		//Relleno Mesh
-		case 'g': rc->setRender_Filled(true); break;
-		case 'h': rc->setRender_Filled(false); break;
 
 		//Walk axis
 		case 'e': camera->translate(new PV3D(-0.5,0,0)); break;
@@ -182,6 +146,7 @@ void key(unsigned char key, int x, int y){
 		//Projection Type
 		case 'o': camera->projection_ortho(); break;
 		case 'p': camera->projection_perspective(); break;
+		case 'l': camera->projection_oblique(new PV3D(0.05,0.05,1)); break;
 		
 		//Rotate Camera Axis
 		case '1': camera->rotateX(0.1); break;
@@ -197,6 +162,10 @@ void key(unsigned char key, int x, int y){
 		//Others
 		//case 'r': rot_x = 0; rot_y = 0; rot_z = 0; break;
 
+		case '8': scene->mT.translate(0.5,0,0);; break;
+		case '9': scene->mT.rotate(0,PI/16,0); break;
+		case '0': scene->mT.scale(1.1); break;
+
 		default:
 			need_redisplay = false;
 			break;
@@ -207,6 +176,7 @@ void key(unsigned char key, int x, int y){
 
 void special(int key, int x, int y){
 	bool need_redisplay = true;
+	
 	switch(key) {
 
 	//Eje X
@@ -221,6 +191,7 @@ void special(int key, int x, int y){
 		need_redisplay = false;
 		break;
 	}
+
 	if (need_redisplay)
 		glutPostRedisplay();
 }

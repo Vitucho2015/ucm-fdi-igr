@@ -1,21 +1,18 @@
 #pragma once
 #include "object3d.h"
+#include "Cylinder.h"
 #include <GL/freeglut.h>
 
-class Leg : public Object3D {
+class Leg : public Cylinder {
 protected:
 	GLdouble height;
 	GLdouble width;
 public:
-	Leg(GLdouble width,GLdouble height){
-		this->width = width;
-		this->height = height;		
-	};
-	~Leg(void);
+	Leg(GLdouble width,GLdouble height);
+	~Leg(void){};
 
 	GLdouble getWidth(){return width;};
 	GLdouble getHeight(){return height;};
 	
-	void draw();
 };
 

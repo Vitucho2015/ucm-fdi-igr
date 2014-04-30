@@ -1,5 +1,5 @@
 #include "Disk.h"
 
-void Disk::render(){
+void Disk::draw(){
 	gluDisk(q,innerRadius,outerRadius,slices,rings);
 }

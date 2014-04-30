@@ -1,5 +1,5 @@
 #include "Cylinder.h"
 
-void Cylinder::render(){
+void Cylinder::draw(){
 	gluCylinder(q,baseRadius,topRadius,height,slices,stacks);
 }

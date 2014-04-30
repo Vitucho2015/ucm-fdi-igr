@@ -1,6 +1,6 @@
 #include "Sphere.h"
 
 
-void Sphere::render(){
+void Sphere::draw(){
 	gluSphere(q, radius, slices, stacks);
 }

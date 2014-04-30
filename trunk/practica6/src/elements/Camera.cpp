@@ -132,7 +132,13 @@ void Camera::projection_perspective(){
 
 void Camera::projection_oblique(PV3D* d){
 	projection_ortho();
-	if (d->z != 0 && d != new PV3D(0,0,1)){ //FIXME: 
+	if ((d->z > EPSILON || d->z < -EPSILON) && //|d->z| > 0
+		 !(
+			d->x < EPSILON && d->x > -EPSILON &&
+			d->y < EPSILON && d->y > -EPSILON &&
+			d->z < 1-EPSILON && d->z > 1-EPSILON
+		 )//d != new PV3D(0,0,1))
+		){
 		GLdouble m[16];
 
 		m[0] = 1; m[4] = 0;	m[8] = -d->x/d->z; m[12] = -vv_near*d->x/d->z;
@@ -140,7 +146,7 @@ void Camera::projection_oblique(PV3D* d){
 		m[2] = 0; m[6] = 0;	m[10] = 1; m[14] = 0;
 		m[3] = 0; m[7] = 0; m[11] = 0; m[15] = 1;
 
-		glLoadMatrixd(m);
+		glMultMatrixd(m);
 	}
 }
 
