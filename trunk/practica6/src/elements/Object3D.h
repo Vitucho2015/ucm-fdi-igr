@@ -23,5 +23,5 @@ public:
 	~Object3D(void);
 
 	void render();
-
+	virtual void setRecoatMode(int i) = 0;
 };

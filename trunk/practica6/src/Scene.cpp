@@ -39,3 +39,7 @@ void Scene::drawAxis(){
 	glEnd();
 
 }
+
+void Scene::setRecoatMode(int i){
+	for (Object3D* o : objects) o->setRecoatMode(i);
+}

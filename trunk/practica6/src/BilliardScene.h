@@ -11,6 +11,6 @@ class BilliardScene : public Scene {
 
 public:
 	BilliardScene(void);
-	~BilliardScene(void);
+	~BilliardScene(void){};
 };
 

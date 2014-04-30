@@ -12,57 +12,63 @@ BilliardTable::BilliardTable(void)
 	depth = 4;
 
 	Bed* bed = new Bed(width,height,depth,10,2,20);
-	bed->mT.translate(0.1,0,0.1);
+	bed->mT.translate(0.1,0.05,0.1);
 	childs.push_back(bed);
 	
-	Sidebar* sidebar;
+	Parallelepiped* parallelepiped;
 	width = 0.2;
 	height = 0.2;
-	depth = 4;
+	depth = 4+0.2;
 	
-	sidebar = new Sidebar(width,height,depth,0);
-	sidebar->mT.translate(0,height/2,0);
-	childs.push_back(sidebar);
+	parallelepiped = new Parallelepiped(width,height,depth,2,2,10);
+	parallelepiped->color.setColor(133.0/255,82.0/255,11.0/255);
+	parallelepiped->mT.translate(0,0,0);
+	childs.push_back(parallelepiped);
 	
-	sidebar = new Sidebar(width,height,depth,0);
-	sidebar->mT.translate(depth/2,height/2,0);
-	childs.push_back(sidebar);
+	parallelepiped = new Parallelepiped(width,height,depth,2,2,10);
+	parallelepiped->color.setColor(133.0/255,82.0/255,11.0/255);
+	parallelepiped->mT.translate(2,0,0);
+	childs.push_back(parallelepiped);
 	
 	width = 0.2;
 	height = 0.2;
-	depth = 2;
-
-	sidebar = new Sidebar(width,height,depth,90);
-	sidebar->mT.translate(0,height/2,-0.2);
-	sidebar->mT.rotate(0,90,0);
-	childs.push_back(sidebar);
-
-	sidebar = new Sidebar(width,height,depth,90);
-	sidebar->mT.translate(0,height/2,2*depth);
-	childs.push_back(sidebar);
+	depth = 1.9;
+	
+	parallelepiped = new Parallelepiped(width,height,depth,2,2,10);
+	parallelepiped->color.setColor(133.0/255,82.0/255,11.0/255);
+	parallelepiped->mT.rotate(0,90,0);
+	parallelepiped->mT.translate(0.2,0,0.2);
+	
+	childs.push_back(parallelepiped);
+	
+	parallelepiped = new Parallelepiped(width,height,depth,2,2,10);
+	parallelepiped->color.setColor(133.0/255,82.0/255,11.0/255);
+	parallelepiped->mT.rotate(0,90,0);
+	parallelepiped->mT.translate(0.2,0,4.2);
+	childs.push_back(parallelepiped);
 	
 	
 	Leg* leg;
 	height = 2;
 	width = 0.1;
-
+	
 	leg = new Leg(width,height);
-	leg->mT.translate(0,0.2,0);
+	leg->mT.translate(0+0.1,0.2,0+0.1);
 	leg->color.setColor(133.0/255,82.0/255,11.0/255);	
 	childs.push_back(leg);
 	
 	leg = new Leg(width,height);
-	leg->mT.translate(2,0.2,0);
+	leg->mT.translate(2+0.1,0.2,0+0.1);
 	leg->color.setColor(133.0/255,82.0/255,11.0/255);
 	childs.push_back(leg);
 	
 	leg = new Leg(width,height);
-	leg->mT.translate(0,0.2,4);
+	leg->mT.translate(0+0.1,0.2,4+0.1);
 	leg->color.setColor(133.0/255,82.0/255,11.0/255);
 	childs.push_back(leg);
 	
 	leg = new Leg(width,height);
-	leg->mT.translate(2,0.2,4);
+	leg->mT.translate(2+0.1,0.2,4+0.1);
 	leg->color.setColor(133.0/255,82.0/255,11.0/255);
 	childs.push_back(leg);
 	

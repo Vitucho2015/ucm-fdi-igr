@@ -20,5 +20,6 @@ public:
 	~CompositeObject(void);
 
 	void draw();
+	void setRecoatMode(int i);
 };
 

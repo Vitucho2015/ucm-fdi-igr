@@ -36,7 +36,7 @@
     <ClCompile Include="..\src\elements\RegularPolygon.cpp" />
     <ClCompile Include="..\src\elements\RGBColor.cpp" />
     <ClCompile Include="..\src\elements\RollerCoaster.cpp" />
-    <ClCompile Include="..\src\elements\Sidebar.cpp" />
+    <ClCompile Include="..\src\elements\Parallelepiped.cpp" />
     <ClCompile Include="..\src\elements\Sphere.cpp" />
     <ClCompile Include="..\src\elements\Wheel.cpp" />
     <ClCompile Include="..\src\main.cpp" />
@@ -69,7 +69,7 @@
     <ClInclude Include="..\src\elements\RegularPolygon.h" />
     <ClInclude Include="..\src\elements\RGBColor.h" />
     <ClInclude Include="..\src\elements\RollerCoaster.h" />
-    <ClInclude Include="..\src\elements\Sidebar.h" />
+    <ClInclude Include="..\src\elements\Parallelepiped.h" />
     <ClInclude Include="..\src\elements\Sphere.h" />
     <ClInclude Include="..\src\elements\Wheel.h" />
     <ClInclude Include="..\src\Scene.h" />

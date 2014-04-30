@@ -6,13 +6,12 @@
 
 BilliardScene::BilliardScene(void) : Scene(){
 	
-	
 	BilliardTable* billiard = new BilliardTable();
 	addObject(billiard);
 	
 	Ball* ball = new Ball(0.05);
 	ball->color.setColor(0.9,0.9,0.9);
-	ball->mT.translate(1,0.1,3);
+	ball->mT.translate(1,0.15,3);
 	addObject(ball);
 
 	Balls* balls = new Balls();
@@ -21,7 +20,7 @@ BilliardScene::BilliardScene(void) : Scene(){
 	
 	Chalk* chalk = new Chalk(0.1);
 	chalk->mT.rotate(-45,0,0);
-	chalk->mT.translate(0,0.1,0.05);
+	chalk->mT.translate(0,0.05,0.15);
 	
 	addObject(chalk);
 
@@ -32,10 +31,6 @@ BilliardScene::BilliardScene(void) : Scene(){
 	addObject(taco);
 
 	mT.translate(0,2,0);
-
+	
 }
 
-
-BilliardScene::~BilliardScene(void)
-{
-}

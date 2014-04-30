@@ -22,3 +22,7 @@ void CompositeObject::draw(){
 	glPopMatrix();
 
 }
+
+void CompositeObject::setRecoatMode(int i){
+	for (Object3D* o : childs) o->setRecoatMode(i);
+}

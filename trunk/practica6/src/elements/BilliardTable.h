@@ -6,7 +6,7 @@
 #include "CompositeObject.h"
 #include "Bed.h"
 #include "Leg.h"
-#include "Sidebar.h"
+#include "Parallelepiped.h"
 
 class BilliardTable : public CompositeObject {
 public:

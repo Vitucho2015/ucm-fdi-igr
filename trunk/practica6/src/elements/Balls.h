@@ -8,6 +8,6 @@
 class Balls : public CompositeObject {
 public:
 	Balls(void);
-	~Balls(void);
+	~Balls(void){};
 };
 

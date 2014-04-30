@@ -117,3 +117,10 @@ Mesh* Mesh::clone(){
 	
 	return ret;
 }
+
+void Mesh::setRecoatMode(int i){
+	switch (i){
+	case 0: render_filled = false; break;
+	case 1: render_filled = true; break;
+	}
+}

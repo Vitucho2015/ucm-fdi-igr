@@ -45,7 +45,3 @@ Balls::Balls(void)
 	
 }
 
-
-Balls::~Balls(void)
-{
-}

@@ -126,9 +126,6 @@
     <ClCompile Include="..\src\elements\Camera.cpp">
       <Filter>Source Files\Elements\Basic</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\elements\Sidebar.cpp">
-      <Filter>Source Files\Scenes\Billiard</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\elements\Ball.cpp">
       <Filter>Source Files\Scenes\Billiard</Filter>
     </ClCompile>
@@ -143,6 +140,9 @@
     </ClCompile>
     <ClCompile Include="..\src\elements\Polygon3D.cpp">
       <Filter>Source Files\Elements\Basic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\elements\Parallelepiped.cpp">
+      <Filter>Source Files\Scenes\Billiard</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -218,9 +218,6 @@
     <ClInclude Include="..\src\Scene.h">
       <Filter>Header Files\Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\elements\Sidebar.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\elements\Ball.h">
       <Filter>Header Files\Scenes\Billiard</Filter>
     </ClInclude>
@@ -235,6 +232,9 @@
     </ClInclude>
     <ClInclude Include="..\src\elements\Polygon3D.h">
       <Filter>Header Files\Elements\Basic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\elements\Parallelepiped.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
