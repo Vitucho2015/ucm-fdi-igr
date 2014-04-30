@@ -15,14 +15,22 @@ RGBColor::RGBColor(void)
 }
 
 
-RGBColor::RGBColor(double r, double g, double b){
+RGBColor::RGBColor(double r, double g, double b){ setColor(r,g,b);}
+
+RGBColor::~RGBColor(void)
+{
+}
+
+void RGBColor::setColor(double r, double g, double b){
 	this->r = r;
 	this->g = g;
 	this->b = b;
 }
 
-RGBColor::~RGBColor(void)
-{
+void RGBColor::setColor(RGBColor color){
+	r = color.r;
+	g = color.g;
+	b = color.b;
 }
 
 RGBColor RGBColor::operator+(const RGBColor &o){

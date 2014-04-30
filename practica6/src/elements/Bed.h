@@ -1,22 +1,16 @@
 #pragma once
-#include "object3d.h"
+#include "Mesh.h"
+#include "RegularPolygon.h"
+#include "Polygon.h"
 #include <GL/freeglut.h>
 
-class Bed : public Object3D {
+class Bed : public Mesh {
 
 protected:
-	GLdouble width;
-	GLdouble height;
-	GLdouble depth;
-
+	
 public:
-	Bed(GLdouble width,GLdouble height,GLdouble depth){
-		this->width = width;
-		this->height = height;
-		this->depth = depth;
-	};
-	~Bed(void);
+	Bed(GLdouble width,GLdouble height,GLdouble depth, int w_parts,int h_parts,int d_parts);
+	~Bed(void){};
 
-	void draw();
 };
 

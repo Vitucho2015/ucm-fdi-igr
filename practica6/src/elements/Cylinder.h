@@ -34,8 +34,8 @@ public:
 		this->slices = slices;
 		this->stacks = stacks;
 	};
-	~Cylinder(void);
+	~Cylinder(void){};
 
-	void render();
+	void draw();
 };
 

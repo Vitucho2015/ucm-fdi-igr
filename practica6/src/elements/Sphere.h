@@ -21,6 +21,6 @@ public:
 	};
 	~Sphere(void){};
 
-	void render();
+	void draw();
 };
 

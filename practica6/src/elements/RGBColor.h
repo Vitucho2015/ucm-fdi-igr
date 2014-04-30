@@ -13,6 +13,9 @@ struct RGBColor
 	//RGBColor(int r, int g, int b);
 	~RGBColor(void);
 
+	void setColor(double r, double g, double b);
+	void setColor(RGBColor color);
+
 	RGBColor operator+(const RGBColor &o);
 	RGBColor operator*(double k);
 
