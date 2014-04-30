@@ -29,7 +29,7 @@ using namespace std;
 int WIDTH= 500, HEIGHT= 500;
 
 // Viewing frustum parameters 
-GLdouble xRight=10, xLeft=-xRight, yTop=10, yBot=-yTop, N=1, F=1000;
+GLdouble xRight=5, xLeft=-xRight, yTop=5, yBot=-yTop, N=1, F=1000;
 
 GLdouble rot_x=0, rot_y=0, rot_z=0;
 
@@ -39,7 +39,7 @@ Camera* camera;
 void initGL() {	 		 
 
 	scene = new BilliardScene();
-	scene->mT.scale(3);
+	//scene->mT.scale(3);
 
 	glClearColor(0.6f,0.7f,0.8f,1.0);
     glEnable(GL_LIGHTING);    
@@ -51,7 +51,7 @@ void initGL() {
 	glShadeModel(GL_SMOOTH);
 
 	// buildSceneObjects();
-	camera = new Camera(new PV3D(10,10,10), new PV3D(0,0,0), new PV3D(0,1,0.00002));
+	camera = new Camera(new PV3D(5,5,5), new PV3D(0,0,0), new PV3D(0,1,0.00002));
 
 	// Viewport set up
     glViewport(0, 0, WIDTH, HEIGHT);  

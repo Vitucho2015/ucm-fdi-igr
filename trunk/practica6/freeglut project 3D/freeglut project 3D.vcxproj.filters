@@ -99,9 +99,6 @@
     <ClCompile Include="..\src\elements\ParametricCurve.cpp">
       <Filter>Source Files\Elements\Basic</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\elements\Polygon.cpp">
-      <Filter>Source Files\Elements\Basic</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\elements\PV3D.cpp">
       <Filter>Source Files\Elements\Basic</Filter>
     </ClCompile>
@@ -138,11 +135,14 @@
     <ClCompile Include="..\src\elements\Chalk.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\BilliardScene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\elements\Balls.cpp">
       <Filter>Source Files\Scenes\Billiard</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\BilliardScene.cpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\elements\Polygon3D.cpp">
+      <Filter>Source Files\Elements\Basic</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -183,9 +183,6 @@
       <Filter>Header Files\Elements\Basic</Filter>
     </ClInclude>
     <ClInclude Include="..\src\elements\ParametricCurve.h">
-      <Filter>Header Files\Elements\Basic</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\elements\Polygon.h">
       <Filter>Header Files\Elements\Basic</Filter>
     </ClInclude>
     <ClInclude Include="..\src\elements\PV3D.h">
@@ -235,6 +232,9 @@
     </ClInclude>
     <ClInclude Include="..\src\BilliardScene.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\elements\Polygon3D.h">
+      <Filter>Header Files\Elements\Basic</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

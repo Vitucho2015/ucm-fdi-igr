@@ -1,3 +1,6 @@
+/**
+	Autor: Xavier Gallofré Nieva
+*/
 #pragma once
 #include "object3d.h"
 #include "Cylinder.h"

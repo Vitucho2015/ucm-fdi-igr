@@ -1,3 +1,6 @@
+/**
+	Autor: Xavier Gallofré Nieva
+*/
 #pragma once
 #include "mesh.h"
 #include "RegularPolygon.h"

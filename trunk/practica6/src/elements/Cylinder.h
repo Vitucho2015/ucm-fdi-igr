@@ -1,3 +1,6 @@
+/**
+	Autor: Xavier Gallofré Nieva
+*/
 #pragma once
 #include "quadricobject.h"
 class Cylinder :

@@ -1,3 +1,6 @@
+/**
+	Autor: Xavier Gallofré Nieva
+*/
 #include "Leg.h"
 
 Leg::Leg(GLdouble width,GLdouble height) : Cylinder(width,width,height,10,10) {

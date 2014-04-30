@@ -1,3 +1,6 @@
+/**
+	Autor: Xavier Gallofré Nieva
+*/
 #include "BilliardTable.h"
 
 
@@ -5,11 +8,11 @@ BilliardTable::BilliardTable(void)
 {
 	GLdouble width,height, depth;
 	width = 2;
-	height = 0.05;
+	height =0.05;
 	depth = 4;
 
-	Bed* bed = new Bed(width,height,depth);
-	//bed->mT.translate(width/2,0,(depth-1)/2);
+	Bed* bed = new Bed(width,height,depth,10,2,20);
+	bed->mT.translate(0.1,0,0.1);
 	childs.push_back(bed);
 	
 	Sidebar* sidebar;
@@ -30,7 +33,8 @@ BilliardTable::BilliardTable(void)
 	depth = 2;
 
 	sidebar = new Sidebar(width,height,depth,90);
-	sidebar->mT.translate(0,height/2,0);
+	sidebar->mT.translate(0,height/2,-0.2);
+	sidebar->mT.rotate(0,90,0);
 	childs.push_back(sidebar);
 
 	sidebar = new Sidebar(width,height,depth,90);

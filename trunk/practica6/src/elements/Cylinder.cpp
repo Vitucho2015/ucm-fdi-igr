@@ -1,3 +1,6 @@
+/**
+	Autor: Xavier Gallofré Nieva
+*/
 #include "Cylinder.h"
 
 void Cylinder::draw(){
