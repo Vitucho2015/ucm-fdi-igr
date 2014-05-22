@@ -1,5 +1,45 @@
-﻿Compilación iniciada a las 30/04/2014 19:55:41.
+﻿Compilación iniciada a las 07/05/2014 4:23:26.
+     1>Proyecto "D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica6\freeglut project 3D\freeglut project 3D.vcxproj" en el nodo 2 (Build destinos).
+     1>ClCompile:
+         D:\Aplicaciones\Programacion\IDEs\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica6\freeglut\include\\" /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt ..\src\elements\Parallelepiped.cpp ..\src\elements\Polygon3D.cpp
+         Polygon3D.cpp
+         Parallelepiped.cpp
+     1>d:\xavi\workspaces\visual studio 2012\igr\practica6\src\elements\parallelepiped.cpp(15): warning C4101: 'block' : variable local sin referencia
+         Generando código...
+       Link:
+         D:\Aplicaciones\Programacion\IDEs\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica6\Debug\practica6.exe" /INCREMENTAL /NOLOGO /LIBPATH:"D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica6\freeglut\lib\\" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica6\Debug\practica6.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica6\Debug\practica6.lib" /MACHINE:X86 Debug\BilliardScene.obj
+         Debug\AffineT.obj
+         Debug\Ball.obj
+         Debug\Balls.obj
+         Debug\Bed.obj
+         Debug\BilliardTable.obj
+         Debug\Camera.obj
+         Debug\Car.obj
+         Debug\Chalk.obj
+         Debug\CompositeObject.obj
+         Debug\CurveCirc.obj
+         Debug\CurveP5.obj
+         Debug\Cylinder.obj
+         Debug\Disk.obj
+         Debug\Face.obj
+         Debug\Leg.obj
+         Debug\Mesh.obj
+         Debug\Object3D.obj
+         Debug\Pair_VertexNormal.obj
+         Debug\ParametricCurve.obj
+         Debug\Polygon3D.obj
+         Debug\PV3D.obj
+         Debug\RegularPolygon.obj
+         Debug\RGBColor.obj
+         Debug\RollerCoaster.obj
+         Debug\Parallelepiped.obj
+         Debug\Sphere.obj
+         Debug\Wheel.obj
+         Debug\main.obj
+         Debug\Scene.obj
+         freeglut project 3D.vcxproj -> D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica6\Debug\practica6.exe
+     1>Compilación del proyecto terminada "D:\Xavi\Workspaces\Visual Studio 2012\IGr\practica6\freeglut project 3D\freeglut project 3D.vcxproj" (Build destinos).
 
 Compilación correcta.
 
-Tiempo transcurrido 00:00:00.06
+Tiempo transcurrido 00:00:03.01

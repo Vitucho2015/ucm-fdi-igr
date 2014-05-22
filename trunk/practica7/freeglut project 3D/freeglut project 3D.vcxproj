@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\BilliardScene.cpp" />
+    <ClCompile Include="..\src\elements\AffineT.cpp" />
+    <ClCompile Include="..\src\elements\Ball.cpp" />
+    <ClCompile Include="..\src\elements\Balls.cpp" />
+    <ClCompile Include="..\src\elements\Bed.cpp" />
+    <ClCompile Include="..\src\elements\BilliardTable.cpp" />
+    <ClCompile Include="..\src\elements\Camera.cpp" />
+    <ClCompile Include="..\src\elements\Car.cpp" />
+    <ClCompile Include="..\src\elements\Chalk.cpp" />
+    <ClCompile Include="..\src\elements\CompositeObject.cpp" />
+    <ClCompile Include="..\src\elements\CurveCirc.cpp" />
+    <ClCompile Include="..\src\elements\CurveP5.cpp" />
+    <ClCompile Include="..\src\elements\Cylinder.cpp" />
+    <ClCompile Include="..\src\elements\Disk.cpp" />
+    <ClCompile Include="..\src\elements\Face.cpp" />
+    <ClCompile Include="..\src\elements\Leg.cpp" />
+    <ClCompile Include="..\src\elements\Light.cpp" />
+    <ClCompile Include="..\src\elements\Mesh.cpp" />
+    <ClCompile Include="..\src\elements\Object3D.cpp" />
+    <ClCompile Include="..\src\elements\Pair_VertexNormal.cpp" />
+    <ClCompile Include="..\src\elements\ParametricCurve.cpp" />
+    <ClCompile Include="..\src\elements\Polygon3D.cpp" />
+    <ClCompile Include="..\src\elements\PV3D.cpp" />
+    <ClCompile Include="..\src\elements\RegularPolygon.cpp" />
+    <ClCompile Include="..\src\elements\RGBColor.cpp" />
+    <ClCompile Include="..\src\elements\RollerCoaster.cpp" />
+    <ClCompile Include="..\src\elements\Parallelepiped.cpp" />
+    <ClCompile Include="..\src\elements\SetOfLights.cpp" />
+    <ClCompile Include="..\src\elements\Sphere.cpp" />
+    <ClCompile Include="..\src\elements\Wheel.cpp" />
+    <ClCompile Include="..\src\main.cpp" />
+    <ClCompile Include="..\src\Scene.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\BilliardScene.h" />
+    <ClInclude Include="..\src\elements\AffineT.h" />
+    <ClInclude Include="..\src\elements\Ball.h" />
+    <ClInclude Include="..\src\elements\Balls.h" />
+    <ClInclude Include="..\src\elements\Bed.h" />
+    <ClInclude Include="..\src\elements\BilliardTable.h" />
+    <ClInclude Include="..\src\elements\Camera.h" />
+    <ClInclude Include="..\src\elements\Car.h" />
+    <ClInclude Include="..\src\elements\Chalk.h" />
+    <ClInclude Include="..\src\elements\CompositeObject.h" />
+    <ClInclude Include="..\src\elements\CurveCirc.h" />
+    <ClInclude Include="..\src\elements\CurveP5.h" />
+    <ClInclude Include="..\src\elements\Cylinder.h" />
+    <ClInclude Include="..\src\elements\Disk.h" />
+    <ClInclude Include="..\src\elements\Face.h" />
+    <ClInclude Include="..\src\elements\Leg.h" />
+    <ClInclude Include="..\src\elements\Light.h" />
+    <ClInclude Include="..\src\elements\Mesh.h" />
+    <ClInclude Include="..\src\elements\Object3D.h" />
+    <ClInclude Include="..\src\elements\Pair_VertexNormal.h" />
+    <ClInclude Include="..\src\elements\ParametricCurve.h" />
+    <ClInclude Include="..\src\elements\Polygon3D.h" />
+    <ClInclude Include="..\src\elements\PV3D.h" />
+    <ClInclude Include="..\src\elements\QuadricObject.h" />
+    <ClInclude Include="..\src\elements\RegularPolygon.h" />
+    <ClInclude Include="..\src\elements\RGBColor.h" />
+    <ClInclude Include="..\src\elements\RollerCoaster.h" />
+    <ClInclude Include="..\src\elements\Parallelepiped.h" />
+    <ClInclude Include="..\src\elements\SetOfLights.h" />
+    <ClInclude Include="..\src\elements\Sphere.h" />
+    <ClInclude Include="..\src\elements\Wheel.h" />
+    <ClInclude Include="..\src\Scene.h" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{7B0BFFD4-F43D-4F20-B1CE-F95EB35AB0A4}</ProjectGuid>
+    <RootNamespace>freeglutproject3D</RootNamespace>
+    <ProjectName>practica7</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(SolutionDir)freeglut\include\</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)freeglut\lib\</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>$(SolutionDir)freeglut\include\</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(SolutionDir)freeglut\lib\</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
