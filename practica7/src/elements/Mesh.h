@@ -50,6 +50,5 @@ public:
 	void setRender_Normals(bool b)		{render_normals = b;};
 
 	void setRecoatMode(int i);
-	void makeSurface(int face, int nU, int nV);
 };
 
