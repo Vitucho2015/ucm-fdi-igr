@@ -9,8 +9,15 @@
 #include "Parallelepiped.h"
 
 class BilliardTable : public CompositeObject {
+protected: 
+	GLdouble w_leg,h_leg;
+	GLdouble w_bed,d_bed,h_bed;
+	GLdouble w_wood;
+
 public:
 	BilliardTable(void);
 	~BilliardTable(void);
+
+	GLdouble getHeight(){return h_leg+w_wood/2+h_bed/2;};
 };
 

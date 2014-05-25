@@ -21,5 +21,7 @@ struct AffineT{
 	void scale(GLdouble kx, GLdouble ky, GLdouble kz);
 	void scale(GLdouble k);
 	void rotate(GLdouble alpha_x, GLdouble alpha_y, GLdouble alpha_z);
+
+	GLfloat* getPos();
 };
 

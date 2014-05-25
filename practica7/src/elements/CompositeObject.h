@@ -19,8 +19,8 @@ public:
 	CompositeObject(void);
 	~CompositeObject(void);
 
-	void render();
-	void draw();	
+	void render();	
+	void draw(){};
 	void setRecoatMode(int i);
 };
 

@@ -26,16 +26,21 @@ void Object3D::pop(){
 	glPopMatrix();
 }
 
-void Object3D::render(){
-	push();
-	//Axis
-	/*
-	glBegin(GL_LINES);
-		glColor3f(1,0,0);	glVertex3d(0,0,0); glVertex3d(1, 0, 0);	// N axis
-		glColor3f(0,1,0);	glVertex3d(0,0,0); glVertex3d(0, 1, 0); // B axis
-		glColor3f(0,0,1);	glVertex3d(0,0,0); glVertex3d(0, 0, 1);	// T axis
+
+void Object3D::drawAxis(){
+	
+	glBegin( GL_LINES );
+		glColor3f(1.0,0.0,0.0); 
+		glVertex3f(0, 0, 0);
+		glVertex3f(20, 0, 0);	     
+	 
+		glColor3f(0.0,1.0,0.0); 
+		glVertex3f(0, 0, 0);
+		glVertex3f(0, 20, 0);	 
+	 
+		glColor3f(0.0,0.0,1.0); 
+		glVertex3f(0, 0, 0);
+		glVertex3f(0, 0, 20);	     
 	glEnd();
-	*/
-	draw();
-	pop();
+
 }

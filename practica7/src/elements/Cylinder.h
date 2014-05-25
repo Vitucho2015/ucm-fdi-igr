@@ -12,31 +12,11 @@ protected:
 	int stacks;
 
 public:
-	Cylinder(GLdouble radius, GLdouble height) : QuadricObject(){
-		this->baseRadius = radius;
-		this->topRadius = radius;
-		this->height = height;
-		this->slices = 10;
-		this->stacks = 10;
-	};
-
-	Cylinder(GLdouble radius, GLdouble height, int slices, int stacks) : QuadricObject(){
-		this->baseRadius = radius;
-		this->topRadius = radius;
-		this->height = height;
-		this->slices = slices;
-		this->stacks = stacks;
-	};
-
-	Cylinder(GLdouble baseRadius, GLdouble topRadius, GLdouble height, int slices, int stacks) : QuadricObject(){
-		this->baseRadius = baseRadius;
-		this->topRadius = topRadius;
-		this->height = height;
-		this->slices = slices;
-		this->stacks = stacks;
-	};
+	Cylinder(GLdouble radius, GLdouble height);
+	Cylinder(GLdouble radius, GLdouble height, int slices, int stacks);
+	Cylinder(GLdouble baseRadius, GLdouble topRadius, GLdouble height, int slices, int stacks);
 	~Cylinder(void){};
 
-	void draw();
+	void render();
 };
 
