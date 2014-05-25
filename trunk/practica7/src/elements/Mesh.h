@@ -27,7 +27,7 @@ public:
 	~Mesh(void);
 	Mesh* clone();
 
-	void draw();
+	void render();
 	PV3D* getNormalVector_Newell(int face_i);
 
 	void extrude(int face, PV3D* dist);

@@ -25,6 +25,6 @@ public:
 	};
 	~Disk(void);
 
-	void draw();
+	void render();
 };
 

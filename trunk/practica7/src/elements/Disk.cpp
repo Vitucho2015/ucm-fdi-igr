@@ -3,6 +3,8 @@
 */
 #include "Disk.h"
 
-void Disk::draw(){
+void Disk::render(){
+	push();
 	gluDisk(q,innerRadius,outerRadius,slices,rings);
+	pop();
 }

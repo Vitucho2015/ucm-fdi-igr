@@ -68,3 +68,8 @@ void AffineT::rotate(GLdouble alpha_x, GLdouble alpha_y, GLdouble alpha_z){
 	glPopMatrix();
 	postMultiply(mm);
 }
+
+GLfloat* AffineT::getPos(){
+	GLfloat ret[] = {m[3],m[7],m[11],m[15]};
+	return ret;
+}

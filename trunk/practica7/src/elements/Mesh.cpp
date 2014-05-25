@@ -14,7 +14,8 @@ Mesh::~Mesh(void)
 {
 }
 
-void Mesh::draw(){
+void Mesh::render(){
+	push();
 	//Faces
 	//glColor3f(0,0,1);
 	for (int i=0; i<face.size();i++){
@@ -50,6 +51,7 @@ void Mesh::draw(){
 	}
 	glColor3f(0,0,1);
 	}
+	pop();
 }
 
 

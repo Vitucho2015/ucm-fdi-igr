@@ -49,7 +49,6 @@ void initGL() {
 	glEnable(GL_NORMALIZE);
 	glShadeModel(GL_SMOOTH);
 
-	// buildSceneObjects();
 	camera = new Camera(new PV3D(5,5,5), new PV3D(0,0,0), new PV3D(0,1,0.00002));
 
 	// Viewport set up
@@ -61,8 +60,9 @@ void display(void) {
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);  
 		
+	scene->drawAxis();
 	scene->render();
-	glutSolidCube(1);
+	//glutSolidCube(1);
 	glFlush();
 	glutSwapBuffers();
 	
@@ -149,9 +149,11 @@ void key(unsigned char key, int x, int y){
 		//Others
 		//case 'r': rot_x = 0; rot_y = 0; rot_z = 0; break;
 
-		case '8': scene->mT.translate(0.5,0,0);; break;
-		case '9': scene->mT.rotate(0,PI/16,0); break;
+		case '8': scene->mT.translate(0.25,0,0);; break;
+		case '9': scene->mT.rotate(0,PI/8,0); break;
 		case '0': scene->mT.scale(1.1); break;
+
+
 
 		default:
 			need_redisplay = false;

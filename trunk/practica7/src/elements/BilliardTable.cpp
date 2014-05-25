@@ -6,70 +6,60 @@
 
 BilliardTable::BilliardTable(void)
 {
-	GLdouble width,height, depth;
-	width = 2;
-	height =0.05;
-	depth = 4;
+	w_bed = 2;
+	d_bed = 4;
+	h_bed = 0.05;
 
-	Bed* bed = new Bed(width,height,depth,10,2,20);
-	bed->mT.translate(0.1,0.05,0.1);
+	w_leg = 0.1;
+	h_leg = 2;
+	
+	w_wood = 0.2;
+	
+	mT.translate(0,h_leg,0);
+
+	Bed* bed = new Bed(w_bed,h_bed,d_bed,10,2,20);
+	bed->mT.translate(w_wood,w_wood/2-h_bed/2,w_wood);
 	childs.push_back(bed);
 	
-	Parallelepiped* parallelepiped;
-	width = 0.2;
-	height = 0.2;
-	depth = 4+0.2;
-	
-	parallelepiped = new Parallelepiped(width,height,depth,2,2,10);
+	Parallelepiped* parallelepiped;	
+	parallelepiped = new Parallelepiped(w_wood,w_wood,d_bed+2*w_wood,2,2,10);
 	parallelepiped->color.setColor(133.0/255,82.0/255,11.0/255);
-	parallelepiped->mT.translate(0,0,0);
 	childs.push_back(parallelepiped);
 	
-	parallelepiped = new Parallelepiped(width,height,depth,2,2,10);
+	parallelepiped = new Parallelepiped(w_wood,w_wood,d_bed+2*w_wood,2,2,10);
 	parallelepiped->color.setColor(133.0/255,82.0/255,11.0/255);
-	parallelepiped->mT.translate(2,0,0);
+	parallelepiped->mT.translate(w_wood+w_bed,0,0);
+	childs.push_back(parallelepiped);
+		
+	parallelepiped = new Parallelepiped(w_bed,w_wood,w_wood,2,2,10);
+	parallelepiped->color.setColor(133.0/255,82.0/255,11.0/255);
+	parallelepiped->mT.translate(w_wood,0,0);	
 	childs.push_back(parallelepiped);
 	
-	width = 0.2;
-	height = 0.2;
-	depth = 1.9;
-	
-	parallelepiped = new Parallelepiped(width,height,depth,2,2,10);
+	parallelepiped = new Parallelepiped(w_bed,w_wood,w_wood,2,2,10);
 	parallelepiped->color.setColor(133.0/255,82.0/255,11.0/255);
-	parallelepiped->mT.rotate(0,90,0);
-	parallelepiped->mT.translate(0.2,0,0.2);
-	
+	parallelepiped->mT.translate(w_wood,0,w_wood+d_bed);
 	childs.push_back(parallelepiped);
-	
-	parallelepiped = new Parallelepiped(width,height,depth,2,2,10);
-	parallelepiped->color.setColor(133.0/255,82.0/255,11.0/255);
-	parallelepiped->mT.rotate(0,90,0);
-	parallelepiped->mT.translate(0.2,0,4.2);
-	childs.push_back(parallelepiped);
-	
 	
 	Leg* leg;
-	height = 2;
-	width = 0.1;
 	
-	leg = new Leg(width,height);
-	leg->mT.translate(0+0.1,0.2,0+0.1);
+	leg = new Leg(w_leg,h_leg);
 	leg->color.setColor(133.0/255,82.0/255,11.0/255);	
 	childs.push_back(leg);
 	
-	leg = new Leg(width,height);
-	leg->mT.translate(2+0.1,0.2,0+0.1);
+	leg = new Leg(w_leg,h_leg);
 	leg->color.setColor(133.0/255,82.0/255,11.0/255);
+	leg->mT.translate(w_wood+w_bed,0,0);	
 	childs.push_back(leg);
 	
-	leg = new Leg(width,height);
-	leg->mT.translate(0+0.1,0.2,4+0.1);
+	leg = new Leg(w_leg,h_leg);
 	leg->color.setColor(133.0/255,82.0/255,11.0/255);
+	leg->mT.translate(0,0,w_wood+d_bed);	
 	childs.push_back(leg);
 	
-	leg = new Leg(width,height);
-	leg->mT.translate(2+0.1,0.2,4+0.1);
+	leg = new Leg(w_leg,h_leg);
 	leg->color.setColor(133.0/255,82.0/255,11.0/255);
+	leg->mT.translate(w_wood+w_bed,0,w_wood+d_bed);	
 	childs.push_back(leg);
 	
 }

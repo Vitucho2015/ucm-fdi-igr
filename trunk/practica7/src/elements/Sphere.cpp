@@ -4,6 +4,8 @@
 #include "Sphere.h"
 
 
-void Sphere::draw(){
+void Sphere::render(){
+	push();
 	gluSphere(q, radius, slices, stacks);
+	pop();
 }

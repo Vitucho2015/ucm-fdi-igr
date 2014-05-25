@@ -11,7 +11,6 @@ class Object3D{
 protected:
 	
 	void push();
-	virtual void draw() = 0;
 	void pop();
 
 public:
@@ -22,6 +21,7 @@ public:
 	Object3D(void);
 	~Object3D(void);
 
-	void render();
+	virtual void render() = 0;
+	void drawAxis();
 	virtual void setRecoatMode(int i) = 0;
 };
