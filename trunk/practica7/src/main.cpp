@@ -61,7 +61,7 @@ void initGL() {
 void display(void) {
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);  
-	//camera->view();
+	
 	scene->drawAxis();
 	scene->render();
 	
@@ -168,6 +168,9 @@ void key(unsigned char key, int x, int y){
 
 		case '+': scene->spotlight->scale(1.1); break;
 		case '*': scene->spotlight->scale(1.0/1.1); break;
+
+		case '<': scene->spotlight->mT.translate(0,-0.25,0); break;
+		case '>': scene->spotlight->mT.translate(0,0.25,0);	break;
 
 		default:
 			need_redisplay = false;
