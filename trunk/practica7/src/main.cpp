@@ -199,6 +199,9 @@ void special(int key, int x, int y){
 	case GLUT_KEY_F5:		scene->fog->on();	break;
 	case GLUT_KEY_F6:		scene->fog->off();	break;
 
+	case GLUT_KEY_F7:		scene->spotlight->lessIntensity();	break;
+	case GLUT_KEY_F8:		scene->spotlight->moreIntensity();	break;
+
 	default:
 		need_redisplay = false;
 		break;

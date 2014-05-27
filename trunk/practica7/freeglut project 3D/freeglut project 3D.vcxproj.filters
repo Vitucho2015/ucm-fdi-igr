@@ -129,9 +129,6 @@
     <ClCompile Include="..\src\elements\Ball.cpp">
       <Filter>Source Files\Scenes\Billiard</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\elements\Chalk.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\elements\Balls.cpp">
       <Filter>Source Files\Scenes\Billiard</Filter>
     </ClCompile>
@@ -173,6 +170,9 @@
     </ClCompile>
     <ClCompile Include="..\src\elements\PV2D.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\elements\Chalk.cpp">
+      <Filter>Source Files\Scenes\Billiard</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

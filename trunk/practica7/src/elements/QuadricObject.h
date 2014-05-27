@@ -9,9 +9,10 @@ class QuadricObject : public Object3D {
 
 protected:
 	GLUquadricObj* q;
+	unsigned int texture;
 
 public:
-	QuadricObject() { q = gluNewQuadric(); };
+	QuadricObject() { q = gluNewQuadric(); texture = -1;};
 	~QuadricObject() { gluDeleteQuadric(q); };
 
 	void setRecoatMode(int i){
@@ -22,7 +23,7 @@ public:
 		}
 	};
 	
-	void setTexture(unsigned int t){};
+	void setTexture(unsigned int t){ texture = t;};
 
 	virtual void render() = 0;
 	

@@ -78,21 +78,25 @@ BilliardTable::BilliardTable(void)
 	
 	leg = new Leg(w_leg,h_leg);
 	leg->color.setColor(133.0/255,82.0/255,11.0/255);	
+	leg->setTexture(texture[0]);
 	childs.push_back(leg);
 	
 	leg = new Leg(w_leg,h_leg);
 	leg->color.setColor(133.0/255,82.0/255,11.0/255);
-	leg->mT.translate(w_wood+w_bed,0,0);	
+	leg->mT.translate(w_wood+w_bed,0,0);
+	leg->setTexture(texture[0]);
 	childs.push_back(leg);
 	
 	leg = new Leg(w_leg,h_leg);
 	leg->color.setColor(133.0/255,82.0/255,11.0/255);
 	leg->mT.translate(0,0,w_wood+d_bed);	
+	leg->setTexture(texture[0]);
 	childs.push_back(leg);
 	
 	leg = new Leg(w_leg,h_leg);
 	leg->color.setColor(133.0/255,82.0/255,11.0/255);
 	leg->mT.translate(w_wood+w_bed,0,w_wood+d_bed);	
+	leg->setTexture(texture[0]);
 	childs.push_back(leg);
 	
 	

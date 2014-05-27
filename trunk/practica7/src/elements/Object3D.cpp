@@ -18,7 +18,7 @@ void Object3D::push(){
 	glMatrixMode(GL_MODELVIEW);
 	glPushMatrix();
 	glColor3d(color.r,color.g,color.b);
-	glMultMatrixd(mT.m);
+	glMultMatrixd(mT.m);	
 }
 
 void Object3D::pop(){

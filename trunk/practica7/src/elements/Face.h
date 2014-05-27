@@ -11,7 +11,7 @@ class Face
 private:
 	int numVertex;
 	Pair_VertexNormal* arrayVN;
-	int texture;
+	unsigned int texture;
 
 public:
 	Face(int numVertex);
