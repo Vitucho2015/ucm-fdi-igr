@@ -7,6 +7,7 @@
 Face::Face(int numVertex)
 {
 	this->numVertex = numVertex;
+	this->texture = -1;
 	arrayVN = new Pair_VertexNormal[numVertex];
 	for (int i=0;i<numVertex;i++){
 		arrayVN[i].vertexIndex = i;

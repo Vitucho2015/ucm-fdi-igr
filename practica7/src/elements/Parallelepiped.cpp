@@ -13,39 +13,11 @@ Parallelepiped::Parallelepiped(GLdouble width,GLdouble height,GLdouble depth,int
 	
 	Polygon3D* pol;
 	Mesh* block;
-	/*
-	pol = new Polygon3D();
-	pol->addVertex(new PV3D(0,0,0));
-	pol->addVertex(new PV3D(0,height,0));
-	pol->addVertex(new PV3D(width,height,0));
-	pol->addVertex(new PV3D(width,0,0));
-	
-	pol->close();
-
-	block = pol->extrude(new PV3D(0,0,-depth));
-	block->translate(new PV3D(0,0,depth));
-	addMesh(pol);
-	addMesh(block);
-
-	pol = new Polygon3D();
-	pol->addVertex(new PV3D(0,0,depth));
-	pol->addVertex(new PV3D(width,0,depth));
-	pol->addVertex(new PV3D(width,height,depth));
-	pol->addVertex(new PV3D(0,height,depth));
-		
-	pol->close();
-	addMesh(pol);
-	*/
-	//color.setColor(133.0/255,82.0/255,11.0/255);
 
 	for (int i=0;i<w_parts;i++){
 		for (int j=0;j<h_parts;j++){
 			for (int k=0;k<d_parts;k++){
-				/*
-				Parallelepiped* parallelepiped = new Parallelepiped(inc_width,inc_height,inc_depth,1,1,1);
-				parallelepiped->translate(new PV3D(i*inc_width,j*inc_height,k*inc_depth));
-				addMesh(parallelepiped);
-				*/
+
 				pol = new Polygon3D();
 				pol->addVertex(new PV3D(0,0,0));
 				pol->addVertex(new PV3D(0,inc_height,0));

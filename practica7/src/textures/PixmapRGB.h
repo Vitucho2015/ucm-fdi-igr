@@ -1,7 +1,11 @@
+/**
+	Autor: Xavier Gallofré Nieva
+*/
 #pragma once
 #include "pixmap.h"
 
-class PixmapRGB : public Pixmap
+class PixmapRGB :
+public Pixmap
 {
 public:
 	PixmapRGB(int nRows, int nCols) : Pixmap(nRows,nCols,3){};

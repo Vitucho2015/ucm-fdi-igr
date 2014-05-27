@@ -5,7 +5,7 @@
 
 
 Mesh::Mesh(void){
-	render_filled = false;
+	render_filled = true;
 	render_normals = false;
 }
 
@@ -20,15 +20,31 @@ void Mesh::render(){
 	//glColor3f(0,0,1);
 	for (int i=0; i<face.size();i++){
 		glLineWidth(1.0);
+		if (face[i]->getTexture() != -1){
+				glEnable(GL_TEXTURE_2D);
+                glBindTexture(GL_TEXTURE_2D, face[i]->getTexture());
+		} else {
+			glColor3d(color.r,color.g,color.b);
+		}
+
 		render_filled ? glBegin(GL_POLYGON) : glBegin(GL_LINE_LOOP);
 		for (int j=0; j<face[i]->getNumVertex(); j++) {
 			int iN = face[i]->getVertexNormal(j).normalIndex;
 			int iV = face[i]->getVertexNormal(j).vertexIndex;
 			glNormal3f(normal[iN]->x, normal[iN]->y, normal[iN]->z);
 			//Texture Coords Here (j index) with glTexCoor2f
+			if (face[i]->getTexture() != -1){
+				switch (j) {
+				case 0: glTexCoord2f(0,0); break;
+				case 1: glTexCoord2f(0,1); break;
+				case 2: glTexCoord2f(1,1); break;
+				case 3: glTexCoord2f(1,0); break;
+				}
+			}
 			glVertex3f(vertex[iV]->x, vertex[iV]->y, vertex[iV]->z);
 		}
 		glEnd();
+		if (face[i]->getTexture() != -1) glDisable(GL_TEXTURE_2D);
 	}
 	
 	//Normals
@@ -122,7 +138,8 @@ Mesh* Mesh::clone(){
 
 void Mesh::setRecoatMode(int i){
 	switch (i){
-	case 0: render_filled = false; break;
-	case 1: render_filled = true; break;
+	case 0: render_filled = true; break;
+	case 1:
+	case 2: render_filled = false; break;	
 	}
 }

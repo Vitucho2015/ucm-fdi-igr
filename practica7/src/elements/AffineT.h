@@ -15,6 +15,8 @@ struct AffineT{
 	AffineT(GLdouble* m){ this->m = m; };
 	~AffineT(void){ delete m; m = NULL; }
 
+	void reset();
+
 	void postMultiply(GLdouble* m);
 
 	void translate(GLdouble x, GLdouble y, GLdouble z);

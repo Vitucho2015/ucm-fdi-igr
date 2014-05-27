@@ -7,6 +7,7 @@
 Camera::Camera(PV3D* eye, PV3D* look, PV3D* up){
 	
 	setView(eye,look,up);
+	setCoordSystem();
 
 	// Camera set up
 	glMatrixMode(GL_MODELVIEW);

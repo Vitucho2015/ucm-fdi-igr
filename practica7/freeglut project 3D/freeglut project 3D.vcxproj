@@ -26,6 +26,7 @@
     <ClCompile Include="..\src\elements\Cylinder.cpp" />
     <ClCompile Include="..\src\elements\Disk.cpp" />
     <ClCompile Include="..\src\elements\Face.cpp" />
+    <ClCompile Include="..\src\elements\Fog.cpp" />
     <ClCompile Include="..\src\elements\Leg.cpp" />
     <ClCompile Include="..\src\elements\Light.cpp" />
     <ClCompile Include="..\src\elements\Mesh.cpp" />
@@ -33,6 +34,7 @@
     <ClCompile Include="..\src\elements\Pair_VertexNormal.cpp" />
     <ClCompile Include="..\src\elements\ParametricCurve.cpp" />
     <ClCompile Include="..\src\elements\Polygon3D.cpp" />
+    <ClCompile Include="..\src\elements\PV2D.cpp" />
     <ClCompile Include="..\src\elements\PV3D.cpp" />
     <ClCompile Include="..\src\elements\RegularPolygon.cpp" />
     <ClCompile Include="..\src\elements\RGBColor.cpp" />
@@ -40,9 +42,15 @@
     <ClCompile Include="..\src\elements\Parallelepiped.cpp" />
     <ClCompile Include="..\src\elements\SetOfLights.cpp" />
     <ClCompile Include="..\src\elements\Sphere.cpp" />
+    <ClCompile Include="..\src\elements\Spotlight.cpp" />
     <ClCompile Include="..\src\elements\Wheel.cpp" />
     <ClCompile Include="..\src\main.cpp" />
     <ClCompile Include="..\src\Scene.cpp" />
+    <ClCompile Include="..\src\textures\Pixmap.cpp" />
+    <ClCompile Include="..\src\textures\PixmapRGB.cpp" />
+    <ClCompile Include="..\src\textures\PixmapY.cpp" />
+    <ClCompile Include="..\src\textures\TextureLoader.cpp" />
+    <ClCompile Include="..\src\textures\TextureSaver.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\BilliardScene.h" />
@@ -60,6 +68,7 @@
     <ClInclude Include="..\src\elements\Cylinder.h" />
     <ClInclude Include="..\src\elements\Disk.h" />
     <ClInclude Include="..\src\elements\Face.h" />
+    <ClInclude Include="..\src\elements\Fog.h" />
     <ClInclude Include="..\src\elements\Leg.h" />
     <ClInclude Include="..\src\elements\Light.h" />
     <ClInclude Include="..\src\elements\Mesh.h" />
@@ -67,6 +76,7 @@
     <ClInclude Include="..\src\elements\Pair_VertexNormal.h" />
     <ClInclude Include="..\src\elements\ParametricCurve.h" />
     <ClInclude Include="..\src\elements\Polygon3D.h" />
+    <ClInclude Include="..\src\elements\PV2D.h" />
     <ClInclude Include="..\src\elements\PV3D.h" />
     <ClInclude Include="..\src\elements\QuadricObject.h" />
     <ClInclude Include="..\src\elements\RegularPolygon.h" />
@@ -75,8 +85,14 @@
     <ClInclude Include="..\src\elements\Parallelepiped.h" />
     <ClInclude Include="..\src\elements\SetOfLights.h" />
     <ClInclude Include="..\src\elements\Sphere.h" />
+    <ClInclude Include="..\src\elements\Spotlight.h" />
     <ClInclude Include="..\src\elements\Wheel.h" />
     <ClInclude Include="..\src\Scene.h" />
+    <ClInclude Include="..\src\textures\Pixmap.h" />
+    <ClInclude Include="..\src\textures\PixmapRGB.h" />
+    <ClInclude Include="..\src\textures\PixmapY.h" />
+    <ClInclude Include="..\src\textures\TextureLoader.h" />
+    <ClInclude Include="..\src\textures\TextureSaver.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{7B0BFFD4-F43D-4F20-B1CE-F95EB35AB0A4}</ProjectGuid>
