@@ -20,13 +20,11 @@ void Mesh::render(){
 	//glColor3f(0,0,1);
 	for (int i=0; i<face.size();i++){
 		glLineWidth(1.0);
+		glColor3d(color.r,color.g,color.b);
 		if (face[i]->getTexture() != -1){
 				glEnable(GL_TEXTURE_2D);
                 glBindTexture(GL_TEXTURE_2D, face[i]->getTexture());
-		} else {
-			glColor3d(color.r,color.g,color.b);
-		}
-
+		}		
 		render_filled ? glBegin(GL_POLYGON) : glBegin(GL_LINE_LOOP);
 		for (int j=0; j<face[i]->getNumVertex(); j++) {
 			int iN = face[i]->getVertexNormal(j).normalIndex;

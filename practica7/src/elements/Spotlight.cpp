@@ -9,6 +9,7 @@ Spotlight::Spotlight(GLfloat radius, GLfloat height) : Cylinder(radius,0,height,
 	color = RGBColor(0.3,0.5,0.7);
 	mT.translate(radius,-radius,0);
 	mT.rotate(-90,0,0);
+	intensity = 40.0;
 }
 
 void Spotlight::updateLight(){
@@ -29,7 +30,7 @@ void Spotlight::updateLight(){
 	glLightfv(GL_LIGHT1, GL_SPECULAR, s1);
 	
 	glLightf(GL_LIGHT1, GL_SPOT_CUTOFF, alpha);
-	glLightf(GL_LIGHT1, GL_SPOT_EXPONENT, 40);
+	glLightf(GL_LIGHT1, GL_SPOT_EXPONENT, intensity);
 	
 }
 
