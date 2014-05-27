@@ -8,6 +8,10 @@ AffineT::AffineT(void)
 {
 	if (m == NULL) delete m;
 	m = new GLdouble[16];
+	reset();
+}
+
+void AffineT::reset(){
 	m[0] = 1; m[4] = 0;	m[8]  = 0; m[12] = 0;
 	m[1] = 0; m[5] = 1;	m[9]  = 0; m[13] = 0;
 	m[2] = 0; m[6] = 0;	m[10] = 1; m[14] = 0;
@@ -70,6 +74,7 @@ void AffineT::rotate(GLdouble alpha_x, GLdouble alpha_y, GLdouble alpha_z){
 }
 
 GLfloat* AffineT::getPos(){
-	GLfloat ret[] = {m[3],m[7],m[11],m[15]};
+	//GLfloat ret[] = {m[3],m[7],m[11],m[15]};
+	GLfloat ret[] = {m[12],m[13],m[14],m[15]};
 	return ret;
 }

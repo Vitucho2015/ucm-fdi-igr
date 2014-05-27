@@ -29,6 +29,7 @@ Cylinder::Cylinder(GLdouble baseRadius, GLdouble topRadius, GLdouble height, int
 
 void Cylinder::render(){
 	push();
+	glColor3d(color.r,color.g,color.b);
 	gluCylinder(q,baseRadius,topRadius,height,slices,stacks);
 	pop();
 }

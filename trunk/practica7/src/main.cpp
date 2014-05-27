@@ -38,9 +38,6 @@ Camera* camera;
 
 void initGL() {	 		 
 
-	scene = new BilliardScene();
-	scene->setRecoatMode(1);
-
 	glClearColor(0.6f,0.7f,0.8f,1.0);
     glEnable(GL_LIGHTING);    
 	glEnable(GL_COLOR_MATERIAL);
@@ -49,20 +46,25 @@ void initGL() {
 	glEnable(GL_NORMALIZE);
 	glShadeModel(GL_SMOOTH);
 
+	glEnable(GL_CULL_FACE);
+	glEnable(GL_TEXTURE_2D);
+
 	camera = new Camera(new PV3D(5,5,5), new PV3D(0,0,0), new PV3D(0,1,0.00002));
 
 	// Viewport set up
     glViewport(0, 0, WIDTH, HEIGHT);  
 
+	scene = new BilliardScene();
+	scene->setup_fog();
  }
 
 void display(void) {
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);  
-		
+	//camera->view();
 	scene->drawAxis();
 	scene->render();
-	//glutSolidCube(1);
+	
 	glFlush();
 	glutSwapBuffers();
 	
@@ -153,40 +155,59 @@ void key(unsigned char key, int x, int y){
 		case '9': scene->mT.rotate(0,PI/8,0); break;
 		case '0': scene->mT.scale(1.1); break;
 
+		case '(': scene->mT.translate(-0.25,0,0);; break;
+		case ')': scene->mT.rotate(0,-PI/8,0); break;
+		case '=': scene->mT.scale(1.0/1.1); break;
 
+		case ',': scene->lights[0]->on(); break;
+		case ';': scene->lights[0]->off(); break;
+		case '.': scene->lights[1]->on(); break;
+		case ':': scene->lights[1]->off(); break;
+		case '-': scene->lights[2]->on(); break;
+		case '_': scene->lights[2]->off(); break;
+
+		case '+': scene->spotlight->scale(1.1); break;
+		case '*': scene->spotlight->scale(1.0/1.1); break;
 
 		default:
 			need_redisplay = false;
 			break;
 	}
-	if (need_redisplay)
+	if (need_redisplay){
 		glutPostRedisplay();
+		display();
+	}
 }
 
 void special(int key, int x, int y){
 	bool need_redisplay = true;
 	
 	switch(key) {
-/*
+
 	//Eje X
-	case GLUT_KEY_UP:		rot_x -= 1; if (rot_x<0) rot_x += 360;		break;
-	case GLUT_KEY_DOWN:		rot_x += 1; if (rot_x>360) rot_x -= 360;	break;
+	case GLUT_KEY_UP:		scene->spotlight->mT.translate(0,0,-0.25);		break;
+	case GLUT_KEY_DOWN:		scene->spotlight->mT.translate(0,0,0.25);	break;
 
 	//Eje Y
-	case GLUT_KEY_LEFT:		rot_y -= 1; if (rot_y<0) rot_y += 360;		break;
-	case GLUT_KEY_RIGHT:	rot_y += 1; if (rot_y>360) rot_y -= 360;	break;
-*/
+	case GLUT_KEY_LEFT:		scene->spotlight->mT.translate(-0.25,0,0);		break;
+	case GLUT_KEY_RIGHT:	scene->spotlight->mT.translate(0.25,0,0);	break;
+
 	case GLUT_KEY_F1:		scene->setRecoatMode(0); break;
 	case GLUT_KEY_F2:		scene->setRecoatMode(1); break;
 	case GLUT_KEY_F3:		scene->setRecoatMode(2); break;
+
+	case GLUT_KEY_F5:		scene->fog->on();	break;
+	case GLUT_KEY_F6:		scene->fog->off();	break;
 
 	default:
 		need_redisplay = false;
 		break;
 	}
 
-	if (need_redisplay)
+	if (need_redisplay){
 		glutPostRedisplay();
+		display();
+	}
 }
 
 int main(int argc, char *argv[]){

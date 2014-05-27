@@ -50,5 +50,6 @@ public:
 	void setRender_Normals(bool b)		{render_normals = b;};
 
 	void setRecoatMode(int i);
+	void setTexture(unsigned int t){ for (int i=0;i< face.size();i++) face[i]->setTexture(t);};
 };
 
